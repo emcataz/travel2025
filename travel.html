@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新加坡親子暑期樂悠遊</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<style>
+:root {
+    --primary-color: #0d6efd;
+    --primary-light: #e7f1ff;
+    --primary-dark: #0a58ca;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #0dcaf0;
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --border-color: #dee2e6;
+    --border-light: #f1f3f5;
+    --shadow-sm: 0 .125rem .25rem rgba(0,0,0,.075);
+    --shadow-md: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    line-height: 1.8;
+    background-color: var(--bg-light);
+    color: var(--text-secondary);
+    margin: 0;
+    padding-top: 70px; /* Header height is 70px */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* Base style for Material Icons to ensure they render correctly */
+.mio {
+    font-family: 'Material Icons Outlined';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+    vertical-align: -4px; /* Adjusts vertical alignment to better match text */
+}
+.header {
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+    padding: 0 20px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+.logo .mio {
+    font-size: 1.8rem;
+    margin-right: 8px;
+    color: var(--primary-dark);
+}
+.nav { display: flex; align-items: center; }
+.nav-link {
+    padding: 8px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-link:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+.nav-link.active {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+}
+.nav-link.ai-link {
+    background-color: var(--warning-color);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+.nav-link.ai-link:hover {
+    background-color: #ffca2c;
+}
+.nav-link.ai-link.active {
+    background: linear-gradient(45deg, var(--warning-color), #ffdb58);
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(255,193,7,0.4);
+}
+.hamburger { display: none; cursor: pointer; }
+.hamburger .mio { font-size: 2rem; }
+
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: .5rem;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+.card-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: -30px -30px 25px -30px;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fcfdff;
+}
+.card-header .mio {
+    font-size: 2.2rem;
+    margin-right: 15px;
+    color: var(--primary-color);
+}
+h2, h3, h4 {
+    color: var(--text-primary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin: 1.5em 0 1em;
+}
+h2 .mio, h3 .mio, h4 .mio {
+    font-size: 1.2em;
+    margin-right: .5em;
+    color: var(--primary-dark);
+}
+h2 { font-size: 1.8rem; padding-bottom: 0.5em; border-bottom: 1px solid var(--border-light); }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.15rem; color: #343a40; }
+
+p { margin-bottom: 1.5em; font-size: 1.05rem; }
+strong { font-weight: 600; color: var(--primary-dark); }
+.text-success { color: var(--success-color); }
+.text-warning { color: var(--warning-color); }
+.text-danger { color: var(--danger-color); }
+.text-info { color: var(--info-color); }
+.text-center { text-align: center; }
+
+.hero {
+    position: relative;
+    height: 400px;
+    border-radius: .5rem;
+    overflow: hidden;
+    margin-bottom: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
+    z-index: 2;
+}
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+}
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 0;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+ul.checklist {
+    list-style: none;
+    padding-left: 0;
+}
+ul.checklist li {
+    margin-bottom: .8em;
+    padding-left: 2em;
+    position: relative;
+    font-size: 1.05rem;
+}
+ul.checklist li .mio {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+.itinerary-list > li {
+    background: var(--bg-light);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 5px solid var(--info-color);
+    margin-bottom: 1.5em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.itinerary-list .day-title {
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 1.25rem;
+    margin-bottom: 0.8em;
+}
+.itinerary-list p {
+    margin-bottom: 1em;
+}
+.itinerary-list .activity-icon {
+    font-size: 1.1em;
+    vertical-align: -3px;
+    margin-right: 8px;
+    color: var(--secondary-color);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    border-radius: .5rem;
+    overflow: hidden;
+}
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+thead tr {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    font-weight: 600;
+}
+tbody tr { background-color: var(--bg-white); }
+tbody tr:nth-of-type(even) { background-color: var(--bg-light); }
+tbody tr:hover { background-color: #e9ecef; }
+.rating-high { color: var(--success-color); font-weight: bold; }
+.rating-mid { color: #f59e0b; font-weight: bold; }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+.tip-card {
+    background-color: var(--primary-light);
+    border: 1px solid #cde2ff;
+    padding: 20px;
+    border-radius: .5rem;
+}
+.tip-card h4 {
+    color: var(--primary-dark);
+    margin-top: 0;
+    border-bottom: 1px solid #a8c8ff;
+    padding-bottom: 0.5em;
+}
+
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    border-radius: .5rem;
+    margin: 1em 0;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Styles for Singapore Page */
+.map-container {
+    position: relative;
+    width: 100%;
+    background-color: #eaf3ff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #cde2ff;
+    box-sizing: border-box;
+}
+.map-note {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.map-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.map-zone {
+    background-color: var(--bg-white);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    height: 100%;
+}
+.map-zone h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.map-zone h4 .mio {
+    font-size: 1.4em;
+    margin-right: 8px;
+}
+.map-zone ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+}
+#zone-mandai { grid-column: 1 / 3; }
+#zone-city { grid-column: 1 / 2; grid-row: 2 / 3; }
+#zone-marina { grid-column: 2 / 3; grid-row: 2 / 3; }
+#zone-sentosa { grid-column: 1 / 3; grid-row: 3 / 4; }
+
+.map-arrow {
+    position: absolute;
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-align: center;
+}
+.arrow-mandai-city {
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+}
+.arrow-city-marina {
+    top: 58%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.arrow-city-sentosa {
+    top: 78%;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+}
+
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+.hotel-card {
+    background: #fcfdff;
+    border: 1px solid var(--border-light);
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+.hotel-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+.hotel-card-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+.hotel-card h4 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 1.2rem;
+}
+.hotel-card .location-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+
+/* AI Planner Styles */
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; font-weight: 600; margin-bottom: .5rem; color: var(--text-primary); }
+.form-control { width: 100%; padding: .75rem 1rem; font-size: 1rem; border: 1px solid var(--border-color); border-radius: .375rem; box-sizing: border-box; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; }
+.form-control:focus { border-color: var(--primary-color); outline: 0; box-shadow: 0 0 0 .25rem rgba(13,110,253,.25); }
+.btn-ai { background: linear-gradient(45deg, #ffc107, #ff9800); color: var(--text-primary); border: none; padding: .75rem 1.5rem; font-size: 1.1rem; font-weight: 600; border-radius: .375rem; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: var(--shadow-sm); }
+.btn-ai:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.btn-ai:disabled { background: var(--secondary-color); cursor: not-allowed; opacity: 0.7; }
+.ai-result-container { margin-top: 2rem; padding: 2rem; background-color: #fdfdfd; border: 1px solid var(--border-light); border-radius: .5rem; min-height: 100px; white-space: pre-wrap; /* Respect newlines from API */ line-height: 1.8; }
+.ai-result-container h3 { margin-top: 0; }
+.loading-spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(0,0,0,.3); border-radius: 50%; border-top-color: var(--text-primary); animation: spin 1s ease-in-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 992px) {
+    .nav { display: none; flex-direction: column; align-items: flex-start; position: absolute; top: 70px; left: 0; width: 100%; background-color: var(--bg-white); box-shadow: var(--shadow-sm); padding: 10px 0; }
+    .nav.active { display: flex; }
+    .nav-link { margin: 10px; width: calc(100% - 20px); }
+    .hamburger { display: block; }
+    .hero-content h1 { font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
+    .header { height: 60px; }
+    main { padding: 15px; }
+    .card { padding: 20px; }
+    .card-header { font-size: 1.5rem; padding: 15px 20px; margin: -20px -20px 20px -20px;}
+    .hero { height: 300px; }
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 1rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    .map-layout { grid-template-columns: 1fr; grid-template-rows: auto; }
+    #zone-mandai, #zone-city, #zone-marina, #zone-sentosa { grid-column: auto; grid-row: auto; }
+    .map-arrow { display: none; } /* Hide arrows on mobile for simplicity */
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <span class="mio">flight_takeoff</span>
+            親子樂悠遊
+        </div>
+        <nav class="nav" id="nav-menu">
+            <a href="#home" class="nav-link">報告總覽</a>
+            <a href="#singapore" class="nav-link active">新加坡🇸🇬</a>
+            <a href="#seoul" class="nav-link">韓國首爾🇰🇷</a>
+            <a href="#kl-bkk" class="nav-link">吉隆坡 & 曼谷🇲🇾🇹🇭</a>
+            <a href="#tips" class="nav-link">實用貼士</a>
+            <a href="#ai-planner" class="nav-link ai-link">AI 行程助手 ✨</a>
+        </nav>
+        <div class="hamburger" id="hamburger-menu">
+            <span class="mio">menu</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page 1: Home -->
+        <div id="home" class="page">
+            <div class="hero">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&h=400&fit=crop&auto=format" 
+                     alt="一家人快樂地在海灘上奔跑的剪影"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x400/0d6efd/ffffff?text=快樂家庭的暑期回憶';">
+                <div class="hero-content">
+                    <h1>澳門親子暑期樂悠遊</h1>
+                    <p>為家有幼稚園年紀孩童的家庭，精心策劃一趟充滿歡笑與探索的夏日旅程。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="mio">flag</span>
+                    <h2>啟程・締造完美夏日親子旅程</h2>
+                </div>
+                <h3>設定舞台：理解您家庭的旅行期盼</h3>
+                <p>為家有幼稚園年紀孩童的家庭策劃一趟暑期旅行，無疑是一件充滿期待與挑戰的事。這不僅是一次遠離塵囂的機會，更是創造雋永家庭回憶、見證孩子們探索世界奇趣的寶貴時刻。一趟精心規劃、節奏合宜、以孩子為中心的旅程，將會是送給全家大小最美好的夏日禮物。</p>
+                <p>本次報告旨在回應一個來自澳門家庭的具體需求：尋找一個飛行時長3至4小時（不包括日本及台灣）、適合4人（包括幼稚園小朋友）的暑期親子旅行目的地。行程預計10天或兩星期，總花費控制在50,000港幣以內。核心要求是每日安排一個適合小朋友玩樂的景點（約半日），餘下半日則用於酒店間的交通或休息。為確保幼童舒適，每間酒店的住宿天數設定為2至3日，避免頻繁更換。同時，目的地的治安狀況、兒童設施完善度以及對旅客的友好程度，均是本次考量的重要指標。</p>
+                <h3>幼稚園孩童同遊黃金法則：快樂小旅人的秘訣</h3>
+                <ul class="checklist">
+                    <li><span class="mio">slow_motion_video</span><strong>節奏至上，悠然自得</strong>：嚴格遵守「每日一主要景點」的原則至關重要。</li>
+                    <li><span class="mio">hotel</span><strong>減少酒店轉換，營造安穩感</strong>：每間酒店住宿2至3晚的安排，能為幼童提供一個相對穩定的「臨時小窩」。</li>
+                    <li><span class="mio">fastfood</span><strong>零食策略與水分補給</strong>：準備充足的健康小食與飲用水，是保持他們心情愉悅的法寶。</li>
+                    <li><span class="mio">nature_people</span><strong>留白時間，發現驚喜</strong>：適度的留白反而能讓孩子們自由探索，發現旅途中的小確幸。</li>
+                    <li><span class="mio">health_and_safety</span><strong>安全第一，時刻謹記</strong>：所有行程建議與目的地選擇，都將把安全考量置於首位。</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                     <span class="mio">flight_land</span>
+                    <h2>精選親子樂土：候選目的地概覽</h2>
+                </div>
+                <p>根據澳門出發3至4小時航程，並排除日本及台灣的要求，本次報告篩選出以下幾個極具潛力的親子旅遊目的地：新加坡（SIN）、韓國首爾（ICN）、馬來西亞吉隆坡（KUL）以及泰國曼谷（BKK/DMK）。</p>
+                
+                <h3>必備表格一：親子友善目的地比較快覽</h3>
+                <div style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>目的地</th>
+                            <th>平均直航飛行時間</th>
+                            <th>預估機票 (4人, HKD)</th>
+                            <th>整體安全評級</th>
+                            <th>親子友善指數</th>
+                            <th>每日開支範圍 (HKD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>新加坡 (SIN)</strong></td><td class="text-center">約 3小時 58分鐘</td><td>HK$6,500 - 10,000</td><td class="rating-high">極高</td><td class="rating-high">極高</td><td>HK$800 - 1,200</td></tr>
+                        <tr><td><strong>韓國首爾 (ICN)</strong></td><td class="text-center">約 3小時 45分鐘</td><td>HK$6,400 - 9,000</td><td class="rating-high">高</td><td class="rating-high">高</td><td>HK$700 - 1,100</td></tr>
+                        <tr><td><strong>馬來西亞吉隆坡 (KUL)</strong></td><td class="text-center">約 3小時 56分鐘</td><td>HK$4,500 - 7,000</td><td class="rating-mid">中等</td><td class="rating-mid">中高</td><td>HK$500 - 800</td></tr>
+                        <tr><td><strong>泰國曼谷 (BKK)</strong></td><td class="text-center">約 2小時 53分鐘</td><td>HK$4,000 - 6,500</td><td class="rating-mid">中等</td><td class="rating-mid">中高</td><td>HK$450 - 750</td></tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <h3>目的地綜合評分圖表</h3>
+                <p>為了更直觀地比較，我們將安全、親子友善及預算友好度（每日開支越低分越高）轉換為雷達圖評分（滿分10分）。</p>
+                <div style="max-width: 600px; margin: 20px auto;">
+                    <canvas id="destinationChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 2: Singapore (MODIFIED AND ENHANCED) -->
+        <div id="singapore" class="page active">
+            <div class="hero">
+                <img src="https://images.unsplash.com/photo-1506352427593-b31175a73a6a?q=80&w=1200&h=400&fit=crop&auto=format" 
+                     alt="新加坡濱海灣花園的超級樹在夜間發光"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x400/198754/ffffff?text=新加坡濱海灣花園超級樹';">
+                <div class="hero-content">
+                    <h1>新加坡：小小探險家的花園奇境</h1>
+                    <p>極致安全、設施頂尖，為親子遊設定黃金標準的完美目的地。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">verified</span><h2>為何新加坡是澳門親子家庭的理想之選</h2></div>
+                <p>新加坡的優勢在於其無可比擬的綜合條件：極高的安全性 和城市潔淨度，世界一流的親子景點，高效且對嬰兒車極為友善的公共交通系統（尤其是地鐵MRT），以及提供兒童安全座椅的GrabFamily網約車服務。此外，英語的廣泛使用也大大降低了溝通障礙。這些特點完美契合了使用者對安全、兒童設施及遊客友善度的核心關切。</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">explore</span><h2>景點與住宿地理分佈示意圖</h2></div>
+                <p>為了幫助您規劃行程，下圖示意了主要親子景點與推薦住宿區域的相對位置。這有助於您將鄰近的景點安排在一起，減少交通時間。</p>
+                <div class="map-container">
+                    <p class="map-note">（注意：此為示意圖，非精確地圖，旨在展示區域分佈與交通概念）</p>
+                    <div class="map-layout">
+                        <div class="map-zone" id="zone-mandai">
+                            <h4><span class="mio">pets</span> 北部萬禮區 (Mandai)</h4>
+                            <ul>
+                                <li>新加坡動物園 (Singapore Zoo)</li>
+                                <li>河川生態園 (River Wonders)</li>
+                                <li>飛禽公園 (Bird Paradise)</li>
+                                <li><small class="text-danger">距離市中心較遠，建議乘車</small></li>
+                            </ul>
+                        </div>
+                        <div class="map-zone" id="zone-city">
+                             <h4><span class="mio">location_city</span> 市中心 (City Center)</h4>
+                             <ul>
+                                <li>烏節路 / 武吉士</li>
+                                <li>服務式公寓首選</li>
+                                <li><strong class="text-success">交通樞紐</strong></li>
+                             </ul>
+                        </div>
+                        <div class="map-zone" id="zone-marina">
+                             <h4><span class="mio">landscape</span> 濱海灣 (Marina Bay)</h4>
+                             <ul>
+                                <li>濱海灣花園</li>
+                                <li>藝術科學博物館</li>
+                                <li>金沙酒店</li>
+                             </ul>
+                        </div>
+                         <div class="map-zone" id="zone-sentosa">
+                             <h4><span class="mio">beach_access</span> 聖淘沙島 (Sentosa)</h4>
+                             <ul>
+                                <li>S.E.A. 海洋館</li>
+                                <li>環球影城</li>
+                                <li>巴拉灣海灘</li>
+                                <li><strong class="text-info">沉浸式度假區</strong></li>
+                             </ul>
+                        </div>
+                    </div>
+                     <div class="map-arrow arrow-mandai-city">計程車 ≈ 30-40 分鐘 ➔</div>
+                     <div class="map-arrow arrow-city-marina">⬅ MRT ≈ 15 分鐘 ➡</div>
+                     <div class="map-arrow arrow-city-sentosa">纜車/輕軌 ≈ 25 分鐘 ➔</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">apartment</span><h2>親子住宿天堂：精選酒店與服務公寓推薦</h2></div>
+                <p>選擇合適的住宿是親子遊成功的關鍵。以下為您精選了不同區域、各具特色的家庭友善住宿，均有良好的設施和便利的交通。</p>
+                <div class="hotel-grid">
+                    <div class="hotel-card">
+                        <img src="https://images.unsplash.com/photo-1622087943187-a2f073952794?q=80&w=600&h=400&fit=crop&auto=format" 
+                             alt="聖淘沙度假酒店的兒童水上樂園"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/198754/ffffff?text=聖淘沙香格里拉酒店水上樂園';">
+                        <div class="hotel-card-content">
+                            <h4>Shangri-La Rasa Sentosa</h4>
+                            <div class="location-tag">聖淘沙島</div>
+                            <p>新加坡唯一的海濱度假酒店，擁有私人沙灘、大型游泳池、兒童水上樂園和滑梯。其「Cool Zone」是新加坡規模最大的酒店兒童俱樂部之一，提供全天候的托管活動，是家庭在聖淘沙享受沉浸式度假的完美選擇。</p>
+                        </div>
+                    </div>
+                    <div class="hotel-card">
+                        <img src="https://images.unsplash.com/photo-1594498822026-ebb365870093?q=80&w=600&h=400&fit=crop&auto=format" 
+                             alt="從濱海灣金沙酒店無邊際泳池眺望城市景觀"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/0d6efd/ffffff?text=濱海灣金沙酒店無邊際泳池景觀';">
+                        <div class="hotel-card-content">
+                            <h4>Marina Bay Sands</h4>
+                             <div class="location-tag">濱海灣</div>
+                            <p>作為新加坡的地標，入住金沙酒店本身就是一種獨特的體驗。除了著名的頂樓無邊際泳池，酒店直接連通大型購物中心、藝術科學博物館和濱海灣花園，地理位置無與倫比，適合希望體驗城市心臟地帶活力的家庭。</p>
+                        </div>
+                    </div>
+                     <div class="hotel-card">
+                        <img src="https://images.unsplash.com/photo-1600607687932-e3a524945752?q=80&w=600&h=400&fit=crop&auto=format" 
+                             alt="Somerset服務公寓寬敞並帶有廚房的家庭套房"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/6c757d/ffffff?text=Somerset服務公寓的家庭套房';">
+                        <div class="hotel-card-content">
+                            <h4>Somerset Bencoolen</h4>
+                             <div class="location-tag">市中心 / 武吉士</div>
+                            <p>對於希望擁有更多空間和靈活性的家庭，服務式公寓是絕佳選擇。Somerset Bencoolen提供帶小廚房的寬敞套房，方便為孩子準備餐點。酒店設有屋頂泳池，且步行可達多個地鐵站（如Bencoolen、Bras Basah），交通極為便利。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header"><span class="mio">map</span><h2>新加坡10天奇趣歷險：深度行程計劃</h2></div>
+                <p>此行程範例深度融合了遊樂與休息，並提供了詳細的交通和餐飲建議，您可以根據孩子的體力和興趣靈活調整。</p>
+                <ul class="checklist itinerary-list">
+                    <li>
+                        <div class="day-title">第1-3天：聖淘沙島沉浸式度假</div>
+                        <p><strong>住宿點：</strong>聖淘沙香格里拉酒店 (或其他聖淘沙酒店)</p>
+                        <p><span class="mio activity-icon">today</span><strong>第1天 (抵達與放鬆):</strong> 下午抵達樟宜機場，乘坐計程車或GrabFamily直達聖淘沙酒店。辦理入住後，帶孩子在酒店的泳池或水上樂園盡情玩耍，洗去旅途疲憊。晚餐可在海灘旁的<strong>Good Old Days美食閣</strong>解決，氛圍輕鬆。</p>
+                        <p><span class="mio activity-icon">today</span><strong>第2天 (海洋探索):</strong> 上午前往 <strong>S.E.A. 海洋館</strong>，巨大的水族觀景窗能讓孩子們著迷數小時。午餐可到<strong>馬來西亞美食街</strong>品嚐地道風味。下午到<strong>巴拉灣海灘</strong>，這裡有免費的戲水區和遊樂設施。傍晚可欣賞<strong>時光之翼</strong>水幕燈光秀。</p>
+                        <p><span class="mio activity-icon">today</span><strong>第3天 (轉換基地):</strong> 上午享受酒店設施或在沙灘散步。約中午退房，乘車前往市區的酒店（如Somerset Bencoolen）。下午在市區酒店安頓並稍作休息。晚餐可到附近的<strong>武吉士街</strong>或商場美食廣場，選擇豐富。</p>
+                    </li>
+                    <li>
+                        <div class="day-title">第4-6天：濱海灣花園與藝術探索</div>
+                         <p><strong>住宿點：</strong>市中心服務式公寓</p>
+                        <p><span class="mio activity-icon">today</span><strong>第4天 (花園奇遇):</strong> 上午乘坐地鐵前往<strong>濱海灣花園</strong>，重點參觀有室內瀑布的<strong>雲霧林 (Cloud Forest)</strong> 和<strong>花穹 (Flower Dome)</strong>，冷氣充足，非常舒適。午餐推薦戶外的<strong>Satay by the Bay</strong>。下午讓孩子在<strong>遠東機構兒童樂園</strong>的免費戲水區玩個痛快（記得帶泳衣）。晚上7:45觀賞壯觀的<strong>超級樹燈光秀 (Garden Rhapsody)</strong>。</p>
+                        <p><span class="mio activity-icon">today</span><strong>第5天 (藝術與科學):</strong> 上午參觀外形酷似蓮花的<strong>藝術科學博物館</strong>，其常設展覽「未來世界」是專為兒童設計的互動光影藝術，極具吸引力。午餐在金沙購物商城的美食廣場。下午可選擇回酒店午睡，或到烏節路的大型書店或玩具店逛逛。</p>
+                        <p><span class="mio activity-icon">today</span><strong>第6天 (文化與歷史):</strong> 上午參觀<strong>新加坡國家博物館</strong>，這裡有專為兒童設計的互動展區。或者可以前往<strong>新加坡兒童博物館</strong>，這是專為12歲以下兒童設計的博物館。下午可到福康寧公園的大草坪上奔跑玩耍。</p>
+                    </li>
+                     <li>
+                        <div class="day-title">第7-9天：與野生動物的親密接觸</div>
+                         <p><strong>住宿點：</strong>市中心服務式公寓</p>
+                        <p><span class="mio activity-icon">today</span><strong>第7天 (動物王國):</strong> 全天安排給萬禮野生動物保護區。上午乘坐計程車前往<strong>新加坡動物園</strong>，欣賞「開放式」設計，與動物近距離接觸。園內有兒童樂園和戲水區。午餐在園內的阿明餐廳解決。</p>
+                         <p><span class="mio activity-icon">today</span><strong>第8天 (飛鳥與河川):</strong> 繼續探索萬禮，上午參觀全新的<strong>飛禽公園 (Bird Paradise)</strong>，欣賞五彩斑斕的鳥類和精彩的表演。下午遊覽<strong>河川生態園 (River Wonders)</strong>，觀看可愛的大熊貓和海牛。這一天會比較累，建議早點回市區休息。</p>
+                         <p><span class="mio activity-icon">today</span><strong>第9天 (室內遊樂):</strong> 如果孩子精力充沛，可以去大型室內遊樂場如 <strong>Kiztopia</strong> 或 <strong>Pororo Park</strong>。如果想輕鬆些，可以安排購物，購買紀念品。晚上可以去克拉碼頭，乘坐遊船欣賞新加坡河夜景。</p>
+                    </li>
+                     <li>
+                        <div class="day-title">第10天：滿載而歸</div>
+                        <p><span class="mio activity-icon">today</span><strong>第10天 (告別獅城):</strong> 上午在酒店附近輕鬆度過，做最後的購物衝刺。根據航班時間，提前3-4小時乘坐計程車前往樟宜機場。別忘了，樟宜機場本身也是個景點，可以提早去體驗「星耀樟宜」的室內瀑布和遊樂設施！</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <div class="card-header"><span class="mio">account_balance_wallet</span><h2>新加坡之旅預算規劃</h2></div>
+                 <p>新加坡的消費水平相對較高，但通過精明規劃，仍可在預算內享受豐富旅程。以下提供10天行程的預算範例供您參考。</p>
+                <h3>必備表格二：新加坡10天4人行程預算範例 (HKD)</h3>
+                <table>
+                    <thead><tr><th>項目</th><th>預算金額 (HKD)</th><th>備註</th></tr></thead>
+                    <tbody>
+                        <tr><td>來回機票</td><td>8,000</td><td>預估4人經濟艙，暑期平均價</td></tr>
+                        <tr><td>住宿 (9晚)</td><td>13,500</td><td>平均每晚 HK$1,500 (混合酒店與服務公寓)</td></tr>
+                        <tr><td>每日開銷 (10天)</td><td>10,000</td><td>餐飲、本地交通等，每日 HK$1,000</td></tr>
+                        <tr><td>主要景點門票</td><td>4,500</td><td>動物園門票組合, 濱海灣花園, 海洋館等</td></tr>
+                        <tr><td>雜項/緩衝金</td><td>4,000</td><td>購物、紀念品、應急費用</td></tr>
+                        <tr><td><strong>預計總費用</strong></td><td><strong>40,000</strong></td><td class="text-success">在50,000港幣預算內</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Page 3: Seoul -->
+        <div id="seoul" class="page">
+            <div class="hero">
+                <img src="https://images.unsplash.com/photo-1545638221-ea521f7a95a6?q=80&w=1200&h=400&fit=crop&auto=format" 
+                     alt="穿著傳統韓服的家庭在首爾景福宮前"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x400/ffc107/ffffff?text=首爾景福宮';">
+                <div class="hero-content">
+                    <h1>韓國首爾：韓流文化與樂園的魅力交織</h1>
+                    <p>在預算與樂趣間尋找完美平衡，體驗獨特的文化氛圍與活力。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">recommend</span><h2>為何首爾是您家庭的理想備選</h2></div>
+                <p>首爾的魅力在於其現代活力與傳統文化的交融，擁有眾多適合兒童的公園和主題樂園。其地鐵系統發達高效，機票價格也具有競爭力。在日常消費（如餐飲和本地交通）方面，首爾通常比新加坡更為經濟實惠，這有助於在總預算內安排更豐富的活動。</p>
+            </div>
+            
+             <div class="card">
+                <div class="card-header"><span class="mio">calculate</span><h2>首爾預算考量 (與新加坡比較)</h2></div>
+                <ul class="checklist">
+                    <li><span class="mio">flight</span><strong>機票</strong>：價格範圍與新加坡相近，平均而言可能略低。</li>
+                    <li><span class="mio">king_bed</span><strong>住宿</strong>：選擇廣泛，可能更容易找到價格適中且適合家庭的住宿。</li>
+                    <li><span class="mio">restaurant</span><strong>每日開銷</strong>：餐飲和本地交通費用通常低於新加坡。</li>
+                    <li><span class="mio">confirmation_number</span><strong>景點門票</strong>：主要景點票價與新加坡相當，但有更多優質的免費景點，如首爾兒童大公園。</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">apartment</span><h2>首爾親子住宿推薦</h2></div>
+                <img src="https://images.unsplash.com/photo-1589178358434-3158f9693155?q=80&w=1000&h=400&fit=crop&auto=format" 
+                     alt="首爾樂天世界主題樂園夜景" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/1000x400/ffc107/ffffff?text=首爾樂天世界酒店';"
+                     class="img-responsive">
+                <ul class="checklist">
+                    <li><span class="mio">attractions</span><strong>蠶室地區 (Jamsil Area)</strong>：若行程重點是樂天世界，此區域是絕佳選擇。</li>
+                    <li><span class="mio">store</span><strong>明洞/市中心 (Myeongdong/City Center)</strong>：方便前往其他景點和購物區，酒店選擇多。</li>
+                    <li><span class="mio">home_work</span><strong>服務式公寓</strong>：可考慮選擇服務式公寓，以獲得更寬敞的居住空間和廚房設施。</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">directions_bus</span><h2>帶領幼童遊首爾：交通方式</h2></div>
+                 <ul class="checklist">
+                    <li><span class="mio">subway</span><strong>地鐵</strong>：網絡龐大且高效。大部分地鐵站都設有電梯，但建議提前規劃好有電梯的路線。</li>
+                    <li><span class="mio">local_taxi</span><strong>計程車 (Kakao T)</strong>：Kakao T應用程式是預約計程車的必備工具。普通計程車通常不提供兒童安全座椅。</li>
+                    <li><span class="mio">directions_walk</span><strong>步行</strong>：許多區域適合步行，但部分地段可能較為陡峭。</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">map</span><h2>首爾10天行程簡案 (親子友善節奏)</h2></div>
+                 <ul class="checklist itinerary-list">
+                    <li>
+                        <div class="day-title">主題樂園日</div>
+                        <p><strong>活動:</strong> 樂天世界 (Lotte World) (室內外主題公園 + 水族館選項) (至少半天或更長時間)。</p>
+                    </li>
+                    <li>
+                        <div class="day-title">公園悠閒日</div>
+                        <p><strong>活動:</strong> 首爾兒童大公園 (Seoul Children's Grand Park) (動物園、植物園、遊樂場) (輕鬆半天，大部分免費)。</p>
+                    </li>
+                    <li>
+                        <div class="day-title">水族館與購物</div>
+                        <p><strong>活動:</strong> COEX水族館 (2-3小時)，隨後可逛 COEX Mall。</p>
+                    </li>
+                    <li>
+                        <div class="day-title">文化體驗日</div>
+                        <p><strong>活動:</strong> 參觀景福宮 (Gyeongbokgung Palace)，體驗穿韓服。/ 南山公園 & N首爾塔。</p>
+                    </li>
+                     <li>
+                        <div class="day-title">特色咖啡廳日</div>
+                        <p><strong>活動:</strong> 探訪主題兒童咖啡廳 (如Pororo、Tayo小巴士等)。</p>
+                    </li>
+                </ul>
+                <p><strong>文化薰陶與玩樂並重</strong>：首爾的獨特之處在於，家庭可以在享受主題公園樂趣的同時，穿插一些輕鬆的文化體驗，並充分利用城市的綠色空間。</p>
+            </div>
+        </div>
+        
+        <!-- Page 4: KL & Bangkok -->
+        <div id="kl-bkk" class="page">
+             <div class="hero">
+                <img src="https://images.unsplash.com/photo-1582894589360-1583d3531b75?q=80&w=1200&h=400&fit=crop&auto=format" 
+                     alt="吉隆坡雙子塔與曼谷大皇宮的拼貼圖"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x400/dc3545/ffffff?text=東南亞的活力都市';">
+                <div class="hero-content">
+                    <h1>吉隆坡 & 曼谷：超值探險之旅</h1>
+                    <p>以極高的性價比，體驗東南亞的熱情、美食與多元文化。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">location_city</span><h2>🇲🇾 馬來西亞吉隆坡：活力都市，超值探險之旅</h2></div>
+                <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?q=80&w=1000&h=400&fit=crop&auto=format" 
+                     alt="吉隆坡地標雙子塔"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1000x400/6f42c1/ffffff?text=吉隆坡雙子塔';"
+                     class="img-responsive">
+                <h3>入選理由</h3>
+                <p>吉隆坡以其極高的性價比、多元化的美食選擇以及眾多親子友善景點而著稱。英語在當地亦廣泛使用，溝通相對便利。</p>
+                <h3>幼童亮點</h3>
+                <ul class="checklist">
+                    <li><span class="mio">science</span><strong>國油科學探索館 (Petrosains)</strong>：互動式科普展館，深受兒童喜愛。</li>
+                    <li><span class="mio">water</span><strong>吉隆坡城中城水族館 (Aquaria KLCC)</strong>：引人入勝的海底世界。</li>
+                    <li><span class="mio">attractions</span><strong>雙威水上樂園 (Sunway Lagoon)</strong>：大型綜合主題樂園。</li>
+                    <li><span class="mio">pets</span><strong>城市農場 (Farm in the City)</strong>：讓孩子們有機會親近小動物。</li>
+                    <li><span class="mio">park</span><strong>吉隆坡城中城公園 (KLCC Park)</strong>：設有大型遊樂場和戲水區。</li>
+                </ul>
+                <h3>優點與缺點</h3>
+                 <ul class="checklist">
+                    <li><span class="mio text-success">check_circle</span><strong>優點</strong>：預算友好度最高，住宿選擇多，美食價廉物美。</li>
+                    <li><span class="mio text-danger">cancel</span><strong>缺點</strong>：安全方面需提高警覺，公共交通對嬰兒車友善度稍遜，天氣炎熱潮濕。</li>
+                </ul>
+                <p><strong>「精明預算，謹慎出行」的方案</strong>：吉隆坡提供了極佳的性價比，但家長在安全和交通安排上需要更加留意。選擇位於治安良好、交通便利區域（如KLCC附近）的住宿至關重要。</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">temple_buddhist</span><h2>🇹🇭 泰國曼谷：文化、微笑與樂趣</h2></div>
+                <img src="https://images.unsplash.com/photo-1555169062-013468b47731?q=80&w=1000&h=400&fit=crop&auto=format" 
+                     alt="孩子在曼谷野生動物園餵食長頸鹿" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/1000x400/fd7e14/ffffff?text=曼谷野生動物園';"
+                     class="img-responsive">
+                <h3>入選理由</h3>
+                <p>曼谷的飛行時間最短，整體預算非常友好，以其友善的當地人和充滿活力的文化而聞名。</p>
+                <h3>幼童亮點</h3>
+                <ul class="checklist">
+                    <li><span class="mio">scuba_diving</span><strong>暹羅海洋世界 (Sea Life Bangkok)</strong></li>
+                    <li><span class="mio">safari</span><strong>賽福瑞野生動物園 (Safari World)</strong></li>
+                    <li><span class="mio">work</span><strong>趣志尼亞兒童職業體驗樂園 (KidZania)</strong></li>
+                    <li><span class="mio">pool</span>眾多酒店的泳池和昭披耶河遊船體驗。</li>
+                </ul>
+                <h3>優點與缺點</h3>
+                 <ul class="checklist">
+                    <li><span class="mio text-success">check_circle</span><strong>優點</strong>：可能是整體花費最低的選擇，文化體驗豐富，待客熱情。</li>
+                    <li><span class="mio text-danger">cancel</span><strong>缺點</strong>：天氣極度炎熱潮濕，人行道不平整對嬰兒車不便，交通擁堵。</li>
+                </ul>
+                <p><strong>「極致預算與文化體驗」之選</strong>：如果預算是首要考量，曼谷是強力的競爭者。但在嬰兒車出行便利性方面，可能比其他城市更具挑戰性。</p>
+            </div>
+        </div>
+
+        <!-- Page 5: Tips -->
+        <div id="tips" class="page">
+            <div class="hero">
+                <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=1200&h=400&fit=crop&auto=format" 
+                     alt="攤開的地圖、護照和太陽眼鏡"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x400/6c757d/ffffff?text=準備行囊';">
+                <div class="hero-content">
+                    <h1>精明消費 & 實用貼士</h1>
+                    <p>讓您的家庭旅遊基金發揮最大效益，輕鬆應對旅途中的各種狀況。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><span class="mio">savings</span><h2>善用50,000港幣家庭旅遊基金</h2></div>
+                <div class="grid-container">
+                    <div class="tip-card">
+                        <h4><span class="mio">flight</span>機票</h4>
+                        <p>提早預訂、選擇周中出發、比較廉航（但注意行李費用）。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4><span class="mio">hotel</span>住宿</h4>
+                        <p>考慮服務式公寓，留意家庭套票，或選擇交通便利的非核心區。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4><span class="mio">restaurant_menu</span>餐飲</h4>
+                        <p>平衡餐廳與美食廣場消費，利用酒店早餐，自備零食飲品。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4><span class="mio">local_activity</span>活動與景點</h4>
+                        <p>優先核心付費景點，穿插免費活動（公園、圖書館等），尋找家庭套票優惠。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header"><span class="mio">medical_services</span><h2>幼稚園孩童特別注意事項</h2></div>
+                 <div class="grid-container">
+                    <div class="tip-card">
+                        <h4><span class="mio">health_and_safety</span>健康與安全</h4>
+                        <p>購買旅遊保險，準備兒童常用藥，注意飲食衛生，做好防曬補水。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4><span class="mio">bed</span>舒適與作息</h4>
+                        <p>帶上安撫物，維持午睡習慣，讓孩子參與簡單決定。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4><span class="mio">extension</span>旅途娛樂</h4>
+                        <p>準備輕便玩具、塗色本或下載好的動畫，應對交通時間。</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4><span class="mio">stroller</span>嬰兒車與背帶</h4>
+                        <p>輕便易折疊的嬰兒車是必備品，可配合嬰兒背帶在擁擠場所使用。</p>
+                    </div>
+                </div>
+            </div>
+
+             <div class="card">
+                <div class="card-header"><span class="mio">favorite</span><h2>結語：您難忘的家庭旅程正待開啟！</h2></div>
+                <h3>重點建議總結</h3>
+                <p>綜合考量各方面因素，<strong>新加坡</strong>因其無可比擬的親子友善環境和極高的便利性，成為本次報告的首要推薦。若希望在預算上有更多彈性，<strong>韓國首爾</strong>則是一個平衡了遊樂與價值的絕佳備選方案。</p>
+                <h3>臨別贈言</h3>
+                <p>旅途中最珍貴的紀念品，莫過於一家人共同探索新奇世界時所分享的笑聲、驚喜與溫暖時刻。祝您和您的家人旅途愉快！</p>
+             </div>
+        </div>
+
+        <!-- Page 6: AI Planner -->
+        <div id="ai-planner" class="page">
+             <div class="hero">
+                <img src="https://images.unsplash.com/photo-1534723452862-4c874018d66d?q=80&w=1200&h=400&fit=crop&auto=format" 
+                     alt="抽象的AI神經網絡圖案"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x400/ff9800/ffffff?text=AI 行程規劃';">
+                <div class="hero-content">
+                    <h1>AI 行程規劃助手 ✨</h1>
+                    <p>告訴我們您的喜好，讓 AI 為您量身打造獨一無二的親子行程！</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header"><span class="mio" style="color: var(--warning-color);">auto_awesome</span><h2>建立您的專屬行程</h2></div>
+                <div class="form-group">
+                    <label for="ai-destination">1. 請選擇目的地</label>
+                    <select id="ai-destination" class="form-control">
+                        <option value="新加坡">新加坡 🇸🇬</option>
+                        <option value="韓國首爾">韓國首爾 🇰🇷</option>
+                        <option value="馬來西亞吉隆坡">馬來西亞吉隆坡 🇲🇾</option>
+                        <option value="泰國曼谷">泰國曼谷 🇹🇭</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ai-interests">2. 孩子們喜歡什麼？ (請用逗號分隔，例如：動物, 玩水, 博物館)</label>
+                    <input type="text" id="ai-interests" class="form-control" placeholder="動物, 玩水, 公園, 畫畫...">
+                </div>
+                 <div class="form-group">
+                    <label for="ai-duration">3. 您希望規劃幾天行程？</label>
+                    <input type="number" id="ai-duration" class="form-control" value="5" min="2" max="14">
+                </div>
+                <button id="generate-ai-plan" class="btn-ai">
+                    <span id="ai-btn-text">生成 AI 行程建議</span>
+                    <div id="ai-loader" style="display: none;"></div>
+                </button>
+            </div>
+            
+            <div class="card" id="ai-result-card" style="display: none;">
+                 <div class="card-header"><span class="mio">article</span><h2>您的個人化行程建議</h2></div>
+                 <div id="ai-result-container" class="ai-result-container">
+                    <!-- AI generated content will appear here -->
+                 </div>
+            </div>
+        </div>
+
+    </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page');
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    function showPage(pageId) {
+        pages.forEach(page => {
+            page.classList.remove('active');
+        });
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+        } else {
+            document.getElementById('home').classList.add('active'); // Fallback to home
+        }
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('href') === '#' + pageId) {
+                link.classList.add('active');
+            }
+        });
+        window.scrollTo(0, 0);
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pageId = e.target.getAttribute('href').substring(1);
+            showPage(pageId);
+            window.location.hash = pageId;
+        });
+    });
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+    
+    // Handle hash change on page load and direct link
+    function handleHashChange() {
+        const currentHash = window.location.hash.substring(1);
+        // Default to 'singapore' page due to previous enhancement request
+        const defaultPage = 'singapore';
+        if (currentHash && document.getElementById(currentHash)) {
+            showPage(currentHash);
+        } else {
+            showPage(defaultPage);
+             window.location.hash = defaultPage;
+        }
+    }
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange(); // Initial load
+
+    // Chart.js implementation
+    const ctx = document.getElementById('destinationChart');
+    if (ctx) {
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['安全評級', '親子友善', '交通便利', '景點豐富', '預算友好'],
+                datasets: [{
+                    label: '新加坡',
+                    data: [10, 10, 10, 9, 6],
+                    backgroundColor: 'rgba(25, 135, 84, 0.2)',
+                    borderColor: 'rgba(25, 135, 84, 1)',
+                    borderWidth: 2
+                }, {
+                    label: '首爾',
+                    data: [8, 9, 8, 8, 8],
+                    backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                    borderColor: 'rgba(255, 193, 7, 1)',
+                    borderWidth: 2
+                }, {
+                    label: '吉隆坡',
+                    data: [6, 7, 6, 7, 9],
+                    backgroundColor: 'rgba(111, 66, 193, 0.2)',
+                    borderColor: 'rgba(111, 66, 193, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: { display: true },
+                        suggestedMin: 0,
+                        suggestedMax: 10,
+                        pointLabels: {
+                            font: { size: 14, family: "'Inter', 'Noto Sans TC', sans-serif" }
+                        },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: { size: 14, family: "'Inter', 'Noto Sans TC', sans-serif" }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Gemini AI Planner Logic
+    const generateBtn = document.getElementById('generate-ai-plan');
+    const destinationEl = document.getElementById('ai-destination');
+    const interestsEl = document.getElementById('ai-interests');
+    const durationEl = document.getElementById('ai-duration');
+    const resultCard = document.getElementById('ai-result-card');
+    const resultContainer = document.getElementById('ai-result-container');
+    const aiBtnText = document.getElementById('ai-btn-text');
+    const aiLoader = document.getElementById('ai-loader');
+
+    generateBtn.addEventListener('click', async () => {
+        const destination = destinationEl.value;
+        const interests = interestsEl.value;
+        const duration = durationEl.value;
+
+        if (!duration || duration < 1) {
+            resultCard.style.display = 'block';
+            resultContainer.innerHTML = `<p style="color:var(--danger-color);">請輸入有效的行程天數。</p>`;
+            return;
+        }
+
+        // --- UI Update for Loading State ---
+        generateBtn.disabled = true;
+        aiBtnText.textContent = '生成中...';
+        aiLoader.style.display = 'block';
+        aiLoader.className = 'loading-spinner';
+        resultCard.style.display = 'block';
+        resultContainer.innerHTML = 'AI 正在為您規劃最精彩的行程，請稍候...';
+
+        // --- Prompt Engineering ---
+        const prompt = `你是一位專業的親子旅遊規劃師。請為一個來自澳門的四人家庭（包含一位幼稚園年紀的小朋友）規劃一個在「${destination}」的「${duration}」天親子行程。
+        
+        家庭的特別興趣是：${interests || '沒有特別指定，請推薦最熱門的親子活動'}。
+
+        請遵循以下黃金法則：
+        1.  **節奏放鬆**：每日只安排一個主要景點（約半天），避免行程過於緊湊。
+        2.  **勞逸結合**：除了主要景點，請建議一些輕鬆的下午活動，例如特色咖啡廳、公園散步或回酒店休息。
+        3.  **餐飲建議**：推薦一兩間適合小朋友、氣氛輕鬆的餐廳或美食廣場。
+        4.  **格式清晰**：請以「第一天」、「第二天」...的格式條列，並用粗體標示景點和餐廳名稱。
+
+        開始規劃吧！`;
+
+        // --- Gemini API Call ---
+        try {
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // API key is provided by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error(`API 請求失敗，狀態碼：${response.status}`);
+            }
+
+            const result = await response.json();
+
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                const text = result.candidates[0].content.parts[0].text;
+                resultContainer.textContent = text; // Safer: Use textContent with 'white-space: pre-wrap' CSS
+            } else {
+                throw new Error('從 API 收到的回應格式無效。');
+            }
+
+        } catch (error) {
+            console.error('Gemini API Error:', error);
+            resultContainer.innerHTML = `<p style="color:var(--danger-color);">抱歉，行程生成失敗。請檢查您的網絡連線或稍後再試。錯誤訊息：${error.message}</p>`;
+        } finally {
+            // --- Reset UI after completion ---
+            generateBtn.disabled = false;
+            aiBtnText.textContent = '生成 AI 行程建議';
+            aiLoader.style.display = 'none';
+        }
+    });
+});
+</script>
+
+</body>
+</html>
