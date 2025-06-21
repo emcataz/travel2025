@@ -231,8 +231,8 @@
         /* Image Gallery */
         .image-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
             margin: 15px 0;
         }
 
@@ -241,6 +241,19 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
+            aspect-ratio: 4/3;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .image-item:hover img {
+            transform: scale(1.05);
         }
 
         .image-caption {
@@ -258,7 +271,7 @@
         /* Image placeholder */
         .image-placeholder {
             width: 100%;
-            height: 120px;
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -272,6 +285,7 @@
             box-sizing: border-box;
             line-height: 1.2;
             font-weight: 500;
+            aspect-ratio: 4/3;
         }
 
         .image-placeholder:hover {
@@ -319,7 +333,14 @@
                 font-size: 24px;
             }
             .image-gallery {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -447,7 +468,7 @@
         <div class="card fade-in grid-full">
             <div class="card-header">
                 <i class="fas fa-hotel"></i>
-                <h3>精选亲子酒店对比 (价格含双早，1500新币/晚以下)</h3>
+                <h3>精选亲子酒店对比 (价格含双早，9150HKD/晚以下)</h3>
             </div>
 
             <!-- Hotel Comparison Table -->
@@ -636,6 +657,258 @@
             </div>
         </div>
 
+        <!-- Airbnb Alternative Options -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-home"></i>
+                <h3>Airbnb住宿替代方案对比</h3>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-lightbulb"></i> 为什么考虑Airbnb？</h4>
+                <p>• <strong>成本节省：</strong>相比酒店可节省30-70%住宿费用<br>
+                • <strong>空间更大：</strong>独立公寓，有厨房和客厅<br>
+                • <strong>家庭友好：</strong>更适合亲子家庭的居住体验<br>
+                • <strong>当地体验：</strong>融入当地社区，体验真实新加坡生活</p>
+            </div>
+
+            <!-- Airbnb Options Comparison -->
+            <table class="table" style="font-size: 11px;">
+                <thead>
+                    <tr>
+                        <th>住宿名称</th>
+                        <th>位置</th>
+                        <th>4晚价格</th>
+                        <th>房型</th>
+                        <th>评分</th>
+                        <th>到圣淘沙</th>
+                        <th>推荐指数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>🏆 Chinatown Family Quad</strong></td>
+                        <td>牛车水</td>
+                        <td><span style="color: #27ae60;">4380HKD</span></td>
+                        <td>2床1卧室+滑梯</td>
+                        <td>4.33/5 (15评)</td>
+                        <td>10分钟车程</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Somerset/Orchard Studio</strong></td>
+                        <td>乌节路</td>
+                        <td><span style="color: #27ae60;">5145HKD</span></td>
+                        <td>2床1卧室</td>
+                        <td>5.0/5 (3评)</td>
+                        <td>20分钟车程</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bugis MRT Quad Room</strong></td>
+                        <td>武吉士</td>
+                        <td><span style="color: #27ae60;">4375HKD</span></td>
+                        <td>2床1卧室</td>
+                        <td>4.46/5 (472评)</td>
+                        <td>20分钟车程</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gardens by the Bay Suite</strong></td>
+                        <td>滨海湾花园</td>
+                        <td><span style="color: #e74c3c;">11040HKD</span></td>
+                        <td>2床1卧室</td>
+                        <td>4.91/5 (11评)</td>
+                        <td>15分钟车程</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="background: #fff3cd;">
+                        <td><strong>💰 JB Town Center</strong></td>
+                        <td>新山（马来西亚）</td>
+                        <td><span style="color: #27ae60;">1370HKD</span></td>
+                        <td>多房型</td>
+                        <td>4.9/5 (459评)</td>
+                        <td>40分钟车程</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                    <tr style="background: #fff3cd;">
+                        <td><strong>R&F Seine Region 2BR</strong></td>
+                        <td>新山（马来西亚）</td>
+                        <td><span style="color: #27ae60;">1030HKD</span></td>
+                        <td>2床2卧室</td>
+                        <td>4.94/5 (18评)</td>
+                        <td>40分钟车程</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Detailed Airbnb Analysis -->
+        <div class="grid">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-star"></i>
+                    <h3>🏆 最推荐：牛车水家庭套房</h3>
+                </div>
+                <div class="info-box">
+                    <h4><i class="fas fa-thumbs-up"></i> 推荐理由</h4>
+                    <p><strong>✅ 完美位置</strong><br>
+                    • 牛车水文化区，步行可达多个景点<br>
+                    • 10分钟车程到圣淘沙<br>
+                    • 附近有地铁站和美食街</p>
+                </div>
+                <ul class="list">
+                    <li><i class="fas fa-home"></i> <strong>房型：</strong>2床1卧室，带儿童滑梯</li>
+                    <li><i class="fas fa-utensils"></i> <strong>设施：</strong>厨房、洗衣机、WiFi</li>
+                    <li><i class="fas fa="child"></i> <strong>亲子：</strong>专为家庭设计，有儿童设施</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <strong>交通：</strong>近地铁站，交通便利</li>
+                </ul>
+                <div class="warning-box">
+                    <p><strong>价格：</strong>4380HKD/4晚<br>
+                    <strong>节省：</strong>比香格里拉节省17580HKD</p>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>💰 超值选择：新山住宿</h3>
+                </div>
+                <div class="info-box">
+                    <h4><i class="fas fa-passport"></i> 跨境住宿优势</h4>
+                    <p><strong>✅ 极致性价比</strong><br>
+                    • 价格仅为新加坡的1/4<br>
+                    • 房间更大，设施更全<br>
+                    • 体验马来西亚文化</p>
+                </div>
+                <ul class="list">
+                    <li><i class="fas fa-money-bill-wave"></i> <strong>价格：</strong>1030-1370HKD/4晚</li>
+                    <li><i class="fas fa-car"></i> <strong>交通：</strong>需要过境，40分钟到圣淘沙</li>
+                    <li><i class="fas fa-passport"></i> <strong>签证：</strong>需要马来西亚签证</li>
+                    <li><i class="fas fa-clock"></i> <strong>时间：</strong>每日过境需额外1-2小时</li>
+                </ul>
+                <div class="warning-box">
+                    <p><strong>注意：</strong>需要马来西亚签证<br>
+                    <strong>适合：</strong>预算有限且不介意过境的家庭</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Airbnb vs Hotel Comparison -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-balance-scale"></i>
+                <h3>Airbnb vs 酒店全面对比</h3>
+            </div>
+
+            <table class="table" style="font-size: 11px;">
+                <thead>
+                    <tr>
+                        <th>对比项目</th>
+                        <th>Airbnb（牛车水）</th>
+                        <th>圣淘沙香格里拉</th>
+                        <th>滨海湾金沙</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>4晚总价</strong></td>
+                        <td><span style="color: #27ae60;">4380HKD</span></td>
+                        <td><span style="color: #e74c3c;">21960HKD</span></td>
+                        <td><span style="color: #e74c3c;">31720HKD</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>房间空间</strong></td>
+                        <td>⭐⭐⭐⭐⭐ 独立公寓</td>
+                        <td>⭐⭐⭐⭐ 酒店客房</td>
+                        <td>⭐⭐⭐⭐ 酒店客房</td>
+                    </tr>
+                    <tr>
+                        <td><strong>厨房设施</strong></td>
+                        <td>⭐⭐⭐⭐⭐ 完整厨房</td>
+                        <td>❌ 无</td>
+                        <td>❌ 无</td>
+                    </tr>
+                    <tr>
+                        <td><strong>儿童设施</strong></td>
+                        <td>⭐⭐⭐ 滑梯+基础设施</td>
+                        <td>⭐⭐⭐⭐⭐ 专业儿童俱乐部</td>
+                        <td>⭐⭐⭐ 基础儿童设施</td>
+                    </tr>
+                    <tr>
+                        <td><strong>服务水平</strong></td>
+                        <td>⭐⭐ 自助式</td>
+                        <td>⭐⭐⭐⭐⭐ 五星服务</td>
+                        <td>⭐⭐⭐⭐⭐ 奢华服务</td>
+                    </tr>
+                    <tr>
+                        <td><strong>位置便利</strong></td>
+                        <td>⭐⭐⭐⭐ 文化区中心</td>
+                        <td>⭐⭐⭐⭐⭐ 圣淘沙岛上</td>
+                        <td>⭐⭐⭐⭐⭐ 市中心地标</td>
+                    </tr>
+                    <tr>
+                        <td><strong>早餐</strong></td>
+                        <td>❌ 需自理</td>
+                        <td>✅ 丰富自助餐</td>
+                        <td>✅ 奢华自助餐</td>
+                    </tr>
+                    <tr style="background: var(--bg-light);">
+                        <td><strong>总体推荐</strong></td>
+                        <td>⭐⭐⭐⭐ 性价比之选</td>
+                        <td>⭐⭐⭐⭐⭐ 度假体验</td>
+                        <td>⭐⭐⭐⭐⭐ 奢华体验</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4><i class="fas fa-calculator"></i> 预算影响分析</h4>
+                <p><strong>选择Airbnb（牛车水）的预算变化：</strong><br>
+                • <strong>住宿节省：</strong>17,580HKD（相比香格里拉）<br>
+                • <strong>餐饮增加：</strong>约2,000HKD（需外出用餐）<br>
+                • <strong>净节省：</strong>约15,580HKD<br>
+                • <strong>新总预算：</strong>约38,650HKD（节省29%）</p>
+            </div>
+        </div>
+
+        <!-- Airbnb Photos -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-camera"></i>
+                <h3>Airbnb住宿实景展示</h3>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-home"></i> 牛车水家庭套房</h4>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1559329145-c07f01f16f85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="牛车水传统建筑" loading="lazy">
+                    <div class="image-caption">牛车水街景</div>
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1631604124323-94e3953fdaad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="牛车水彩色建筑" loading="lazy">
+                    <div class="image-caption">彩色建筑群</div>
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1681388523410-c739a930a942?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="牛车水夜景" loading="lazy">
+                    <div class="image-caption">夜景灯光</div>
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1701733245670-0a83319c88f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="牛车水文化区" loading="lazy">
+                    <div class="image-caption">文化区域</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-map-marker-alt"></i> 牛车水位置优势</h4>
+                <p>• <strong>文化体验：</strong>新加坡最具历史的华人文化区<br>
+                • <strong>美食天堂：</strong>步行可达多个著名美食街和茶餐厅<br>
+                • <strong>交通便利：</strong>近牛车水地铁站，直达各大景点<br>
+                • <strong>购物便利：</strong>传统市场和现代商场并存</p>
+            </div>
+        </div>
+
         <!-- Daily Itinerary -->
         <div class="card fade-in grid-full">
             <div class="card-header">
@@ -677,17 +950,17 @@
                             <div class="timeline-content">
                                 <strong>09:00</strong> 酒店早餐<br>
                                 <strong>10:00</strong> 前往环球影城 <span style="color: #27ae60;">（地铁30分钟）</span><br>
-                                <strong>10:30</strong> 环球影城游玩 <span style="color: #e74c3c;">（门票88新币/人）</span><br>
+                                <strong>10:30</strong> 环球影城游玩 <span style="color: #e74c3c;">（门票537HKD/人）</span><br>
                                 <strong>12:30</strong> 园内午餐<br>
                                 <strong>14:00</strong> 继续游玩项目<br>
-                                <strong>17:00</strong> S.E.A.海洋馆 <span style="color: #e74c3c;">（门票45新币/人）</span><br>
+                                <strong>17:00</strong> S.E.A.海洋馆 <span style="color: #e74c3c;">（门票275HKD/人）</span><br>
                                 <strong>19:00</strong> 圣淘沙海滩晚餐<br>
                                 <strong>21:00</strong> 返回酒店
                             </div>
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约800新币（4人门票+餐饮+交通）<br>
+                        <p><strong>费用：</strong>约4880HKD（4人门票+餐饮+交通）<br>
                         <strong>适合：</strong>5岁以上儿童<br>
                         <strong>评价：</strong>⭐⭐⭐⭐⭐ 经典必玩</p>
                     </div>
@@ -703,7 +976,7 @@
                             <div class="timeline-content">
                                 <strong>09:00</strong> 酒店早餐<br>
                                 <strong>10:00</strong> 滨海湾花园 <span style="color: #27ae60;">（步行10分钟）</span><br>
-                                <strong>10:30</strong> 花穹+云雾林 <span style="color: #e74c3c;">（门票28新币/人）</span><br>
+                                <strong>10:30</strong> 花穹+云雾林 <span style="color: #e74c3c;">（门票171HKD/人）</span><br>
                                 <strong>12:30</strong> 花园内午餐<br>
                                 <strong>14:00</strong> 超级树空中走道<br>
                                 <strong>16:00</strong> 鱼尾狮公园 <span style="color: #27ae60;">（步行15分钟）</span><br>
@@ -714,7 +987,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约300新币（门票+餐饮）<br>
+                        <p><strong>费用：</strong>约1830HKD（门票+餐饮）<br>
                         <strong>适合：</strong>全年龄段<br>
                         <strong>评价：</strong>⭐⭐⭐⭐⭐ 自然奇观</p>
                     </div>
@@ -741,7 +1014,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约200新币（门票+餐饮+交通）<br>
+                        <p><strong>费用：</strong>约1220HKD（门票+餐饮+交通）<br>
                         <strong>适合：</strong>4-7岁儿童<br>
                         <strong>评价：</strong>⭐⭐⭐⭐ 寓教于乐</p>
                     </div>
@@ -766,7 +1039,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约400新币（购物+SPA+餐饮）<br>
+                        <p><strong>费用：</strong>约2440HKD（购物+SPA+餐饮）<br>
                         <strong>适合：</strong>全家人<br>
                         <strong>评价：</strong>⭐⭐⭐ 休闲放松</p>
                     </div>
@@ -792,9 +1065,9 @@
                             <div class="timeline-content">
                                 <strong>08:30</strong> 酒店早餐<br>
                                 <strong>09:30</strong> 前往动物园 <span style="color: #e74c3c;">（地铁+巴士45分钟）</span><br>
-                                <strong>10:30</strong> 新加坡动物园 <span style="color: #e74c3c;">（门票39新币/人）</span><br>
+                                <strong>10:30</strong> 新加坡动物园 <span style="color: #e74c3c;">（门票238HKD/人）</span><br>
                                 <strong>12:30</strong> 园内午餐<br>
-                                <strong>14:00</strong> 河川生态园 <span style="color: #e74c3c;">（门票37新币/人）</span><br>
+                                <strong>14:00</strong> 河川生态园 <span style="color: #e74c3c;">（门票226HKD/人）</span><br>
                                 <strong>16:00</strong> 返回市区<br>
                                 <strong>18:00</strong> 小印度晚餐<br>
                                 <strong>20:00</strong> 返回酒店
@@ -802,7 +1075,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约500新币（门票+餐饮+交通）<br>
+                        <p><strong>费用：</strong>约3050HKD（门票+餐饮+交通）<br>
                         <strong>适合：</strong>4-7岁儿童<br>
                         <strong>评价：</strong>⭐⭐⭐⭐⭐ 世界级动物园</p>
                     </div>
@@ -818,7 +1091,7 @@
                             <div class="timeline-content">
                                 <strong>09:00</strong> 酒店早餐<br>
                                 <strong>10:00</strong> 前往飞禽公园 <span style="color: #e74c3c;">（地铁40分钟）</span><br>
-                                <strong>10:30</strong> 裕廊飞禽公园 <span style="color: #e74c3c;">（门票37新币/人）</span><br>
+                                <strong>10:30</strong> 裕廊飞禽公园 <span style="color: #e74c3c;">（门票226HKD/人）</span><br>
                                 <strong>12:30</strong> 园内午餐<br>
                                 <strong>14:00</strong> 观看鸟类表演<br>
                                 <strong>16:00</strong> 前往牛车水<br>
@@ -829,7 +1102,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约400新币（门票+餐饮+交通）<br>
+                        <p><strong>费用：</strong>约2440HKD（门票+餐饮+交通）<br>
                         <strong>适合：</strong>5岁以上儿童<br>
                         <strong>评价：</strong>⭐⭐⭐⭐ 鸟类天堂</p>
                     </div>
@@ -857,7 +1130,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约250新币（门票+餐饮+交通）<br>
+                        <p><strong>费用：</strong>约1525HKD（门票+餐饮+交通）<br>
                         <strong>适合：</strong>全年龄段<br>
                         <strong>评价：</strong>⭐⭐⭐⭐ 文化体验</p>
                     </div>
@@ -883,7 +1156,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约300新币（SPA+餐饮）<br>
+                        <p><strong>费用：</strong>约1830HKD（SPA+餐饮）<br>
                         <strong>适合：</strong>全家人<br>
                         <strong>评价：</strong>⭐⭐⭐⭐ 奢华享受</p>
                     </div>
@@ -912,7 +1185,7 @@
                                 <strong>10:30</strong> ION Orchard购物<br>
                                 <strong>12:30</strong> 乌节路午餐<br>
                                 <strong>14:00</strong> 新加坡植物园 <span style="color: #e74c3c;">（门票免费）</span><br>
-                                <strong>16:00</strong> 胡姬花园 <span style="color: #e74c3c;">（门票5新币/人）</span><br>
+                                <strong>16:00</strong> 胡姬花园 <span style="color: #e74c3c;">（门票31HKD/人）</span><br>
                                 <strong>17:30</strong> 返回乌节路<br>
                                 <strong>18:30</strong> 乌节路晚餐<br>
                                 <strong>20:30</strong> 返回酒店
@@ -920,7 +1193,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约400新币（购物+餐饮+交通）<br>
+                        <p><strong>费用：</strong>约2440HKD（购物+餐饮+交通）<br>
                         <strong>适合：</strong>全家人<br>
                         <strong>评价：</strong>⭐⭐⭐⭐ 购物天堂</p>
                     </div>
@@ -947,7 +1220,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约200新币（餐饮+交通+购物）<br>
+                        <p><strong>费用：</strong>约1220HKD（餐饮+交通+购物）<br>
                         <strong>适合：</strong>6岁以上儿童<br>
                         <strong>评价：</strong>⭐⭐⭐⭐ 多元文化</p>
                     </div>
@@ -974,7 +1247,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约350新币（购物+餐饮+交通）<br>
+                        <p><strong>费用：</strong>约2135HKD（购物+餐饮+交通）<br>
                         <strong>适合：</strong>全家人<br>
                         <strong>评价：</strong>⭐⭐⭐ 购物休闲</p>
                     </div>
@@ -1000,7 +1273,7 @@
                         </div>
                     </div>
                     <div class="info-box">
-                        <p><strong>费用：</strong>约180新币（门票+餐饮+交通）<br>
+                        <p><strong>费用：</strong>约1098HKD（门票+餐饮+交通）<br>
                         <strong>适合：</strong>文化爱好者<br>
                         <strong>评价：</strong>⭐⭐⭐⭐ 文化深度</p>
                     </div>
@@ -1048,9 +1321,9 @@
                     <ul class="list">
                         <li><i class="fas fa-route"></i> 机场→市中心: 20公里</li>
                         <li><i class="fas fa-clock"></i> 地铁时间: 约45分钟</li>
-                        <li><i class="fas fa-train"></i> 地铁费用: 2.5新币/人</li>
-                        <li><i class="fas fa-taxi"></i> 出租车: 20-40新币</li>
-                        <li><i class="fas fa-car"></i> Grab打车: 18-35新币</li>
+                        <li><i class="fas fa-train"></i> 地铁费用: 15HKD/人</li>
+                        <li><i class="fas fa-taxi"></i> 出租车: 122-244HKD</li>
+                        <li><i class="fas fa-car"></i> Grab打车: 110-214HKD</li>
                     </ul>
                 </div>
                 <div>
@@ -1091,28 +1364,28 @@
                         <td>20公里</td>
                         <td>45分钟</td>
                         <td>地铁MRT</td>
-                        <td>2.5新币/人</td>
+                        <td>15HKD/人</td>
                     </tr>
                     <tr>
                         <td>金沙 → 环球影城</td>
                         <td>8公里</td>
                         <td>30分钟</td>
                         <td>地铁+单轨</td>
-                        <td>3新币/人</td>
+                        <td>18HKD/人</td>
                     </tr>
                     <tr>
                         <td>金沙 → 新加坡动物园</td>
                         <td>25公里</td>
                         <td>45分钟</td>
                         <td>地铁+巴士</td>
-                        <td>4新币/人</td>
+                        <td>24HKD/人</td>
                     </tr>
                     <tr>
                         <td>金沙 → 乌节路</td>
                         <td>5公里</td>
                         <td>20分钟</td>
                         <td>地铁MRT</td>
-                        <td>2新币/人</td>
+                        <td>12HKD/人</td>
                     </tr>
                     <tr>
                         <td>金沙 → 滨海湾花园</td>
@@ -1139,8 +1412,8 @@
                 </tr>
                 <tr>
                     <td>机票</td>
-                    <td>29280港币</td>
-                    <td>往返含税</td>
+                    <td>12140港币</td>
+                    <td>往返含税（4人）</td>
                 </tr>
                 <tr>
                     <td>酒店</td>
@@ -1169,16 +1442,16 @@
                 </tr>
                 <tr style="background: var(--bg-light); font-weight: bold;">
                     <td>总计</td>
-                    <td>71370港币</td>
-                    <td>约17843港币/人</td>
+                    <td>54230港币</td>
+                    <td>约13558港币/人</td>
                 </tr>
             </table>
 
             <div class="info-box" style="margin-top: 15px;">
                 <h4><i class="fas fa-calculator"></i> 费用明细说明</h4>
-                <p><strong>汇率参考：</strong>1新币≈6.1港币（2025年7月）<br>
-                <strong>总预算：</strong>约71,370港币（4人）<br>
-                <strong>人均费用：</strong>约17,843港币</p>
+                <p><strong>汇率参考：</strong>1SGD≈6.1HKD，1人民币≈1.1HKD（2025年7月）<br>
+                <strong>总预算：</strong>约54,230港币（4人）<br>
+                <strong>人均费用：</strong>约13,558港币</p>
             </div>
         </div>
 
@@ -1249,64 +1522,64 @@
                 <tbody>
                     <tr style="background: #f0f9ff;">
                         <td><strong>环球影城+S.E.A.海洋馆</strong></td>
-                        <td>532新币</td>
-                        <td>20新币</td>
-                        <td>150新币</td>
-                        <td>702新币</td>
+                        <td>3245HKD</td>
+                        <td>122HKD</td>
+                        <td>915HKD</td>
+                        <td>4282HKD</td>
                         <td>⭐⭐⭐⭐⭐</td>
                         <td>中（部分室内）</td>
                     </tr>
                     <tr>
                         <td>滨海湾花园深度游</td>
-                        <td>112新币</td>
-                        <td>10新币</td>
-                        <td>100新币</td>
-                        <td>222新币</td>
+                        <td>683HKD</td>
+                        <td>61HKD</td>
+                        <td>610HKD</td>
+                        <td>1354HKD</td>
                         <td>⭐⭐⭐⭐⭐</td>
                         <td>中（有室内区域）</td>
                     </tr>
                     <tr>
                         <td>新加坡动物园+河川</td>
-                        <td>304新币</td>
-                        <td>30新币</td>
-                        <td>120新币</td>
-                        <td>454新币</td>
+                        <td>1854HKD</td>
+                        <td>183HKD</td>
+                        <td>732HKD</td>
+                        <td>2769HKD</td>
                         <td>⭐⭐⭐⭐⭐</td>
                         <td>高（需晴天）</td>
                     </tr>
                     <tr>
                         <td>乌节路购物+植物园</td>
-                        <td>20新币</td>
-                        <td>15新币</td>
-                        <td>200新币</td>
-                        <td>235新币</td>
+                        <td>122HKD</td>
+                        <td>92HKD</td>
+                        <td>1220HKD</td>
+                        <td>1434HKD</td>
                         <td>⭐⭐⭐</td>
                         <td>中（可室内）</td>
                     </tr>
                     <tr>
                         <td>文化区域探索</td>
-                        <td>0新币</td>
-                        <td>20新币</td>
-                        <td>80新币</td>
-                        <td>100新币</td>
+                        <td>0HKD</td>
+                        <td>122HKD</td>
+                        <td>488HKD</td>
+                        <td>610HKD</td>
                         <td>⭐⭐⭐</td>
                         <td>高（需晴天）</td>
                     </tr>
                     <tr>
                         <td>科学馆+博物馆</td>
-                        <td>80新币</td>
-                        <td>15新币</td>
-                        <td>100新币</td>
-                        <td>195新币</td>
+                        <td>488HKD</td>
+                        <td>92HKD</td>
+                        <td>610HKD</td>
+                        <td>1190HKD</td>
                         <td>⭐⭐⭐⭐</td>
                         <td>低（室内）</td>
                     </tr>
                     <tr>
                         <td>酒店深度体验</td>
-                        <td>0新币</td>
-                        <td>0新币</td>
-                        <td>300新币</td>
-                        <td>300新币</td>
+                        <td>0HKD</td>
+                        <td>0HKD</td>
+                        <td>1830HKD</td>
+                        <td>1830HKD</td>
                         <td>⭐⭐⭐⭐⭐</td>
                         <td>无（室内）</td>
                     </tr>
@@ -1315,9 +1588,9 @@
 
             <div class="info-box">
                 <h4><i class="fas fa-trophy"></i> 推荐搭配方案</h4>
-                <p><strong>经济型（总预算+1000新币）：</strong>滨海湾花园 + 文化探索 + 科学馆<br>
-                <strong>平衡型（总预算+1500新币）：</strong>环球影城 + 动物园 + 植物园<br>
-                <strong>奢华型（总预算+2000新币）：</strong>环球影城 + 动物园 + 酒店体验</p>
+                <p><strong>经济型（总预算+6100HKD）：</strong>滨海湾花园 + 文化探索 + 科学馆<br>
+                <strong>平衡型（总预算+9150HKD）：</strong>环球影城 + 动物园 + 植物园<br>
+                <strong>奢华型（总预算+12200HKD）：</strong>环球影城 + 动物园 + 酒店体验</p>
             </div>
         </div>
 
@@ -1402,40 +1675,40 @@
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-leaf"></i> 滨海湾花园</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🌳<br>超级树<br>垂直花园奇观</div>
+                    <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="超级树垂直花园" loading="lazy">
                     <div class="image-caption">超级树</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🌸<br>花穹<br>地中海花园</div>
-                    <div class="image-caption">花穹</div>
-                </div>
-                <div class="image-item">
-                    <div class="image-placeholder nature-theme">☁️<br>云雾林<br>35米室内瀑布</div>
-                    <div class="image-caption">云雾林</div>
-                </div>
-                <div class="image-item">
-                    <div class="image-placeholder nature-theme">🌉<br>空中走道<br>超级树之间</div>
+                    <img src="https://images.unsplash.com/photo-1508964942454-1a56651d54ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="超级树空中走道" loading="lazy">
                     <div class="image-caption">空中走道</div>
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1552415274-73ad7198cb93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="滨海湾花园航拍" loading="lazy">
+                    <div class="image-caption">花园全景</div>
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1645109253487-b0387d5c9f97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="超级树与金沙酒店" loading="lazy">
+                    <div class="image-caption">超级树夜景</div>
                 </div>
             </div>
 
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-paw"></i> 新加坡动物园</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🦒<br>长颈鹿<br>开放式展区</div>
+                    <img src="https://images.unsplash.com/photo-1612975702762-7cc2733b3e75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="新加坡动物园长颈鹿" loading="lazy">
                     <div class="image-caption">长颈鹿展区</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🐘<br>大象表演<br>亚洲象群</div>
-                    <div class="image-caption">大象表演</div>
-                </div>
-                <div class="image-item">
-                    <div class="image-placeholder nature-theme">🦧<br>红毛猩猩<br>自由活动区</div>
+                    <img src="https://images.unsplash.com/photo-1579236667306-91b202ed7e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="红毛猩猩在树上玩耍" loading="lazy">
                     <div class="image-caption">红毛猩猩</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🐧<br>企鹅馆<br>极地体验</div>
-                    <div class="image-caption">企鹅馆</div>
+                    <img src="https://images.unsplash.com/photo-1612975631838-719497229ee4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="动物园大象" loading="lazy">
+                    <div class="image-caption">大象表演</div>
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1598621870917-d1b6a9d8db06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="动物园老虎" loading="lazy">
+                    <div class="image-caption">白老虎</div>
                 </div>
             </div>
 
@@ -1462,20 +1735,20 @@
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-shopping-bag"></i> 乌节路</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🏬<br>ION Orchard<br>奢华购物中心</div>
-                    <div class="image-caption">ION Orchard</div>
+                    <img src="https://images.unsplash.com/photo-1648115674180-4798bd9d2826?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="乌节路天桥夜景" loading="lazy">
+                    <div class="image-caption">乌节路天桥</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🛍️<br>乌节路大街<br>购物天堂</div>
-                    <div class="image-caption">乌节路大街</div>
+                    <img src="https://images.unsplash.com/photo-1649301790853-df48bcb52962?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="乌节路购物街景" loading="lazy">
+                    <div class="image-caption">购物街景</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🍽️<br>美食广场<br>各国料理</div>
-                    <div class="image-caption">美食广场</div>
+                    <img src="https://images.unsplash.com/photo-1709111506155-3c2c79afdb2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="乌节路商场内部" loading="lazy">
+                    <div class="image-caption">商场内部</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🎪<br>街头表演<br>文化娱乐</div>
-                    <div class="image-caption">街头表演</div>
+                    <img src="https://images.unsplash.com/photo-1561514777-141ad782895d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="乌节路繁华街道" loading="lazy">
+                    <div class="image-caption">繁华街道</div>
                 </div>
             </div>
         </div>

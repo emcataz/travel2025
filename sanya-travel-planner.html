@@ -257,8 +257,8 @@
         /* Image Gallery */
         .image-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
             margin: 15px 0;
         }
 
@@ -267,12 +267,14 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
+            aspect-ratio: 4/3;
         }
 
         .image-item img {
             width: 100%;
-            height: 120px;
+            height: 100%;
             object-fit: cover;
+            object-position: center;
             transition: transform 0.3s ease;
         }
 
@@ -337,7 +339,14 @@
                 font-size: 24px;
             }
             .image-gallery {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -439,19 +448,19 @@
             </div>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder airport-theme">✈️<br>T1航站楼外观<br>现代化机场建筑</div>
+                    <img src="https://images.unsplash.com/photo-1568515488248-df5758f90b6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="现代化机场航站楼" loading="lazy">
                     <div class="image-caption">T1航站楼外观</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder airport-theme">🏢<br>出发大厅<br>宽敞候机环境</div>
+                    <img src="https://images.unsplash.com/photo-1617408701390-fc8836a58fe0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="机场出发大厅" loading="lazy">
                     <div class="image-caption">出发大厅</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder airport-theme">🚪<br>到达大厅<br>便民接机区域</div>
+                    <img src="https://images.unsplash.com/photo-1718506921344-4d427d1de4d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="机场到达区域" loading="lazy">
                     <div class="image-caption">到达大厅</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder airport-theme">🛫<br>登机口区域<br>舒适候机设施</div>
+                    <img src="https://images.unsplash.com/photo-1551265428-4cdb1d979847?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="机场登机口" loading="lazy">
                     <div class="image-caption">登机口区域</div>
                 </div>
             </div>
@@ -547,19 +556,19 @@
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-crown"></i> 海棠湾仁恒皇冠假日酒店</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder hotel-theme">🏨<br>船形建筑外观<br>独特设计风格</div>
+                    <img src="https://images.unsplash.com/photo-1729606559706-6c06d2ef1004?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="豪华度假酒店外观" loading="lazy">
                     <div class="image-caption">船形建筑外观</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder hotel-theme">🏊‍♂️<br>270°无边泳池<br>顶层景观泳池</div>
+                    <img src="https://images.unsplash.com/photo-1729606558813-1bda04fbb55c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="无边际泳池" loading="lazy">
                     <div class="image-caption">270°无边泳池</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder hotel-theme">🎠<br>儿童水上乐园<br>专属儿童设施</div>
+                    <img src="https://images.unsplash.com/photo-1729606559667-fcab83917423?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="儿童水上乐园" loading="lazy">
                     <div class="image-caption">儿童水上乐园</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder hotel-theme">🎮<br>儿童俱乐部<br>室内活动空间</div>
+                    <img src="https://images.unsplash.com/photo-1729606559533-c36af0b1bafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="儿童俱乐部设施" loading="lazy">
                     <div class="image-caption">儿童俱乐部</div>
                 </div>
             </div>
@@ -567,19 +576,19 @@
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-star"></i> 海棠湾香格里拉度假酒店</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder hotel-theme">🏖️<br>香格里拉酒店<br>典雅度假村建筑</div>
+                    <img src="https://images.unsplash.com/photo-1696584776164-e0ca9ac8ff24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="香格里拉度假酒店外观" loading="lazy">
                     <div class="image-caption">酒店外观</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder hotel-theme">🛝<br>儿童泳池滑梯<br>孩子们的最爱</div>
+                    <img src="https://images.unsplash.com/photo-1619334910286-c613d0d1a4d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="儿童泳池滑梯" loading="lazy">
                     <div class="image-caption">儿童泳池大滑梯</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder hotel-theme">🌿<br>酒店大草坪<br>开阔活动空间</div>
+                    <img src="https://images.unsplash.com/photo-1626353954991-9676fbf3b8a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="酒店大草坪" loading="lazy">
                     <div class="image-caption">酒店大草坪</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder hotel-theme">🎪<br>室内游乐场<br>雨天最佳选择</div>
+                    <img src="https://images.unsplash.com/photo-1495157907198-a5b997c29047?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="室内游乐场" loading="lazy">
                     <div class="image-caption">室内游乐场</div>
                 </div>
             </div>
@@ -1544,19 +1553,19 @@
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-water"></i> 蜈支洲岛</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🌊<br>清澈玻璃海<br>透明度极高海水</div>
+                    <img src="https://images.unsplash.com/photo-1634317343250-05844895e2d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="三亚清澈玻璃海" loading="lazy">
                     <div class="image-caption">清澈的玻璃海</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🐠<br>珊瑚礁浮潜<br>丰富海底世界</div>
+                    <img src="https://images.unsplash.com/photo-1731038881558-58eba9374c01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="珊瑚礁浮潜" loading="lazy">
                     <div class="image-caption">珊瑚礁浮潜</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🚢<br>玻璃船观光<br>不下水观珊瑚</div>
+                    <img src="https://images.unsplash.com/photo-1653282738567-a0d892a69727?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="玻璃船观光" loading="lazy">
                     <div class="image-caption">玻璃船观光</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🏖️<br>细白沙滩<br>柔软天然沙滩</div>
+                    <img src="https://images.unsplash.com/photo-1659947445647-842f7144c90d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="细白沙滩" loading="lazy">
                     <div class="image-caption">细白沙滩</div>
                 </div>
             </div>
@@ -1564,19 +1573,19 @@
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-fish"></i> 亚特兰蒂斯水世界</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder attraction-theme">🐟<br>失落的空间<br>震撼海底隧道</div>
+                    <img src="https://images.unsplash.com/photo-1641312054614-4ec1634bbb92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="失落的空间海底隧道" loading="lazy">
                     <div class="image-caption">失落的空间水族馆</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder attraction-theme">🛝<br>刺激水滑梯<br>各种惊险滑道</div>
+                    <img src="https://images.unsplash.com/photo-1638899719481-6d621dcd398b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="刺激水滑梯" loading="lazy">
                     <div class="image-caption">刺激水滑梯</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder attraction-theme">🐋<br>海洋生物互动<br>亲密接触体验</div>
+                    <img src="https://images.unsplash.com/photo-1641495378215-b441708e20fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="海洋生物互动" loading="lazy">
                     <div class="image-caption">海洋生物互动</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder attraction-theme">🎠<br>儿童水上乐园<br>小朋友专属设施</div>
+                    <img src="https://images.unsplash.com/photo-1685919076679-588aa2e2315f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="儿童水上乐园" loading="lazy">
                     <div class="image-caption">儿童水上乐园</div>
                 </div>
             </div>
@@ -1584,19 +1593,19 @@
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-om"></i> 南山寺</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🙏<br>108米海上观音<br>壮观观音圣像</div>
+                    <img src="https://images.unsplash.com/photo-1559227582-6084d800ace3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="108米海上观音像" loading="lazy">
                     <div class="image-caption">108米海上观音</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🏛️<br>大雄宝殿<br>庄严佛教建筑</div>
+                    <img src="https://images.unsplash.com/photo-1583316368489-ab4abf659d9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="南山寺大雄宝殿" loading="lazy">
                     <div class="image-caption">南山寺大雄宝殿</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🕯️<br>观音广场<br>宽阔朝拜广场</div>
+                    <img src="https://images.unsplash.com/photo-1653418489514-527b42d58ae8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="观音广场" loading="lazy">
                     <div class="image-caption">观音广场</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🌉<br>普济桥<br>连接观音岛桥梁</div>
+                    <img src="https://images.unsplash.com/photo-1649693066813-879b554023f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="普济桥" loading="lazy">
                     <div class="image-caption">普济桥</div>
                 </div>
             </div>
@@ -1604,19 +1613,19 @@
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-tree"></i> 热带天堂森林公园</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🌉<br>玻璃栈桥<br>惊险透明栈道</div>
+                    <img src="https://images.unsplash.com/photo-1696884302725-4c1d28dbfeb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="全海景玻璃栈桥" loading="lazy">
                     <div class="image-caption">全海景玻璃栈桥</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🏞️<br>亚龙湾全景<br>俯瞰整个海湾</div>
+                    <img src="https://images.unsplash.com/photo-1657737738312-0f524f5ed190?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="亚龙湾全景" loading="lazy">
                     <div class="image-caption">亚龙湾全景</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🌳<br>热带雨林步道<br>原始森林探索</div>
+                    <img src="https://images.unsplash.com/photo-1636368799068-188e0ca022c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="热带雨林步道" loading="lazy">
                     <div class="image-caption">热带雨林步道</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder nature-theme">🌉<br>云端索桥<br>穿越雨林吊桥</div>
+                    <img src="https://images.unsplash.com/photo-1664292625531-76a1e2c983a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="云端索桥" loading="lazy">
                     <div class="image-caption">云端索桥</div>
                 </div>
             </div>
@@ -1624,19 +1633,19 @@
             <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-heart"></i> 天涯海角</h4>
             <div class="image-gallery">
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🗿<br>天涯石<br>著名天涯石刻</div>
+                    <img src="https://images.unsplash.com/photo-1484945200922-265f58c12b7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="天涯石地标" loading="lazy">
                     <div class="image-caption">天涯石</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">💕<br>海角石<br>浪漫海角标志</div>
+                    <img src="https://images.unsplash.com/photo-1672841828482-45faa4c70e50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="海角石" loading="lazy">
                     <div class="image-caption">海角石</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🌴<br>椰梦长廊<br>椰林海滨大道</div>
+                    <img src="https://images.unsplash.com/photo-1710443793899-727b425f7eb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="椰梦长廊" loading="lazy">
                     <div class="image-caption">椰梦长廊</div>
                 </div>
                 <div class="image-item">
-                    <div class="image-placeholder culture-theme">🌅<br>三亚湾日落<br>绝美日落景观</div>
+                    <img src="https://images.unsplash.com/photo-1682502913191-6b387078b733?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="三亚湾日落" loading="lazy">
                     <div class="image-caption">三亚湾日落</div>
                 </div>
             </div>
