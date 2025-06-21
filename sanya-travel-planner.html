@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三亚五日四夜亲子旅行规划表</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #0ea5e9;
+            --secondary-color: #f97316;
+            --accent-color: #10b981;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: white;
+        }
+
+        /* A4 Print Layout */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 10mm;
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+        @media print {
+            body { margin: 0; }
+            .page {
+                width: 100%;
+                min-height: 100vh;
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .grid-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-header i {
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+        .card-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Tables */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .table tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .timeline-time {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+
+        .timeline-content {
+            margin-top: 4px;
+            font-size: 13px;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: var(--bg-light);
+            border-left: 4px solid var(--accent-color);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .warning-box {
+            background: #fef3cd;
+            border-left: 4px solid var(--secondary-color);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Lists */
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list li {
+            padding: 6px 0;
+            border-bottom: 1px dotted var(--border-color);
+            font-size: 13px;
+        }
+
+        .list li:last-child {
+            border-bottom: none;
+        }
+
+        .list li i {
+            color: var(--primary-color);
+            margin-right: 8px;
+            width: 16px;
+        }
+
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            background: #0284c7;
+        }
+
+        /* Weather Icons */
+        .weather-icon {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .image-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Image placeholder */
+        .image-placeholder {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            text-align: center;
+            border-radius: 8px;
+            position: relative;
+            padding: 10px;
+            box-sizing: border-box;
+            line-height: 1.2;
+            font-weight: 500;
+        }
+
+        .image-placeholder:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        /* Different gradient themes */
+        .airport-theme { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
+        .hotel-theme { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
+        .attraction-theme { background: linear-gradient(135deg, #00b894 0%, #00a085 100%); }
+        .nature-theme { background: linear-gradient(135deg, #55a3ff 0%, #003d82 100%); }
+        .culture-theme { background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%); }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 8px;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page {
+                width: 100%;
+                padding: 15px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">
+        <i class="fas fa-print"></i> 打印规划表
+    </button>
+
+    <div class="page">
+        <!-- Header -->
+        <div class="header fade-in">
+            <h1><i class="fas fa-umbrella-beach"></i> 三亚五日四夜亲子旅行规划表</h1>
+            <div class="subtitle">
+                <span><i class="fas fa-calendar-alt"></i> 2025年7月21日-25日</span>
+                <span><i class="fas fa-users"></i> 2大人+2儿童(4-7岁)</span>
+                <span><i class="fas fa-sun weather-icon"></i> 27-30°C 多云转晴</span>
+            </div>
+        </div>
+
+        <!-- Flight Information -->
+        <div class="grid">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-plane-departure"></i>
+                    <h3>去程航班信息</h3>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td><strong>航班号</strong></td>
+                        <td>CZ6703 (南方航空)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>出发</strong></td>
+                        <td>7月21日 11:10 珠海金湾T1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>到达</strong></td>
+                        <td>7月21日 12:35 三亚凤凰T1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>准点率</strong></td>
+                        <td>86.67%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>值机柜台</strong></td>
+                        <td>D01-D09</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-plane-arrival"></i>
+                    <h3>返程航班信息</h3>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td><strong>航班号</strong></td>
+                        <td>CZ6704 (南方航空)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>出发</strong></td>
+                        <td>7月25日 13:40 三亚凤凰T1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>到达</strong></td>
+                        <td>7月25日 15:10 珠海金湾T1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>准点率</strong></td>
+                        <td>96.67%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>值机柜台</strong></td>
+                        <td>C1-C12</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Airport Images -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-camera"></i>
+                <h3>三亚凤凰国际机场实景</h3>
+            </div>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="image-placeholder airport-theme">✈️<br>T1航站楼外观<br>现代化机场建筑</div>
+                    <div class="image-caption">T1航站楼外观</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder airport-theme">🏢<br>出发大厅<br>宽敞候机环境</div>
+                    <div class="image-caption">出发大厅</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder airport-theme">🚪<br>到达大厅<br>便民接机区域</div>
+                    <div class="image-caption">到达大厅</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder airport-theme">🛫<br>登机口区域<br>舒适候机设施</div>
+                    <div class="image-caption">登机口区域</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <p><strong>机场设施：</strong>免费WiFi、儿童游乐区、母婴室、ATM取款机、餐饮店<br>
+                <strong>交通：</strong>出租车、机场巴士、网约车均可到达酒店</p>
+            </div>
+        </div>
+
+        <!-- Hotel Recommendations -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-hotel"></i>
+                <h3>精选亲子酒店对比 (价格含双早，2000元/晚以下)</h3>
+            </div>
+
+            <!-- Hotel Comparison Table -->
+            <table class="table" style="font-size: 11px;">
+                <thead>
+                    <tr>
+                        <th>酒店名称</th>
+                        <th>价格/晚</th>
+                        <th>距机场</th>
+                        <th>早餐</th>
+                        <th>晚餐</th>
+                        <th>亲子设施</th>
+                        <th>用户评价</th>
+                        <th>推荐指数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>🏆 海棠湾仁恒皇冠假日</strong></td>
+                        <td><span style="color: #f97316;">1800-2000元</span></td>
+                        <td>34.8km/33分钟</td>
+                        <td>✅ 品质最佳</td>
+                        <td>💰 儿童餐厅另付费</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>9.2/10</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>海棠湾香格里拉</strong></td>
+                        <td><span style="color: #10b981;">1200-1400元</span></td>
+                        <td>41.3km/43分钟</td>
+                        <td>✅ 丰富多样</td>
+                        <td>✅ 行政廊下午茶当晚餐</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>8.5/10</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>亚龙湾天域度假</strong></td>
+                        <td><span style="color: #10b981;">1600-1800元</span></td>
+                        <td>34.4km/40分钟</td>
+                        <td>✅ 中等水平</td>
+                        <td>❌ 需额外付费</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>8.0/10</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>亚龙湾瑞吉度假</strong></td>
+                        <td><span style="color: #f97316;">2200-2500元</span></td>
+                        <td>36.2km/42分钟</td>
+                        <td>✅ 奢华品质</td>
+                        <td>✅ 多餐厅选择</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>9.0/10</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>亚龙湾红树林</strong></td>
+                        <td><span style="color: #10b981;">1400-1600元</span></td>
+                        <td>35.8km/41分钟</td>
+                        <td>✅ 性价比高</td>
+                        <td>✅ 24小时送餐</td>
+                        <td>⭐⭐⭐</td>
+                        <td>7.8/10</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Hotel Images -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-camera"></i>
+                <h3>推荐酒店实景展示</h3>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-crown"></i> 海棠湾仁恒皇冠假日酒店</h4>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="image-placeholder hotel-theme">🏨<br>船形建筑外观<br>独特设计风格</div>
+                    <div class="image-caption">船形建筑外观</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder hotel-theme">🏊‍♂️<br>270°无边泳池<br>顶层景观泳池</div>
+                    <div class="image-caption">270°无边泳池</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder hotel-theme">🎠<br>儿童水上乐园<br>专属儿童设施</div>
+                    <div class="image-caption">儿童水上乐园</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder hotel-theme">🎮<br>儿童俱乐部<br>室内活动空间</div>
+                    <div class="image-caption">儿童俱乐部</div>
+                </div>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-star"></i> 海棠湾香格里拉度假酒店</h4>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="image-placeholder hotel-theme">🏖️<br>香格里拉酒店<br>典雅度假村建筑</div>
+                    <div class="image-caption">酒店外观</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder hotel-theme">🛝<br>儿童泳池滑梯<br>孩子们的最爱</div>
+                    <div class="image-caption">儿童泳池大滑梯</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder hotel-theme">🌿<br>酒店大草坪<br>开阔活动空间</div>
+                    <div class="image-caption">酒店大草坪</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder hotel-theme">🎪<br>室内游乐场<br>雨天最佳选择</div>
+                    <div class="image-caption">室内游乐场</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Hotel Analysis -->
+        <div class="grid">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-crown"></i>
+                    <h3>🏆 最推荐：海棠湾仁恒皇冠假日</h3>
+                </div>
+                <div class="info-box">
+                    <h4><i class="fas fa-star"></i> 为什么选择它？</h4>
+                    <p><strong>✅ 最适合4-7岁儿童</strong><br>
+                    • 两个儿童乐园 + 恒温无边泳池<br>
+                    • 免费小火车 + 儿童专属餐厅<br>
+                    • 房间配儿童玩具和小帐篷</p>
+                </div>
+                <ul class="list">
+                    <li><i class="fas fa-utensils"></i> <strong>早餐：</strong>品质最佳，儿童取餐区</li>
+                    <li><i class="fas fa-utensils"></i> <strong>晚餐：</strong>儿童餐厅另付费（约150元/人）</li>
+                    <li><i class="fas fa-swimming-pool"></i> <strong>泳池：</strong>顶层无边恒温泳池</li>
+                    <li><i class="fas fa-child"></i> <strong>服务：</strong>低幼宝宝超友好</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <strong>位置：</strong>海棠湾，近免税城</li>
+                </ul>
+                <div class="warning-box">
+                    <p><strong>价格：</strong>1800-2000元/晚（含双早）<br>
+                    <strong>住宿预算：</strong>4晚约7600元<br>
+                    <strong>晚餐预算：</strong>4晚约2400元（可选）</p>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>💰 性价比之选：香格里拉</h3>
+                </div>
+                <div class="info-box">
+                    <h4><i class="fas fa-thumbs-up"></i> 优势特点</h4>
+                    <p><strong>✅ 价格适中，设施齐全</strong><br>
+                    • 免费小火车 + 卡丁车<br>
+                    • 大草坪 + 室内外游乐场<br>
+                    • 行政廊下午茶丰富</p>
+                </div>
+                <ul class="list">
+                    <li><i class="fas fa-utensils"></i> <strong>早餐：</strong>丰富，有儿童专区</li>
+                    <li><i class="fas fa-coffee"></i> <strong>下午茶：</strong>行政廊免费，可当晚餐</li>
+                    <li><i class="fas fa-swimming-pool"></i> <strong>泳池：</strong>儿童大滑梯很受欢迎</li>
+                    <li><i class="fas fa-calendar-alt"></i> <strong>活动：</strong>每日主题活动丰富</li>
+                    <li><i class="fas fa-exclamation-triangle"></i> <strong>注意：</strong>设施相对老旧</li>
+                </ul>
+                <div class="warning-box">
+                    <p><strong>价格：</strong>1200-1400元/晚（含双早）<br>
+                    <strong>住宿预算：</strong>4晚约5200元<br>
+                    <strong>晚餐：</strong>行政廊下午茶可解决（已含）</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotel Selection Guide -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-lightbulb"></i>
+                <h3>酒店选择建议</h3>
+            </div>
+            <div class="grid">
+                <div>
+                    <h4><i class="fas fa-money-bill-wave"></i> 按预算选择</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-gem"></i> <strong>高端(2000+):</strong> 仁恒皇冠、瑞吉</li>
+                        <li><i class="fas fa-star"></i> <strong>中端(1200-1800):</strong> 香格里拉、天域</li>
+                        <li><i class="fas fa-heart"></i> <strong>经济(1000-):</strong> 红树林、假日</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-child"></i> 按儿童年龄选择</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-baby"></i> <strong>4-6岁:</strong> 仁恒皇冠（最友好）</li>
+                        <li><i class="fas fa-child"></i> <strong>6-8岁:</strong> 香格里拉、天域</li>
+                        <li><i class="fas fa-swimmer"></i> <strong>爱玩水:</strong> 仁恒皇冠、香格里拉</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> 重要提醒：晚餐费用说明</h4>
+                <p><strong>⚠️ 所有酒店价格均只含早餐，不含晚餐</strong><br>
+                • <strong>仁恒皇冠：</strong>儿童餐厅约150元/人，成人餐厅200-300元/人<br>
+                • <strong>香格里拉：</strong>豪华阁行政廊下午茶丰富，可当晚餐（已含）<br>
+                • <strong>其他选择：</strong>酒店外用餐约100-200元/人，或点外卖</p>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-trophy"></i> 最终推荐方案</h4>
+                <p><strong>方案一（推荐）：</strong>香格里拉豪华阁 4晚 - 下午茶当晚餐，性价比最高<br>
+                <strong>方案二（体验）：</strong>香格里拉 3晚 + 仁恒皇冠 1晚 - 体验对比<br>
+                <strong>方案三（奢华）：</strong>仁恒皇冠 4晚 + 酒店内用餐 - 体验最佳但费用较高</p>
+            </div>
+        </div>
+
+        <!-- Daily Itinerary -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-route"></i>
+                <h3>五日行程安排（多方案应变）</h3>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">Day 1 - 7月21日 (周一) 抵达日</div>
+                    <div class="timeline-content">
+                        <strong>11:10</strong> 珠海金湾机场出发<br>
+                        <strong>12:35</strong> 抵达三亚凤凰机场<br>
+                        <strong>13:30</strong> 前往酒店 <span style="color: #f97316;">（41.3公里，约43分钟车程）</span><br>
+                        <strong>14:30</strong> 酒店入住，休息调整<br>
+                        <strong>16:00</strong> 酒店泳池戏水，适应环境<br>
+                        <strong>18:30</strong> 行政廊下午茶（当晚餐）<br>
+                        <strong>20:00</strong> 海滩散步，观赏日落 <span style="color: #10b981;">（步行5分钟）</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 Multiple Options -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-sun"></i>
+                <h3>Day 2 - 7月22日 (周二) 多方案选择</h3>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid #10b981;">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                        <h4>☀️ 晴天方案A：海滩度假</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 酒店早餐<br>
+                                <strong>10:00</strong> 海棠湾海滩玩沙戏水 <span style="color: #10b981;">（步行3分钟）</span><br>
+                                <strong>12:00</strong> 酒店午餐<br>
+                                <strong>14:00</strong> 酒店泳池+儿童水上乐园<br>
+                                <strong>16:00</strong> 酒店儿童俱乐部活动<br>
+                                <strong>18:00</strong> 行政廊下午茶<br>
+                                <strong>19:30</strong> 海滩夕阳漫步
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>0元（酒店内活动）<br>
+                        <strong>适合：</strong>4-7岁儿童，轻松度假<br>
+                        <strong>评价：</strong>⭐⭐⭐⭐⭐ 最轻松</p>
+                    </div>
+                </div>
+
+                <div class="card" style="border: 2px solid #0ea5e9;">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                        <h4>☀️ 晴天方案B：亚特兰蒂斯</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 酒店早餐<br>
+                                <strong>10:00</strong> 前往亚特兰蒂斯 <span style="color: #10b981;">（1.3公里，5分钟车程）</span><br>
+                                <strong>10:30</strong> 失落的空间水族馆 <span style="color: #f97316;">（门票780元/人）</span><br>
+                                <strong>12:30</strong> 亚特兰蒂斯午餐<br>
+                                <strong>14:00</strong> 水世界游玩 <span style="color: #f97316;">（门票498元/人）</span><br>
+                                <strong>17:00</strong> 返回酒店<br>
+                                <strong>18:00</strong> 行政廊下午茶<br>
+                                <strong>19:30</strong> 酒店休息
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约5000元（4人门票+餐饮）<br>
+                        <strong>适合：</strong>6岁以上儿童<br>
+                        <strong>评价：</strong>⭐⭐⭐⭐⭐ 震撼体验</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid #6b7280;">
+                    <div class="card-header">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>🌧️ 雨天方案A：室内乐园</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 酒店早餐<br>
+                                <strong>10:00</strong> 酒店室内游乐场<br>
+                                <strong>12:00</strong> 酒店午餐<br>
+                                <strong>14:00</strong> 海昌不夜城 <span style="color: #10b981;">（5分钟车程）</span><br>
+                                <strong>16:00</strong> 室内儿童乐园<br>
+                                <strong>18:00</strong> 不夜城美食街晚餐<br>
+                                <strong>19:30</strong> 返回酒店
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约800元（门票+餐饮）<br>
+                        <strong>适合：</strong>4-7岁儿童<br>
+                        <strong>评价：</strong>⭐⭐⭐⭐ 室内避雨好选择</p>
+                    </div>
+                </div>
+
+                <div class="card" style="border: 2px solid #6b7280;">
+                    <div class="card-header">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>🌧️ 雨天方案B：购物休闲</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 酒店早餐<br>
+                                <strong>10:00</strong> CDF免税城购物 <span style="color: #10b981;">（2公里，8分钟车程）</span><br>
+                                <strong>12:00</strong> 免税城美食广场午餐<br>
+                                <strong>14:00</strong> 儿童游乐区<br>
+                                <strong>16:00</strong> 继续购物<br>
+                                <strong>18:00</strong> 返回酒店<br>
+                                <strong>18:30</strong> 行政廊下午茶
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约500元（餐饮+游乐）<br>
+                        <strong>适合：</strong>全家人<br>
+                        <strong>评价：</strong>⭐⭐⭐ 购物为主</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 Multiple Options -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-water"></i>
+                <h3>Day 3 - 7月23日 (周三) 海洋探索日</h3>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid #10b981;">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                        <h4>☀️ 晴天方案A：蜈支洲岛</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>08:30</strong> 酒店早餐<br>
+                                <strong>09:30</strong> 前往蜈支洲岛码头 <span style="color: #f97316;">（32.9公里，约1小时）</span><br>
+                                <strong>10:30</strong> 乘船上岛 <span style="color: #10b981;">（轮渡20分钟）</span><br>
+                                <strong>11:00</strong> 玻璃船观珊瑚礁 <span style="color: #f97316;">（180元/人）</span><br>
+                                <strong>12:30</strong> 岛上午餐<br>
+                                <strong>14:00</strong> 沙滩亲子活动<br>
+                                <strong>15:30</strong> 浮潜体验 <span style="color: #f97316;">（适合7岁以上）</span><br>
+                                <strong>16:30</strong> 返回码头<br>
+                                <strong>18:30</strong> 回到酒店<br>
+                                <strong>19:00</strong> 行政廊下午茶
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约2000元（门票+船票+活动）<br>
+                        <strong>适合：</strong>6岁以上儿童<br>
+                        <strong>评价：</strong>⭐⭐⭐⭐⭐ 海洋体验最佳</p>
+                    </div>
+                </div>
+
+                <div class="card" style="border: 2px solid #0ea5e9;">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                        <h4>☀️ 晴天方案B：分界洲岛</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>08:30</strong> 酒店早餐<br>
+                                <strong>09:30</strong> 前往分界洲岛 <span style="color: #f97316;">（45公里，约1小时）</span><br>
+                                <strong>10:30</strong> 乘船上岛<br>
+                                <strong>11:00</strong> 与魔鬼鱼喂食嬉戏 <span style="color: #f97316;">（80元/人）</span><br>
+                                <strong>12:30</strong> 岛上午餐<br>
+                                <strong>14:00</strong> 浮潜体验 <span style="color: #f97316;">（180元/人）</span><br>
+                                <strong>15:30</strong> 海滩玩沙<br>
+                                <strong>16:30</strong> 返回<br>
+                                <strong>18:30</strong> 回到酒店<br>
+                                <strong>19:00</strong> 行政廊下午茶
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约1800元（门票+活动）<br>
+                        <strong>适合：</strong>4-7岁儿童<br>
+                        <strong>评价：</strong>⭐⭐⭐⭐⭐ 更适合小童</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid #6b7280;">
+                    <div class="card-header">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>🌧️ 雨天方案A：失落的空间</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 酒店早餐<br>
+                                <strong>10:00</strong> 失落的空间水族馆 <span style="color: #10b981;">（5分钟车程）</span><br>
+                                <strong>12:00</strong> 亚特兰蒂斯午餐<br>
+                                <strong>14:00</strong> 水族馆深度游览<br>
+                                <strong>15:30</strong> 儿童互动体验<br>
+                                <strong>17:00</strong> 返回酒店<br>
+                                <strong>18:00</strong> 行政廊下午茶<br>
+                                <strong>19:30</strong> 酒店室内活动
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约3500元（门票+餐饮）<br>
+                        <strong>适合：</strong>4-7岁儿童<br>
+                        <strong>评价：</strong>⭐⭐⭐⭐⭐ 室内海洋世界</p>
+                    </div>
+                </div>
+
+                <div class="card" style="border: 2px solid #6b7280;">
+                    <div class="card-header">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>🌧️ 雨天方案B：酒店深度体验</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 酒店早餐<br>
+                                <strong>10:00</strong> 室内游乐场<br>
+                                <strong>11:30</strong> 儿童俱乐部活动<br>
+                                <strong>12:30</strong> 酒店午餐<br>
+                                <strong>14:00</strong> 室内泳池<br>
+                                <strong>15:30</strong> SPA亲子体验<br>
+                                <strong>17:00</strong> 酒店下午茶<br>
+                                <strong>18:30</strong> 行政廊晚餐<br>
+                                <strong>20:00</strong> 酒店娱乐活动
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约800元（SPA+额外餐饮）<br>
+                        <strong>适合：</strong>全年龄段<br>
+                        <strong>评价：</strong>⭐⭐⭐⭐ 最轻松舒适</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 Multiple Options -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-mountain"></i>
+                <h3>Day 4 - 7月24日 (周四) 文化探索日</h3>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid #10b981;">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                        <h4>☀️ 晴天方案A：南山寺+天涯海角</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>08:30</strong> 酒店早餐<br>
+                                <strong>09:30</strong> 包车前往南山寺 <span style="color: #f97316;">（64.7公里，约70分钟）</span><br>
+                                <strong>11:00</strong> 南山寺文化苑 <span style="color: #f97316;">（门票150元/人）</span><br>
+                                <strong>12:30</strong> 南山素斋午餐<br>
+                                <strong>14:00</strong> 前往天涯海角 <span style="color: #10b981;">（24.6公里，35分钟）</span><br>
+                                <strong>15:00</strong> 天涯海角景区 <span style="color: #f97316;">（门票81元/人）</span><br>
+                                <strong>16:30</strong> 椰梦长廊观日落 <span style="color: #10b981;">（5分钟车程）</span><br>
+                                <strong>18:00</strong> 三亚湾海鲜广场晚餐<br>
+                                <strong>20:00</strong> 返回酒店 <span style="color: #f97316;">（44.4公里，约47分钟）</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约1500元（门票+包车+餐饮）<br>
+                        <strong>适合：</strong>6岁以上儿童<br>
+                        <strong>评价：</strong>⭐⭐⭐⭐ 文化体验丰富</p>
+                    </div>
+                </div>
+
+                <div class="card" style="border: 2px solid #0ea5e9;">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                        <h4>☀️ 晴天方案B：热带天堂森林公园</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 酒店早餐<br>
+                                <strong>10:00</strong> 前往热带天堂森林公园 <span style="color: #10b981;">（15分钟车程）</span><br>
+                                <strong>10:30</strong> 玻璃栈桥体验 <span style="color: #f97316;">（门票175元/人）</span><br>
+                                <strong>12:00</strong> 山顶餐厅午餐<br>
+                                <strong>14:00</strong> 雨林探索步道<br>
+                                <strong>15:30</strong> 亚龙湾全景观赏<br>
+                                <strong>16:30</strong> 返回酒店<br>
+                                <strong>17:30</strong> 酒店休息<br>
+                                <strong>18:30</strong> 行政廊下午茶<br>
+                                <strong>20:00</strong> 亚龙湾海滩夜游
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约1000元（门票+餐饮+交通）<br>
+                        <strong>适合：</strong>5岁以上儿童<br>
+                        <strong>评价：</strong>⭐⭐⭐⭐⭐ 自然体验佳</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid #6b7280;">
+                    <div class="card-header">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>🌧️ 雨天方案A：CDF免税城深度游</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 酒店早餐<br>
+                                <strong>10:00</strong> 前往CDF免税城 <span style="color: #10b981;">（2公里，8分钟）</span><br>
+                                <strong>10:30</strong> 免税购物<br>
+                                <strong>12:00</strong> 免税城美食广场午餐<br>
+                                <strong>14:00</strong> 儿童游乐区<br>
+                                <strong>15:30</strong> 继续购物<br>
+                                <strong>17:00</strong> 免税城咖啡厅下午茶<br>
+                                <strong>18:30</strong> 返回酒店<br>
+                                <strong>19:00</strong> 行政廊晚餐
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约800元（餐饮+游乐+购物）<br>
+                        <strong>适合：</strong>全家人<br>
+                        <strong>评价：</strong>⭐⭐⭐ 购物休闲为主</p>
+                    </div>
+                </div>
+
+                <div class="card" style="border: 2px solid #6b7280;">
+                    <div class="card-header">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>🌧️ 雨天方案B：市区文化游</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 酒店早餐<br>
+                                <strong>10:00</strong> 前往三亚博物馆 <span style="color: #10b981;">（30分钟车程）</span><br>
+                                <strong>11:00</strong> 博物馆参观学习<br>
+                                <strong>12:30</strong> 第一市场午餐<br>
+                                <strong>14:00</strong> 室内儿童乐园<br>
+                                <strong>16:00</strong> 商场购物<br>
+                                <strong>17:30</strong> 返回酒店<br>
+                                <strong>18:30</strong> 行政廊下午茶<br>
+                                <strong>20:00</strong> 酒店室内活动
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>费用：</strong>约600元（交通+餐饮+娱乐）<br>
+                        <strong>适合：</strong>4-7岁儿童<br>
+                        <strong>评价：</strong>⭐⭐⭐ 文化教育意义</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-plane"></i>
+                <h3>Day 5 - 7月25日 (周五) 离别日</h3>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">统一行程（不受天气影响）</div>
+                    <div class="timeline-content">
+                        <strong>09:00</strong> 酒店早餐<br>
+                        <strong>10:00</strong> 退房，行李寄存<br>
+                        <strong>10:30</strong> 最后购物（CDF免税城或酒店商店）<br>
+                        <strong>12:00</strong> 机场附近午餐<br>
+                        <strong>13:00</strong> 前往机场 <span style="color: #f97316;">（41.3公里，约43分钟）</span><br>
+                        <strong>13:40</strong> 三亚凤凰机场出发<br>
+                        <strong>15:10</strong> 抵达珠海金湾机场
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weather Guide -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-cloud-sun-rain"></i>
+                <h3>天气应变指南</h3>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <h4><i class="fas fa-sun"></i> 晴天优先选择</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-star"></i> <strong>海岛游：</strong>蜈支洲岛、分界洲岛</li>
+                        <li><i class="fas fa-star"></i> <strong>海滩活动：</strong>海棠湾、亚龙湾海滩</li>
+                        <li><i class="fas fa-star"></i> <strong>户外景点：</strong>南山寺、天涯海角</li>
+                        <li><i class="fas fa-star"></i> <strong>森林公园：</strong>热带天堂森林公园</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-cloud-rain"></i> 雨天备选方案</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-umbrella"></i> <strong>室内景点：</strong>失落的空间水族馆</li>
+                        <li><i class="fas fa-umbrella"></i> <strong>购物中心：</strong>CDF免税城、海昌不夜城</li>
+                        <li><i class="fas fa-umbrella"></i> <strong>酒店设施：</strong>室内游乐场、SPA</li>
+                        <li><i class="fas fa-umbrella"></i> <strong>文化场所：</strong>博物馆、艺术馆</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> 7月天气特点</h4>
+                <p><strong>气温：</strong>27-30°C，炎热潮湿<br>
+                <strong>降雨：</strong>午后雷阵雨较多，建议上午安排户外活动<br>
+                <strong>紫外线：</strong>强烈，务必做好防晒<br>
+                <strong>台风：</strong>7月为台风季，关注天气预报</p>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-lightbulb"></i> 灵活调整建议</h4>
+                <p>• 每天早上查看天气预报，灵活选择当日方案<br>
+                • 室内外活动搭配，确保行程不受天气影响<br>
+                • 准备雨具，随时应对突发降雨<br>
+                • 酒店设施丰富，雨天也能玩得很开心</p>
+            </div>
+        </div>
+
+        <!-- Activity Cost Comparison -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-calculator"></i>
+                <h3>各方案费用对比（4人家庭）</h3>
+            </div>
+
+            <table class="table" style="font-size: 11px;">
+                <thead>
+                    <tr>
+                        <th>活动方案</th>
+                        <th>门票费用</th>
+                        <th>交通费用</th>
+                        <th>餐饮费用</th>
+                        <th>总费用</th>
+                        <th>儿童友好度</th>
+                        <th>天气依赖</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>蜈支洲岛一日游</strong></td>
+                        <td>1200元</td>
+                        <td>400元</td>
+                        <td>400元</td>
+                        <td>2000元</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>高（需晴天）</td>
+                    </tr>
+                    <tr>
+                        <td>亚特兰蒂斯水世界</td>
+                        <td>3120元</td>
+                        <td>50元</td>
+                        <td>800元</td>
+                        <td>3970元</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>中（室内外结合）</td>
+                    </tr>
+                    <tr>
+                        <td>失落的空间水族馆</td>
+                        <td>2340元</td>
+                        <td>50元</td>
+                        <td>600元</td>
+                        <td>2990元</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>低（室内）</td>
+                    </tr>
+                    <tr>
+                        <td>南山寺+天涯海角</td>
+                        <td>924元</td>
+                        <td>400元</td>
+                        <td>400元</td>
+                        <td>1724元</td>
+                        <td>⭐⭐⭐</td>
+                        <td>高（需晴天）</td>
+                    </tr>
+                    <tr>
+                        <td>热带天堂森林公园</td>
+                        <td>700元</td>
+                        <td>100元</td>
+                        <td>300元</td>
+                        <td>1100元</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>中（有遮蔽）</td>
+                    </tr>
+                    <tr>
+                        <td>分界洲岛</td>
+                        <td>1040元</td>
+                        <td>400元</td>
+                        <td>360元</td>
+                        <td>1800元</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>高（需晴天）</td>
+                    </tr>
+                    <tr>
+                        <td>CDF免税城+室内乐园</td>
+                        <td>200元</td>
+                        <td>50元</td>
+                        <td>400元</td>
+                        <td>650元</td>
+                        <td>⭐⭐⭐</td>
+                        <td>低（室内）</td>
+                    </tr>
+                    <tr>
+                        <td>酒店深度体验</td>
+                        <td>0元</td>
+                        <td>0元</td>
+                        <td>200元</td>
+                        <td>200元</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>无（室内）</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4><i class="fas fa-trophy"></i> 推荐搭配方案</h4>
+                <p><strong>经济型（总预算+3000元）：</strong>酒店体验 + 热带森林公园 + CDF免税城<br>
+                <strong>平衡型（总预算+5000元）：</strong>分界洲岛 + 失落的空间 + 南山寺<br>
+                <strong>奢华型（总预算+8000元）：</strong>蜈支洲岛 + 亚特兰蒂斯 + 热带森林公园</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page page-break">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">Day 4 - 7月24日 (周四) 文化体验</div>
+                <div class="timeline-content">
+                    <strong>08:30</strong> 酒店早餐<br>
+                    <strong>09:30</strong> 前往南山寺 <span style="color: #f97316;">（64.7公里，约70分钟车程）</span><br>
+                    <strong>11:00</strong> 南山寺文化苑游览<br>
+                    <strong>12:30</strong> 南山素斋午餐<br>
+                    <strong>14:00</strong> 前往天涯海角 <span style="color: #10b981;">（24.6公里，约35分钟）</span><br>
+                    <strong>15:00</strong> 天涯海角景区游览<br>
+                    <strong>16:30</strong> 椰梦长廊观日落<br>
+                    <strong>18:00</strong> 海鲜广场晚餐<br>
+                    <strong>20:00</strong> 三亚湾海滩漫步
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">Day 5 - 7月25日 (周五) 离别日</div>
+                <div class="timeline-content">
+                    <strong>09:00</strong> 酒店早餐<br>
+                    <strong>10:00</strong> 退房，行李寄存<br>
+                    <strong>10:30</strong> CDF免税城购物<br>
+                    <strong>12:00</strong> 机场附近午餐<br>
+                    <strong>13:00</strong> 前往机场<br>
+                    <strong>13:40</strong> 三亚凤凰机场出发<br>
+                    <strong>15:10</strong> 抵达珠海金湾机场
+                </div>
+            </div>
+        </div>
+
+        <!-- Transportation -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-bus"></i>
+                <h3>交通安排与距离时间</h3>
+            </div>
+
+            <!-- Distance Chart -->
+            <div style="margin-bottom: 20px;">
+                <canvas id="distanceChart" width="400" height="200"></canvas>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <h4><i class="fas fa-plane"></i> 机场交通</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-route"></i> 机场→亚龙湾酒店: 34.4公里</li>
+                        <li><i class="fas fa-clock"></i> 驾车时间: 约40分钟</li>
+                        <li><i class="fas fa-taxi"></i> 出租车: 约80-120元</li>
+                        <li><i class="fas fa-bus"></i> 机场巴士: 15元/人，约60分钟</li>
+                        <li><i class="fas fa-car"></i> 网约车: 约60-90元</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-map-marked-alt"></i> 景点距离</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-route"></i> 酒店→蜈支洲岛: 32.9公里</li>
+                        <li><i class="fas fa-clock"></i> 含轮渡时间: 约2.5小时</li>
+                        <li><i class="fas fa-route"></i> 酒店→南山寺: 64.7公里</li>
+                        <li><i class="fas fa-clock"></i> 驾车时间: 约70分钟</li>
+                        <li><i class="fas fa-route"></i> 南山寺→天涯海角: 24.6公里</li>
+                        <li><i class="fas fa-clock"></i> 驾车时间: 约35分钟</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-lightbulb"></i> 交通建议</h4>
+                <p><strong>Day 1-2:</strong> 酒店免费班车 + 打车为主<br>
+                <strong>Day 3:</strong> 蜈支洲岛建议参加一日游团（含接送）<br>
+                <strong>Day 4:</strong> 南山寺+天涯海角建议包车或租车（距离较远）</p>
+            </div>
+
+            <!-- Detailed Distance Table -->
+            <table class="table" style="margin-top: 15px;">
+                <thead>
+                    <tr>
+                        <th>路线</th>
+                        <th>距离</th>
+                        <th>驾车时间</th>
+                        <th>推荐交通方式</th>
+                        <th>预估费用</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>机场 → 亚龙湾酒店</td>
+                        <td>34.4公里</td>
+                        <td>40分钟</td>
+                        <td>出租车/网约车</td>
+                        <td>80-120元</td>
+                    </tr>
+                    <tr>
+                        <td>酒店 → 亚龙湾海滩</td>
+                        <td>0.5公里</td>
+                        <td>5分钟</td>
+                        <td>步行</td>
+                        <td>免费</td>
+                    </tr>
+                    <tr>
+                        <td>酒店 → 蜈支洲岛码头</td>
+                        <td>32.9公里</td>
+                        <td>60分钟</td>
+                        <td>一日游团车</td>
+                        <td>含在团费中</td>
+                    </tr>
+                    <tr>
+                        <td>酒店 → 南山寺</td>
+                        <td>64.7公里</td>
+                        <td>70分钟</td>
+                        <td>包车/租车</td>
+                        <td>300-400元/天</td>
+                    </tr>
+                    <tr>
+                        <td>南山寺 → 天涯海角</td>
+                        <td>24.6公里</td>
+                        <td>35分钟</td>
+                        <td>包车/租车</td>
+                        <td>含在包车费中</td>
+                    </tr>
+                    <tr>
+                        <td>酒店 → 第一市场</td>
+                        <td>20.0公里</td>
+                        <td>32分钟</td>
+                        <td>出租车/网约车</td>
+                        <td>40-60元</td>
+                    </tr>
+                    <tr>
+                        <td>酒店 → CDF免税城</td>
+                        <td>25.0公里</td>
+                        <td>35分钟</td>
+                        <td>免费班车/打车</td>
+                        <td>免费/50-70元</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box" style="margin-top: 15px;">
+                <h4><i class="fas fa-traffic-light"></i> 交通高峰时段提醒</h4>
+                <p><strong>避开时段：</strong>8:00-9:30、17:30-19:00（上下班高峰）<br>
+                <strong>周末：</strong>景区周边10:00-16:00较拥堵<br>
+                <strong>建议：</strong>提前30分钟出发，使用高德地图实时导航</p>
+            </div>
+        </div>
+
+        <!-- Budget -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-calculator"></i>
+                <h3>预算参考 (4人)</h3>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>项目</th>
+                    <th>预算</th>
+                    <th>备注</th>
+                </tr>
+                <tr>
+                    <td>机票</td>
+                    <td>3200元</td>
+                    <td>往返含税</td>
+                </tr>
+                <tr>
+                    <td>酒店</td>
+                    <td>5200元</td>
+                    <td>香格里拉豪华阁4晚×1300元</td>
+                </tr>
+                <tr>
+                    <td>餐饮</td>
+                    <td>1600元</td>
+                    <td>午餐+零食，早晚餐在酒店</td>
+                </tr>
+                <tr>
+                    <td>景点门票</td>
+                    <td>1200元</td>
+                    <td>含儿童票</td>
+                </tr>
+                <tr>
+                    <td>交通</td>
+                    <td>1200元</td>
+                    <td>机场接送+市内交通+包车</td>
+                </tr>
+                <tr>
+                    <td>购物</td>
+                    <td>1500元</td>
+                    <td>免税品等</td>
+                </tr>
+                <tr style="background: var(--bg-light); font-weight: bold;">
+                    <td>总计</td>
+                    <td>14300元</td>
+                    <td>约3575元/人</td>
+                </tr>
+            </table>
+
+            <div class="info-box" style="margin-top: 15px;">
+                <h4><i class="fas fa-calculator"></i> 交通费用明细</h4>
+                <p><strong>机场往返：</strong>200元（出租车）<br>
+                <strong>Day 2 市内：</strong>100元（打车+班车）<br>
+                <strong>Day 3 蜈支洲岛：</strong>含在门票团费中<br>
+                <strong>Day 4 包车：</strong>400元（南山寺+天涯海角）<br>
+                <strong>Day 5 购物+机场：</strong>150元<br>
+                <strong>其他零散：</strong>350元（备用金）</p>
+            </div>
+
+            <!-- Hotel Budget Comparison -->
+            <table class="table" style="margin-top: 15px; font-size: 12px;">
+                <thead>
+                    <tr>
+                        <th>酒店方案</th>
+                        <th>住宿费用</th>
+                        <th>晚餐费用</th>
+                        <th>旅行总预算</th>
+                        <th>人均费用</th>
+                        <th>性价比</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>香格里拉豪华阁（推荐）</strong></td>
+                        <td>5200元</td>
+                        <td>0元（下午茶）</td>
+                        <td>14300元</td>
+                        <td>3575元</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>仁恒皇冠+酒店用餐</td>
+                        <td>7600元</td>
+                        <td>2400元</td>
+                        <td>19100元</td>
+                        <td>4775元</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>仁恒皇冠+外出用餐</td>
+                        <td>7600元</td>
+                        <td>1200元</td>
+                        <td>17900元</td>
+                        <td>4475元</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td>混合方案</td>
+                        <td>6400元</td>
+                        <td>600元</td>
+                        <td>16100元</td>
+                        <td>4025元</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Important Information -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>重要提醒</h3>
+            </div>
+            <div class="warning-box">
+                <h4><i class="fas fa-sun"></i> 防晒必备</h4>
+                <p>三亚紫外线强烈，请准备SPF50+防晒霜、遮阳帽、太阳镜</p>
+            </div>
+            <div class="info-box">
+                <h4><i class="fas fa-child"></i> 儿童安全</h4>
+                <p>海边游玩时请时刻看护儿童，准备游泳圈等安全设备</p>
+            </div>
+            <ul class="list">
+                <li><i class="fas fa-id-card"></i> 携带身份证原件（儿童带户口本）</li>
+                <li><i class="fas fa-pills"></i> 准备常用药品：感冒药、止泻药、创可贴</li>
+                <li><i class="fas fa-tshirt"></i> 轻便夏装、泳衣、拖鞋</li>
+                <li><i class="fas fa-umbrella"></i> 雨伞（7月为雨季）</li>
+                <li><i class="fas fa-mobile-alt"></i> 下载高德地图、美团、大众点评APP</li>
+            </ul>
+        </div>
+
+        <!-- Emergency Contacts -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-phone"></i>
+                <h3>紧急联系方式</h3>
+            </div>
+            <div class="grid">
+                <div>
+                    <ul class="list">
+                        <li><i class="fas fa-hospital"></i> 急救: 120</li>
+                        <li><i class="fas fa-shield-alt"></i> 报警: 110</li>
+                        <li><i class="fas fa-fire"></i> 消防: 119</li>
+                        <li><i class="fas fa-info-circle"></i> 旅游投诉: 12301</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="list">
+                        <li><i class="fas fa-plane"></i> 三亚机场: 0898-88289151</li>
+                        <li><i class="fas fa-taxi"></i> 出租车投诉: 0898-88272596</li>
+                        <li><i class="fas fa-hospital"></i> 三亚人民医院: 0898-88252861</li>
+                        <li><i class="fas fa-map"></i> 旅游咨询: 0898-88392211</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attraction Images -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-camera"></i>
+                <h3>主要景点实景展示</h3>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-water"></i> 蜈支洲岛</h4>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="image-placeholder nature-theme">🌊<br>清澈玻璃海<br>透明度极高海水</div>
+                    <div class="image-caption">清澈的玻璃海</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder nature-theme">🐠<br>珊瑚礁浮潜<br>丰富海底世界</div>
+                    <div class="image-caption">珊瑚礁浮潜</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder nature-theme">🚢<br>玻璃船观光<br>不下水观珊瑚</div>
+                    <div class="image-caption">玻璃船观光</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder nature-theme">🏖️<br>细白沙滩<br>柔软天然沙滩</div>
+                    <div class="image-caption">细白沙滩</div>
+                </div>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-fish"></i> 亚特兰蒂斯水世界</h4>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="image-placeholder attraction-theme">🐟<br>失落的空间<br>震撼海底隧道</div>
+                    <div class="image-caption">失落的空间水族馆</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder attraction-theme">🛝<br>刺激水滑梯<br>各种惊险滑道</div>
+                    <div class="image-caption">刺激水滑梯</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder attraction-theme">🐋<br>海洋生物互动<br>亲密接触体验</div>
+                    <div class="image-caption">海洋生物互动</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder attraction-theme">🎠<br>儿童水上乐园<br>小朋友专属设施</div>
+                    <div class="image-caption">儿童水上乐园</div>
+                </div>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-om"></i> 南山寺</h4>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="image-placeholder culture-theme">🙏<br>108米海上观音<br>壮观观音圣像</div>
+                    <div class="image-caption">108米海上观音</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder culture-theme">🏛️<br>大雄宝殿<br>庄严佛教建筑</div>
+                    <div class="image-caption">南山寺大雄宝殿</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder culture-theme">🕯️<br>观音广场<br>宽阔朝拜广场</div>
+                    <div class="image-caption">观音广场</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder culture-theme">🌉<br>普济桥<br>连接观音岛桥梁</div>
+                    <div class="image-caption">普济桥</div>
+                </div>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-tree"></i> 热带天堂森林公园</h4>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="image-placeholder nature-theme">🌉<br>玻璃栈桥<br>惊险透明栈道</div>
+                    <div class="image-caption">全海景玻璃栈桥</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder nature-theme">🏞️<br>亚龙湾全景<br>俯瞰整个海湾</div>
+                    <div class="image-caption">亚龙湾全景</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder nature-theme">🌳<br>热带雨林步道<br>原始森林探索</div>
+                    <div class="image-caption">热带雨林步道</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder nature-theme">🌉<br>云端索桥<br>穿越雨林吊桥</div>
+                    <div class="image-caption">云端索桥</div>
+                </div>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-heart"></i> 天涯海角</h4>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="image-placeholder culture-theme">🗿<br>天涯石<br>著名天涯石刻</div>
+                    <div class="image-caption">天涯石</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder culture-theme">💕<br>海角石<br>浪漫海角标志</div>
+                    <div class="image-caption">海角石</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder culture-theme">🌴<br>椰梦长廊<br>椰林海滨大道</div>
+                    <div class="image-caption">椰梦长廊</div>
+                </div>
+                <div class="image-item">
+                    <div class="image-placeholder culture-theme">🌅<br>三亚湾日落<br>绝美日落景观</div>
+                    <div class="image-caption">三亚湾日落</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 12px;">
+            <p><i class="fas fa-heart"></i> 祝您和家人在三亚度过愉快的亲子时光！</p>
+            <p>制表时间: 2025年6月21日 | 数据来源: 飞常准、小红书、高德地图、Unsplash</p>
+        </div>
+    </div>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // Print optimization
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        });
+
+        // Distance Chart
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('distanceChart');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['机场→酒店', '酒店→蜈支洲岛', '酒店→南山寺', '南山寺→天涯海角'],
+                        datasets: [{
+                            label: '距离 (公里)',
+                            data: [34.4, 32.9, 64.7, 24.6],
+                            backgroundColor: [
+                                'rgba(14, 165, 233, 0.8)',
+                                'rgba(16, 185, 129, 0.8)',
+                                'rgba(249, 115, 22, 0.8)',
+                                'rgba(139, 92, 246, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(14, 165, 233, 1)',
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(249, 115, 22, 1)',
+                                'rgba(139, 92, 246, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: '主要路线距离对比',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            },
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: '距离 (公里)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
