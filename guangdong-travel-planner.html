@@ -292,6 +292,34 @@
             }
         }
 
+        /* 复制按钮样式 */
+        .copy-btn {
+            margin-left: 8px;
+            padding: 2px 6px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .copy-btn:hover {
+            opacity: 1;
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-success {
+            background: var(--success-color) !important;
+        }
+
         /* Print Styles */
         @media print {
             body {
@@ -304,6 +332,9 @@
             .card:hover {
                 transform: none;
                 box-shadow: var(--shadow);
+            }
+            .copy-btn {
+                display: none;
             }
         }
     </style>
@@ -418,7 +449,7 @@
                     </thead>
                     <tbody>
                         <tr style="background: #f0f9ff;">
-                            <td><strong>长隆海洋王国</strong></td>
+                            <td><strong>长隆海洋王国<button class="copy-btn" onclick="copyLocationName('长隆海洋王国', this)"><i class="fas fa-copy"></i></button></strong></td>
                             <td>鲸鲨馆、烟花表演、过山车</td>
                             <td>全天</td>
                             <td>成人398元<br>儿童280元</td>
@@ -426,7 +457,7 @@
                             <td>⭐⭐⭐⭐⭐</td>
                         </tr>
                         <tr>
-                            <td><strong>横琴创新方</strong></td>
+                            <td><strong>横琴创新方<button class="copy-btn" onclick="copyLocationName('横琴创新方', this)"><i class="fas fa-copy"></i></button></strong></td>
                             <td>购物、餐饮、儿童乐园</td>
                             <td>2-3小时</td>
                             <td>免费入场</td>
@@ -434,7 +465,7 @@
                             <td>⭐⭐⭐</td>
                         </tr>
                         <tr style="background: #f0f9ff;">
-                            <td><strong>澳门银河购物</strong></td>
+                            <td><strong>澳门银河购物<button class="copy-btn" onclick="copyLocationName('澳门银河购物', this)"><i class="fas fa-copy"></i></button></strong></td>
                             <td>免税购物、美食广场</td>
                             <td>2-4小时</td>
                             <td>免费入场</td>
@@ -451,7 +482,7 @@
                     </thead>
                     <tbody>
                         <tr style="background: #e8f5e8;">
-                            <td><strong>横琴湾酒店</strong></td>
+                            <td><strong>横琴湾酒店<button class="copy-btn" onclick="copyLocationName('横琴湾酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
                             <td>5星豪华</td>
                             <td>海景家庭房</td>
                             <td>1500-2000元</td>
@@ -459,7 +490,7 @@
                             <td>10分钟</td>
                         </tr>
                         <tr>
-                            <td><strong>企鹅酒店</strong></td>
+                            <td><strong>企鹅酒店<button class="copy-btn" onclick="copyLocationName('长隆企鹅酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
                             <td>5星主题</td>
                             <td>企鹅主题房</td>
                             <td>1000-1500元</td>
@@ -467,7 +498,7 @@
                             <td>5分钟</td>
                         </tr>
                         <tr style="background: #e8f5e8;">
-                            <td><strong>马戏酒店</strong></td>
+                            <td><strong>马戏酒店<button class="copy-btn" onclick="copyLocationName('长隆马戏酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
                             <td>5星主题</td>
                             <td>马戏主题房</td>
                             <td>800-1200元</td>
@@ -2811,5 +2842,84 @@
                 </div>
             </div>
         </div>
+
+    <script>
+        // 复制景点名称功能
+        function copyLocationName(text, button) {
+            // 使用现代的 Clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function() {
+                    showCopySuccess(button);
+                }).catch(function(err) {
+                    // 如果 Clipboard API 失败，使用备用方法
+                    fallbackCopyTextToClipboard(text, button);
+                });
+            } else {
+                // 对于不支持 Clipboard API 的浏览器，使用备用方法
+                fallbackCopyTextToClipboard(text, button);
+            }
+        }
+
+        // 备用复制方法
+        function fallbackCopyTextToClipboard(text, button) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+
+            // 避免滚动到底部
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    showCopySuccess(button);
+                } else {
+                    showCopyError(button);
+                }
+            } catch (err) {
+                showCopyError(button);
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        // 显示复制成功
+        function showCopySuccess(button) {
+            var originalText = button.innerHTML;
+            var originalClass = button.className;
+
+            button.innerHTML = '<i class="fas fa-check"></i>';
+            button.className += ' copy-success';
+
+            setTimeout(function() {
+                button.innerHTML = originalText;
+                button.className = originalClass;
+            }, 1500);
+        }
+
+        // 显示复制错误
+        function showCopyError(button) {
+            var originalText = button.innerHTML;
+
+            button.innerHTML = '<i class="fas fa-times"></i>';
+            button.style.background = '#dc3545';
+
+            setTimeout(function() {
+                button.innerHTML = originalText;
+                button.style.background = '';
+            }, 1500);
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('广东旅行规划表已加载，复制功能已启用');
+        });
+    </script>
 </body>
 </html>

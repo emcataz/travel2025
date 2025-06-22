@@ -344,6 +344,34 @@
             }
         }
 
+        /* 复制按钮样式 */
+        .copy-btn {
+            margin-left: 8px;
+            padding: 2px 6px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .copy-btn:hover {
+            opacity: 1;
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-success {
+            background: var(--accent-color) !important;
+        }
+
         /* Animation */
         .fade-in {
             opacity: 0;
@@ -354,6 +382,12 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        @media print {
+            .copy-btn {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -486,7 +520,7 @@
                 </thead>
                 <tbody>
                     <tr style="background: #f0f9ff;">
-                        <td><strong>🏆 滨海湾金沙酒店</strong></td>
+                        <td><strong>🏆 滨海湾金沙酒店<button class="copy-btn" onclick="copyLocationName('滨海湾金沙酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
                         <td><span style="color: #e74c3c;">7320-9150港币</span></td>
                         <td>20km/30分钟</td>
                         <td>✅ 奢华自助餐</td>
@@ -495,7 +529,7 @@
                         <td>⭐⭐⭐⭐⭐</td>
                     </tr>
                     <tr>
-                        <td><strong>圣淘沙香格里拉</strong></td>
+                        <td><strong>圣淘沙香格里拉<button class="copy-btn" onclick="copyLocationName('圣淘沙香格里拉度假酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
                         <td><span style="color: #27ae60;">4880-6100港币</span></td>
                         <td>25km/35分钟</td>
                         <td>✅ 丰富多样</td>
@@ -504,7 +538,7 @@
                         <td>⭐⭐⭐⭐⭐</td>
                     </tr>
                     <tr>
-                        <td><strong>万豪South Beach</strong></td>
+                        <td><strong>万豪South Beach<button class="copy-btn" onclick="copyLocationName('万豪South Beach酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
                         <td><span style="color: #27ae60;">3660-4880港币</span></td>
                         <td>18km/25分钟</td>
                         <td>✅ 品质良好</td>
@@ -513,7 +547,7 @@
                         <td>⭐⭐⭐⭐</td>
                     </tr>
                     <tr>
-                        <td><strong>乌节路文华东方</strong></td>
+                        <td><strong>乌节路文华东方<button class="copy-btn" onclick="copyLocationName('乌节路文华东方酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
                         <td><span style="color: #e74c3c;">6100-7320港币</span></td>
                         <td>22km/32分钟</td>
                         <td>✅ 精致美食</td>
@@ -1845,6 +1879,80 @@
                 });
             }
         });
+
+        // 复制景点名称功能
+        function copyLocationName(text, button) {
+            // 使用现代的 Clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function() {
+                    showCopySuccess(button);
+                }).catch(function(err) {
+                    // 如果 Clipboard API 失败，使用备用方法
+                    fallbackCopyTextToClipboard(text, button);
+                });
+            } else {
+                // 对于不支持 Clipboard API 的浏览器，使用备用方法
+                fallbackCopyTextToClipboard(text, button);
+            }
+        }
+
+        // 备用复制方法
+        function fallbackCopyTextToClipboard(text, button) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+
+            // 避免滚动到底部
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    showCopySuccess(button);
+                } else {
+                    showCopyError(button);
+                }
+            } catch (err) {
+                showCopyError(button);
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        // 显示复制成功
+        function showCopySuccess(button) {
+            var originalText = button.innerHTML;
+            var originalClass = button.className;
+
+            button.innerHTML = '<i class="fas fa-check"></i>';
+            button.className += ' copy-success';
+
+            setTimeout(function() {
+                button.innerHTML = originalText;
+                button.className = originalClass;
+            }, 1500);
+        }
+
+        // 显示复制错误
+        function showCopyError(button) {
+            var originalText = button.innerHTML;
+
+            button.innerHTML = '<i class="fas fa-times"></i>';
+            button.style.background = '#dc3545';
+
+            setTimeout(function() {
+                button.innerHTML = originalText;
+                button.style.background = '';
+            }, 1500);
+        }
+
+        console.log('新加坡旅行规划表已加载，复制功能已启用');
     </script>
 </body>
 </html>
