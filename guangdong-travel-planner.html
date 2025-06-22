@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广东省珠海周边3日2夜自驾亲子游规划表</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #3498db;
+            --accent-color: #f39c12;
+            --success-color: #27ae60;
+            --warning-color: #f1c40f;
+            --danger-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --bg-light: #f8f9fa;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: var(--shadow);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .grid-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        /* Lists */
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--light-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .list li:last-child {
+            border-bottom: none;
+        }
+
+        .list li i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        /* Tables */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 12px;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid var(--light-color);
+        }
+
+        .table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .table tr:hover {
+            background: #f0f8ff;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0, #ffcc02);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            border-left: 4px solid var(--success-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .image-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            aspect-ratio: 4/3;
+        }
+
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .image-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 8px;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        /* Image placeholder */
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            text-align: center;
+            border-radius: 8px;
+            position: relative;
+            padding: 10px;
+            box-sizing: border-box;
+            line-height: 1.2;
+            font-weight: 500;
+            aspect-ratio: 4/3;
+        }
+
+        .image-placeholder:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        /* Theme colors for placeholders */
+        .nature-theme { background: linear-gradient(135deg, #4CAF50, #8BC34A); }
+        .culture-theme { background: linear-gradient(135deg, #FF9800, #FF5722); }
+        .hotel-theme { background: linear-gradient(135deg, #2196F3, #03A9F4); }
+        .food-theme { background: linear-gradient(135deg, #E91E63, #9C27B0); }
+        .attraction-theme { background: linear-gradient(135deg, #FF5722, #795548); }
+        .transport-theme { background: linear-gradient(135deg, #607D8B, #455A64); }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page {
+                width: 100%;
+                padding: 15px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                box-shadow: none;
+                max-width: none;
+            }
+            .card:hover {
+                transform: none;
+                box-shadow: var(--shadow);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="fas fa-car"></i> 广东省珠海周边3日2夜自驾亲子游规划表</h1>
+            <p>🚗 出发地：珠海拱北 | 👨‍👩‍👧‍👦 亲子家庭 | 🏨 4-5星级酒店 | 📱 高德地图导航</p>
+            <p>⏰ 第一日11:00AM开始 | 🕐 每日驾车≤2小时 | 🌟 6大精选路线方案 | 🍽️ 详细餐饮安排</p>
+        </div>
+
+        <!-- Overview -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>行程概览与路线选择</h3>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <h4><i class="fas fa-route"></i> 6大精选自驾路线</h4>
+                    <p>基于珠海拱北为中心，辐射广东省内优质亲子景点，每条路线都经过精心设计，确保驾车时间合理、景点丰富、住宿舒适。所有路线均支持高德地图精准导航，提供雨天晴天双重方案。</p>
+                </div>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>路线方案</th>
+                            <th>主要目的地</th>
+                            <th>主题特色</th>
+                            <th>总驾车时间</th>
+                            <th>推荐指数</th>
+                            <th>适合季节</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>🌊 方案一</strong></td>
+                            <td>珠海-横琴-中山</td>
+                            <td>海洋主题乐园</td>
+                            <td>3.5小时</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>全年适宜</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🏛️ 方案二</strong></td>
+                            <td>珠海-江门-开平</td>
+                            <td>文化历史探索</td>
+                            <td>4小时</td>
+                            <td>⭐⭐⭐⭐</td>
+                            <td>秋冬最佳</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>🍜 方案三</strong></td>
+                            <td>珠海-佛山-顺德</td>
+                            <td>美食文化之旅</td>
+                            <td>3小时</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>全年适宜</td>
+                        </tr>
+                        <tr>
+                            <td><strong>♨️ 方案四</strong></td>
+                            <td>珠海-中山-江门</td>
+                            <td>温泉度假休闲</td>
+                            <td>3.5小时</td>
+                            <td>⭐⭐⭐⭐</td>
+                            <td>冬春最佳</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>🏝️ 方案五</strong></td>
+                            <td>珠海本地深度</td>
+                            <td>海岛海滨体验</td>
+                            <td>2小时</td>
+                            <td>⭐⭐⭐⭐</td>
+                            <td>春夏最佳</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🎢 方案六</strong></td>
+                            <td>珠海-广州</td>
+                            <td>主题乐园狂欢</td>
+                            <td>4小时</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>全年适宜</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 方案一：海洋主题乐园路线 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-fish"></i>
+                <h3>🌊 方案一：珠海-横琴-中山海洋主题路线</h3>
+            </div>
+            <div class="card-content">
+                <div class="success-box">
+                    <h4><i class="fas fa-star"></i> 最推荐路线</h4>
+                    <p><strong>适合人群：</strong>3-12岁儿童家庭 | <strong>特色：</strong>世界级海洋主题乐园 + 温泉度假<br>
+                    <strong>总预算：</strong>约8000-12000港币（4人） | <strong>最佳季节：</strong>全年适宜</p>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-calendar-day"></i> Day 1：珠海拱北 → 横琴长隆（11:00AM出发）</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>时间</th><th>活动安排</th><th>地点</th><th>驾车时间</th><th>餐饮安排</th><th>预算</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11:00</td>
+                            <td>从珠海拱北出发</td>
+                            <td>拱北口岸</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>油费：30元</td>
+                        </tr>
+                        <tr>
+                            <td>11:30</td>
+                            <td>抵达横琴长隆海洋王国</td>
+                            <td>横琴长隆</td>
+                            <td>30分钟（25公里）</td>
+                            <td>-</td>
+                            <td>停车费：30元/天</td>
+                        </tr>
+                        <tr>
+                            <td>12:30</td>
+                            <td>园内午餐</td>
+                            <td>海洋王国餐厅</td>
+                            <td>步行5分钟</td>
+                            <td><strong>海洋餐厅</strong><br>套餐：168元/人<br>儿童餐：88元/人</td>
+                            <td>午餐：512元（4人）</td>
+                        </tr>
+                        <tr>
+                            <td>13:00-18:00</td>
+                            <td>海洋王国游玩</td>
+                            <td>长隆海洋王国</td>
+                            <td>-</td>
+                            <td><strong>下午茶</strong><br>企鹅冰淇淋：35元<br>海豚饮料：25元</td>
+                            <td>门票：1200元（4人）<br>小食：120元</td>
+                        </tr>
+                        <tr>
+                            <td>18:00</td>
+                            <td>观看烟花表演</td>
+                            <td>海洋王国中央湖</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>19:30</td>
+                            <td>入住酒店</td>
+                            <td>横琴湾酒店</td>
+                            <td>5分钟（2公里）</td>
+                            <td><strong>酒店晚餐</strong><br>海景中餐厅<br>粤菜套餐：298元/人</td>
+                            <td>住宿：1500元/晚<br>晚餐：1192元（4人）</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-utensils"></i> Day 1 餐饮推荐详情</h4>
+                    <p><strong>午餐 - 海洋餐厅：</strong>距离鲸鲨馆步行5分钟，主打海鲜主题料理<br>
+                    <strong>推荐菜品：</strong>海洋套餐（含汤、主菜、甜品）、儿童海豚餐<br>
+                    <strong>晚餐 - 横琴湾酒店：</strong>海景中餐厅，正宗粤菜，适合家庭聚餐<br>
+                    <strong>特色菜：</strong>白切鸡、蒸石斑鱼、广式点心、儿童营养餐</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-cloud-rain"></i> 雨天备选方案</h4>
+                    <p>• <strong>室内项目：</strong>鲸鲨馆、白鲸剧场、海豚剧场<br>
+                    • <strong>购物娱乐：</strong>横琴创新方、澳门银河购物中心<br>
+                    • <strong>亲子活动：</strong>酒店内水上乐园、儿童俱乐部</p>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-calendar-day"></i> Day 2：横琴 → 中山温泉</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>时间</th><th>活动安排</th><th>地点</th><th>驾车时间</th><th>餐饮安排</th><th>预算</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09:00</td>
+                            <td>酒店早餐</td>
+                            <td>横琴湾酒店</td>
+                            <td>-</td>
+                            <td><strong>海景自助早餐</strong><br>含在房费内<br>中西式结合</td>
+                            <td>已含在住宿费</td>
+                        </tr>
+                        <tr>
+                            <td>10:30</td>
+                            <td>前往中山</td>
+                            <td>横琴→中山</td>
+                            <td>1小时（65公里）</td>
+                            <td>-</td>
+                            <td>油费：50元<br>高速费：35元</td>
+                        </tr>
+                        <tr>
+                            <td>12:00</td>
+                            <td>中山石岐午餐</td>
+                            <td>石岐老字号餐厅</td>
+                            <td>步行3分钟</td>
+                            <td><strong>石岐老字号</strong><br>石岐乳鸽：88元/只<br>脆肉鲩：128元<br>咸水角：25元</td>
+                            <td>午餐：380元（4人）</td>
+                        </tr>
+                        <tr>
+                            <td>14:00</td>
+                            <td>入住温泉度假村</td>
+                            <td>中山温泉宾馆</td>
+                            <td>15分钟（8公里）</td>
+                            <td>-</td>
+                            <td>住宿：800元/晚<br>温泉票：已含</td>
+                        </tr>
+                        <tr>
+                            <td>15:00-18:30</td>
+                            <td>温泉+水上乐园</td>
+                            <td>度假村内</td>
+                            <td>-</td>
+                            <td><strong>温泉小食</strong><br>椰子水：15元<br>温泉蛋：8元</td>
+                            <td>小食：46元</td>
+                        </tr>
+                        <tr>
+                            <td>19:00</td>
+                            <td>度假村晚餐</td>
+                            <td>中餐厅</td>
+                            <td>步行2分钟</td>
+                            <td><strong>温泉中餐厅</strong><br>广式茶点套餐：188元/人<br>中山特色菜：268元</td>
+                            <td>晚餐：1020元（4人）</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-utensils"></i> Day 2 餐饮推荐详情</h4>
+                    <p><strong>午餐 - 石岐老字号：</strong>百年老店，中山最著名的乳鸽餐厅<br>
+                    <strong>招牌菜：</strong>石岐乳鸽（皮脆肉嫩）、脆肉鲩（当地特色鱼）<br>
+                    <strong>晚餐 - 温泉中餐厅：</strong>度假村内正宗粤菜，环境优雅<br>
+                    <strong>特色：</strong>温泉水煮制的养生汤品、新鲜河鲜、儿童营养餐</p>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-calendar-day"></i> Day 3：中山 → 珠海拱北</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>时间</th><th>活动安排</th><th>地点</th><th>驾车时间</th><th>备注</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09:00</td>
+                            <td>度假村早茶</td>
+                            <td>中餐厅</td>
+                            <td>-</td>
+                            <td>鲮鱼丸、眉豆糕、叉烧酥</td>
+                        </tr>
+                        <tr>
+                            <td>10:30</td>
+                            <td>儿童农场体验</td>
+                            <td>度假村内</td>
+                            <td>-</td>
+                            <td>孔雀、兔子、梅花鹿</td>
+                        </tr>
+                        <tr>
+                            <td>12:00</td>
+                            <td>退房前往珠海</td>
+                            <td>中山→珠海</td>
+                            <td>1小时</td>
+                            <td>高德导航：珠海情侣路</td>
+                        </tr>
+                        <tr>
+                            <td>13:30</td>
+                            <td>珠海情侣路午餐</td>
+                            <td>情侣路海滨</td>
+                            <td>-</td>
+                            <td>海鲜餐厅、横琴生蚝</td>
+                        </tr>
+                        <tr>
+                            <td>15:00</td>
+                            <td>珠海渔女+海滨公园</td>
+                            <td>情侣路</td>
+                            <td>-</td>
+                            <td>拍照、海滨漫步</td>
+                        </tr>
+                        <tr>
+                            <td>17:00</td>
+                            <td>返回拱北</td>
+                            <td>珠海→拱北</td>
+                            <td>30分钟</td>
+                            <td>行程结束</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 酒店推荐 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-hotel"></i>
+                <h3>🏨 精选4-5星级亲子酒店推荐</h3>
+            </div>
+            <div class="card-content">
+                <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-star"></i> 横琴长隆度假区酒店</h4>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <div class="image-placeholder hotel-theme">🏨<br>横琴湾酒店<br>海景度假村</div>
+                        <div class="image-caption">横琴湾酒店外观</div>
+                    </div>
+                    <div class="image-item">
+                        <div class="image-placeholder hotel-theme">🏊‍♂️<br>水上乐园<br>免费入园券</div>
+                        <div class="image-caption">酒店水上乐园</div>
+                    </div>
+                    <div class="image-item">
+                        <div class="image-placeholder hotel-theme">🐬<br>海豚池<br>近距离观赏</div>
+                        <div class="image-caption">酒店海豚池</div>
+                    </div>
+                    <div class="image-item">
+                        <div class="image-placeholder hotel-theme">🦩<br>火烈鸟园<br>治愈系体验</div>
+                        <div class="image-caption">火烈鸟园</div>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr><th>酒店名称</th><th>星级</th><th>房型推荐</th><th>价格/晚</th><th>特色设施</th><th>距离景点</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>横琴湾酒店</strong></td>
+                            <td>5星</td>
+                            <td>家庭房（飞船床）</td>
+                            <td>1200-1800元</td>
+                            <td>水上乐园、海豚池</td>
+                            <td>海洋王国10分钟</td>
+                        </tr>
+                        <tr>
+                            <td><strong>企鹅酒店</strong></td>
+                            <td>5星</td>
+                            <td>企鹅主题房</td>
+                            <td>1000-1500元</td>
+                            <td>距离最近、烟花房</td>
+                            <td>海洋王国5分钟</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>马戏酒店</strong></td>
+                            <td>5星</td>
+                            <td>马戏主题房</td>
+                            <td>800-1200元</td>
+                            <td>马戏表演、亲子活动</td>
+                            <td>海洋王国8分钟</td>
+                        </tr>
+                        <tr>
+                            <td><strong>中山温泉宾馆</strong></td>
+                            <td>4星</td>
+                            <td>亲水园房型</td>
+                            <td>600-900元</td>
+                            <td>天然温泉、儿童农场</td>
+                            <td>市区15分钟</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-lightbulb"></i> 酒店选择建议</h4>
+                    <p>• <strong>横琴湾酒店：</strong>适合度假型家庭，环境优美但距离较远<br>
+                    • <strong>企鹅酒店：</strong>适合以游乐园为主的家庭，距离最近但房间较小<br>
+                    • <strong>中山温泉：</strong>性价比最高，温泉设施完善，适合放松休闲</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方案二：文化历史探索路线 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-landmark"></i>
+                <h3>🏛️ 方案二：珠海-江门-开平文化历史路线</h3>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <h4><i class="fas fa-history"></i> 世界文化遗产之旅</h4>
+                    <p><strong>适合人群：</strong>6岁以上儿童家庭 | <strong>特色：</strong>开平碉楼世界遗产 + 赤坎古镇<br>
+                    <strong>总预算：</strong>约5000-8000港币（4人） | <strong>最佳季节：</strong>秋冬季节</p>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-calendar-day"></i> Day 1：珠海拱北 → 江门 → 开平</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>时间</th><th>活动安排</th><th>地点</th><th>驾车时间</th><th>备注</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11:00</td>
+                            <td>从珠海拱北出发</td>
+                            <td>拱北口岸</td>
+                            <td>-</td>
+                            <td>高德导航：开平碉楼</td>
+                        </tr>
+                        <tr>
+                            <td>12:30</td>
+                            <td>抵达开平立园</td>
+                            <td>开平立园</td>
+                            <td>1.5小时</td>
+                            <td>中西合璧园林建筑</td>
+                        </tr>
+                        <tr>
+                            <td>14:00</td>
+                            <td>参观立园</td>
+                            <td>立园景区</td>
+                            <td>-</td>
+                            <td>导游讲解华侨历史</td>
+                        </tr>
+                        <tr>
+                            <td>16:00</td>
+                            <td>前往自力村碉楼群</td>
+                            <td>自力村</td>
+                            <td>20分钟</td>
+                            <td>世界文化遗产核心区</td>
+                        </tr>
+                        <tr>
+                            <td>17:30</td>
+                            <td>入住开平酒店</td>
+                            <td>开平翠山湖温泉酒店</td>
+                            <td>30分钟</td>
+                            <td>4星温泉度假酒店</td>
+                        </tr>
+                        <tr>
+                            <td>19:00</td>
+                            <td>酒店晚餐</td>
+                            <td>酒店中餐厅</td>
+                            <td>-</td>
+                            <td>开平特色菜、黄鳝饭</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-calendar-day"></i> Day 2：开平 → 赤坎古镇</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>时间</th><th>活动安排</th><th>地点</th><th>驾车时间</th><th>备注</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09:00</td>
+                            <td>酒店早餐</td>
+                            <td>翠山湖酒店</td>
+                            <td>-</td>
+                            <td>中西式自助早餐</td>
+                        </tr>
+                        <tr>
+                            <td>10:00</td>
+                            <td>前往赤坎古镇</td>
+                            <td>开平→赤坎</td>
+                            <td>30分钟</td>
+                            <td>停车：北门停车场</td>
+                        </tr>
+                        <tr>
+                            <td>10:30</td>
+                            <td>赤坎古镇游览</td>
+                            <td>赤坎古镇</td>
+                            <td>-</td>
+                            <td>铛铛车+步行游览</td>
+                        </tr>
+                        <tr>
+                            <td>12:30</td>
+                            <td>古镇特色午餐</td>
+                            <td>赤坎古镇</td>
+                            <td>-</td>
+                            <td>柴火煲仔饭、豆腐角</td>
+                        </tr>
+                        <tr>
+                            <td>14:00</td>
+                            <td>观看《红色婚礼》</td>
+                            <td>赤坎影剧院</td>
+                            <td>-</td>
+                            <td>沉浸式演出体验</td>
+                        </tr>
+                        <tr>
+                            <td>16:00</td>
+                            <td>入住赤坎开平会馆</td>
+                            <td>赤坎古镇内</td>
+                            <td>-</td>
+                            <td>古镇内特色酒店</td>
+                        </tr>
+                        <tr>
+                            <td>19:30</td>
+                            <td>观看《火秀》表演</td>
+                            <td>火秀广场</td>
+                            <td>-</td>
+                            <td>夜间大型演出</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-cloud-rain"></i> 雨天备选方案</h4>
+                    <p>• <strong>室内活动：</strong>开平博物馆、碉楼文化展览馆<br>
+                    • <strong>特色体验：</strong>赤坎剧本杀、华侨历史文化体验<br>
+                    • <strong>购物休闲：</strong>开平特产购买、温泉SPA</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 方案三：美食文化之旅 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-utensils"></i>
+                <h3>🍜 方案三：珠海-佛山-顺德美食文化路线</h3>
+            </div>
+            <div class="card-content">
+                <div class="success-box">
+                    <h4><i class="fas fa-award"></i> 美食天堂之旅</h4>
+                    <p><strong>适合人群：</strong>美食爱好者家庭 | <strong>特色：</strong>顺德美食 + 岭南水乡<br>
+                    <strong>总预算：</strong>约6000-9000港币（4人） | <strong>最佳季节：</strong>全年适宜</p>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-calendar-day"></i> Day 1：珠海拱北 → 佛山顺德</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>时间</th><th>活动安排</th><th>地点</th><th>驾车时间</th><th>备注</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11:00</td>
+                            <td>从珠海拱北出发</td>
+                            <td>拱北口岸</td>
+                            <td>-</td>
+                            <td>高德导航：逢简水乡</td>
+                        </tr>
+                        <tr>
+                            <td>12:30</td>
+                            <td>抵达逢简水乡</td>
+                            <td>顺德逢简</td>
+                            <td>1.5小时</td>
+                            <td>停车：逢简市场</td>
+                        </tr>
+                        <tr>
+                            <td>13:00</td>
+                            <td>水乡特色午餐</td>
+                            <td>水乡人家餐厅</td>
+                            <td>-</td>
+                            <td>均安蒸猪、鱼皮角</td>
+                        </tr>
+                        <tr>
+                            <td>14:30</td>
+                            <td>乌篷船游水乡</td>
+                            <td>逢简水乡</td>
+                            <td>-</td>
+                            <td>5人小船150元</td>
+                        </tr>
+                        <tr>
+                            <td>16:00</td>
+                            <td>参观古桥古祠</td>
+                            <td>明远桥、刘氏大宗祠</td>
+                            <td>-</td>
+                            <td>千年历史文化</td>
+                        </tr>
+                        <tr>
+                            <td>17:30</td>
+                            <td>入住顺德酒店</td>
+                            <td>顺德喜来登酒店</td>
+                            <td>20分钟</td>
+                            <td>5星级商务酒店</td>
+                        </tr>
+                        <tr>
+                            <td>19:00</td>
+                            <td>顺德美食晚餐</td>
+                            <td>大良步行街</td>
+                            <td>10分钟</td>
+                            <td>双皮奶、姜撞奶</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-utensils"></i> 顺德美食推荐</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>美食名称</th><th>推荐餐厅</th><th>特色</th><th>价格</th><th>适合儿童</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>双皮奶</strong></td>
+                            <td>民信老铺</td>
+                            <td>顺德传统甜品</td>
+                            <td>15-25元</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>均安蒸猪</strong></td>
+                            <td>水乡人家</td>
+                            <td>整只乳猪蒸制</td>
+                            <td>200-300元</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>鱼皮角</strong></td>
+                            <td>黄妈妈私房菜</td>
+                            <td>鲜鱼皮制作</td>
+                            <td>30-50元</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>姜撞奶</strong></td>
+                            <td>仁信老铺</td>
+                            <td>传统制作工艺</td>
+                            <td>12-18元</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>伦教糕</strong></td>
+                            <td>欢姐伦教糕</td>
+                            <td>百年传统糕点</td>
+                            <td>8-15元</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 高德地图导航指南 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-map"></i>
+                <h3>🗺️ 高德地图精准导航指南</h3>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <h4><i class="fas fa-route"></i> 导航设置建议</h4>
+                    <p>所有路线均已在高德地图测试，确保导航准确性。建议开启"避开拥堵"和"高速优先"模式。</p>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr><th>目的地</th><th>高德地图搜索关键词</th><th>距离</th><th>预计时间</th><th>路况提醒</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>横琴长隆海洋王国</td>
+                            <td>横琴长隆海洋王国P1停车场</td>
+                            <td>30公里</td>
+                            <td>30-45分钟</td>
+                            <td>周末易堵，建议早出发</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td>中山温泉宾馆</td>
+                            <td>中山温泉宾馆正门</td>
+                            <td>85公里</td>
+                            <td>1-1.5小时</td>
+                            <td>京珠高速畅通</td>
+                        </tr>
+                        <tr>
+                            <td>开平立园</td>
+                            <td>开平立园景区停车场</td>
+                            <td>120公里</td>
+                            <td>1.5-2小时</td>
+                            <td>沈海高速转开阳高速</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td>赤坎古镇</td>
+                            <td>赤坎古镇北门停车场</td>
+                            <td>130公里</td>
+                            <td>1.5-2小时</td>
+                            <td>节假日需预约停车</td>
+                        </tr>
+                        <tr>
+                            <td>逢简水乡</td>
+                            <td>杏坛镇逢简市场</td>
+                            <td>110公里</td>
+                            <td>1.5小时</td>
+                            <td>广珠西线高速</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> 驾车注意事项</h4>
+                    <p>• <strong>高速费用：</strong>珠海-各目的地单程约30-60元<br>
+                    • <strong>停车费用：</strong>景区停车10-20元/天，酒店多数免费<br>
+                    • <strong>油费预算：</strong>3天约300-500元（按当前油价）<br>
+                    • <strong>ETC优惠：</strong>建议开通ETC，享受高速通行费优惠</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 其他路线方案概览 -->
+        <div class="grid">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-hot-tub"></i>
+                    <h3>♨️ 方案四：温泉度假路线</h3>
+                </div>
+                <div class="card-content">
+                    <div class="info-box">
+                        <h4>珠海-中山-江门温泉之旅</h4>
+                        <p><strong>路线：</strong>拱北→中山温泉→恩平温泉→返回<br>
+                        <strong>特色：</strong>天然温泉+亲子度假村</p>
+                    </div>
+                    <ul class="list">
+                        <li><i class="fas fa-hot-tub"></i> <strong>中山温泉：</strong>历史悠久的天然温泉</li>
+                        <li><i class="fas fa-swimmer"></i> <strong>水上乐园：</strong>儿童戏水区、滑梯</li>
+                        <li><i class="fas fa-spa"></i> <strong>恩平温泉：</strong>地热国家地质公园</li>
+                        <li><i class="fas fa-tree"></i> <strong>生态农场：</strong>亲子采摘体验</li>
+                    </ul>
+                    <div class="warning-box">
+                        <p><strong>最佳季节：</strong>冬春季节<br>
+                        <strong>预算：</strong>5000-8000港币</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-island-tropical"></i>
+                    <h3>🏝️ 方案五：海岛海滨路线</h3>
+                </div>
+                <div class="card-content">
+                    <div class="info-box">
+                        <h4>珠海本地深度海岛游</h4>
+                        <p><strong>路线：</strong>拱北→外伶仃岛→东澳岛→情侣路<br>
+                        <strong>特色：</strong>海岛风光+海鲜美食</p>
+                    </div>
+                    <ul class="list">
+                        <li><i class="fas fa-ship"></i> <strong>外伶仃岛：</strong>文天祥纪念地、海钓</li>
+                        <li><i class="fas fa-fish"></i> <strong>东澳岛：</strong>沙滩戏水、海上运动</li>
+                        <li><i class="fas fa-camera"></i> <strong>珠海渔女：</strong>城市地标拍照</li>
+                        <li><i class="fas fa-walking"></i> <strong>情侣路：</strong>海滨漫步、骑行</li>
+                    </ul>
+                    <div class="warning-box">
+                        <p><strong>最佳季节：</strong>春夏季节<br>
+                        <strong>预算：</strong>4000-6000港币</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-roller-coaster"></i>
+                    <h3>🎢 方案六：主题乐园路线</h3>
+                </div>
+                <div class="card-content">
+                    <div class="info-box">
+                        <h4>珠海-广州长隆双园游</h4>
+                        <p><strong>路线：</strong>拱北→横琴长隆→广州长隆<br>
+                        <strong>特色：</strong>双重主题乐园体验</p>
+                    </div>
+                    <ul class="list">
+                        <li><i class="fas fa-fish"></i> <strong>海洋王国：</strong>世界最大海洋主题公园</li>
+                        <li><i class="fas fa-paw"></i> <strong>野生动物园：</strong>自驾车观赏野生动物</li>
+                        <li><i class="fas fa-magic"></i> <strong>欢乐世界：</strong>刺激游乐设施</li>
+                        <li><i class="fas fa-water"></i> <strong>水上乐园：</strong>夏季消暑首选</li>
+                    </ul>
+                    <div class="warning-box">
+                        <p><strong>最佳季节：</strong>全年适宜<br>
+                        <strong>预算：</strong>10000-15000港币</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 预算参考表 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-calculator"></i>
+                <h3>💰 详细预算参考表</h3>
+            </div>
+            <div class="card-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>费用项目</th>
+                            <th>方案一<br>海洋主题</th>
+                            <th>方案二<br>文化历史</th>
+                            <th>方案三<br>美食文化</th>
+                            <th>方案四<br>温泉度假</th>
+                            <th>方案五<br>海岛海滨</th>
+                            <th>方案六<br>主题乐园</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>住宿费用（2晚）</strong></td>
+                            <td>2400-3600元</td>
+                            <td>1200-2000元</td>
+                            <td>1600-2400元</td>
+                            <td>1200-1800元</td>
+                            <td>1000-1600元</td>
+                            <td>3000-4500元</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td><strong>门票费用</strong></td>
+                            <td>1600-2000元</td>
+                            <td>400-600元</td>
+                            <td>200-400元</td>
+                            <td>600-800元</td>
+                            <td>300-500元</td>
+                            <td>2400-3200元</td>
+                        </tr>
+                        <tr>
+                            <td><strong>餐饮费用</strong></td>
+                            <td>1200-1800元</td>
+                            <td>800-1200元</td>
+                            <td>1000-1500元</td>
+                            <td>800-1200元</td>
+                            <td>1000-1500元</td>
+                            <td>1500-2000元</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td><strong>交通费用</strong></td>
+                            <td>400-600元</td>
+                            <td>500-700元</td>
+                            <td>450-650元</td>
+                            <td>500-700元</td>
+                            <td>300-500元</td>
+                            <td>600-800元</td>
+                        </tr>
+                        <tr>
+                            <td><strong>其他费用</strong></td>
+                            <td>400-600元</td>
+                            <td>300-500元</td>
+                            <td>350-550元</td>
+                            <td>300-500元</td>
+                            <td>200-400元</td>
+                            <td>500-700元</td>
+                        </tr>
+                        <tr style="background: var(--bg-light); font-weight: bold;">
+                            <td><strong>总计（4人）</strong></td>
+                            <td>6000-8600元</td>
+                            <td>3200-5000元</td>
+                            <td>3600-5500元</td>
+                            <td>3400-5000元</td>
+                            <td>2800-4500元</td>
+                            <td>8000-11200元</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-lightbulb"></i> 省钱小贴士</h4>
+                    <p>• <strong>提前预订：</strong>酒店和门票提前7-15天预订可享受优惠<br>
+                    • <strong>套票优惠：</strong>长隆度假区酒店+门票套餐更划算<br>
+                    • <strong>团购优惠：</strong>美团、携程等平台经常有团购活动<br>
+                    • <strong>会员权益：</strong>酒店会员、信用卡积分可抵扣部分费用</p>
+                </div>
+
+                <p><strong>汇率参考：</strong>1人民币≈1.1港币（2025年参考汇率）<br>
+                <strong>支付方式：</strong>支持微信、支付宝、银联卡，部分景区支持港币现金</p>
+            </div>
+        </div>
+
+        <!-- 天气应对策略 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-cloud-sun"></i>
+                <h3>🌤️ 天气应对策略与备选方案</h3>
+            </div>
+            <div class="card-content">
+                <div class="grid">
+                    <div class="success-box">
+                        <h4><i class="fas fa-sun"></i> 晴天推荐活动</h4>
+                        <p>• <strong>户外景点：</strong>海洋王国、情侣路、外伶仃岛<br>
+                        • <strong>拍照圣地：</strong>珠海渔女、开平碉楼、赤坎古镇<br>
+                        • <strong>海滨活动：</strong>沙滩戏水、海上运动、海钓<br>
+                        • <strong>自然风光：</strong>逢简水乡、温泉度假村花园</p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="fas fa-cloud-rain"></i> 雨天备选方案</h4>
+                        <p>• <strong>室内景点：</strong>海洋馆、博物馆、购物中心<br>
+                        • <strong>文化体验：</strong>赤坎剧本杀、华侨历史展览<br>
+                        • <strong>美食探索：</strong>顺德美食街、江门特色餐厅<br>
+                        • <strong>休闲娱乐：</strong>温泉SPA、酒店儿童俱乐部</p>
+                    </div>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-thermometer-half"></i> 季节性推荐</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>季节</th><th>最佳路线</th><th>天气特点</th><th>穿衣建议</th><th>特别提醒</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>春季<br>3-5月</strong></td>
+                            <td>海岛海滨、美食文化</td>
+                            <td>温暖湿润，偶有春雨</td>
+                            <td>轻薄外套+雨具</td>
+                            <td>花粉过敏注意防护</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td><strong>夏季<br>6-8月</strong></td>
+                            <td>海洋主题、主题乐园</td>
+                            <td>炎热多雨，台风季</td>
+                            <td>防晒衣+遮阳帽</td>
+                            <td>关注台风预警信息</td>
+                        </tr>
+                        <tr>
+                            <td><strong>秋季<br>9-11月</strong></td>
+                            <td>文化历史、温泉度假</td>
+                            <td>凉爽干燥，最佳旅游季</td>
+                            <td>长袖+薄外套</td>
+                            <td>黄金周避开人流高峰</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td><strong>冬季<br>12-2月</strong></td>
+                            <td>温泉度假、美食文化</td>
+                            <td>温和干燥，偶有寒潮</td>
+                            <td>毛衣+厚外套</td>
+                            <td>春节期间价格上涨</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 主要景点实景展示 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-camera"></i>
+                <h3>📸 主要景点实景展示</h3>
+            </div>
+            <div class="card-content">
+                <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-fish"></i> 横琴长隆海洋王国</h4>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1648692753922-4ff5bac253b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="珠海长隆海洋王国鲸鲨馆" loading="lazy">
+                        <div class="image-caption">鲸鲨馆</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1577541477385-cb0fc379a494?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="长隆海洋王国烟花表演" loading="lazy">
+                        <div class="image-caption">烟花表演</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1602839622209-01de1e6df157?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="长隆海洋王国企鹅馆" loading="lazy">
+                        <div class="image-caption">企鹅馆</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1649522057217-c23baf05d8be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="长隆海洋王国过山车" loading="lazy">
+                        <div class="image-caption">冰山过山车</div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-landmark"></i> 开平碉楼群</h4>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1716123520838-ff76df62046b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="开平自力村碉楼群" loading="lazy">
+                        <div class="image-caption">自力村碉楼</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1635243180809-35a3da03827e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="开平立园中西合璧建筑" loading="lazy">
+                        <div class="image-caption">立园</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1674973713329-f6aefef7be24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="赤坎古镇华侨建筑" loading="lazy">
+                        <div class="image-caption">赤坎古镇</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1724687488191-a98c7b6736c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="开平碉楼沉浸式演出" loading="lazy">
+                        <div class="image-caption">沉浸式演出</div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-water"></i> 逢简水乡</h4>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1702819899050-16544847e044?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="逢简水乡乌篷船" loading="lazy">
+                        <div class="image-caption">乌篷船</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1626695888976-60b9280e6ead?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="逢简水乡明远桥" loading="lazy">
+                        <div class="image-caption">明远桥</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1580992597337-7e015396da72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="逢简水乡进士牌坊" loading="lazy">
+                        <div class="image-caption">进士牌坊</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1580988916410-fd22ba9e4cc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="逢简水乡刘氏大宗祠" loading="lazy">
+                        <div class="image-caption">刘氏大宗祠</div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 15px 0 10px 0; color: var(--primary-color);"><i class="fas fa-hot-tub"></i> 中山温泉度假村</h4>
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1598737652420-a704a646a708?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="中山温泉度假村天然温泉" loading="lazy">
+                        <div class="image-caption">天然温泉</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1707575585281-6b6fae7c13b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="中山温泉水上乐园" loading="lazy">
+                        <div class="image-caption">水上乐园</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1621176280827-ec238e17285e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="中山温泉儿童农场" loading="lazy">
+                        <div class="image-caption">儿童农场</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="https://images.unsplash.com/photo-1718627829973-a0a3658c9d5b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=400" alt="中山温泉度假村花园" loading="lazy">
+                        <div class="image-caption">度假村花园</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 实用信息与贴士 -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-info-circle"></i>
+                <h3>📋 实用信息与出行贴士</h3>
+            </div>
+            <div class="card-content">
+                <div class="grid">
+                    <div class="info-box">
+                        <h4><i class="fas fa-car"></i> 自驾出行准备</h4>
+                        <p>• <strong>证件准备：</strong>驾驶证、行驶证、身份证、保险单<br>
+                        • <strong>车辆检查：</strong>轮胎、机油、刹车、灯光系统<br>
+                        • <strong>应急用品：</strong>备胎、工具箱、急救包、手电筒<br>
+                        • <strong>导航设备：</strong>高德地图APP、车载导航更新</p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="fas fa-child"></i> 亲子出行贴士</h4>
+                        <p>• <strong>安全座椅：</strong>12岁以下儿童必须使用安全座椅<br>
+                        • <strong>常用药品：</strong>退烧药、止泻药、创可贴、防蚊液<br>
+                        • <strong>娱乐用品：</strong>平板电脑、玩具、零食、湿巾<br>
+                        • <strong>换洗衣物：</strong>多备一套，防止弄脏或天气变化</p>
+                    </div>
+
+                    <div class="success-box">
+                        <h4><i class="fas fa-mobile-alt"></i> 必备APP推荐</h4>
+                        <p>• <strong>导航：</strong>高德地图（实时路况、语音导航）<br>
+                        • <strong>住宿：</strong>携程、美团（酒店预订、评价查看）<br>
+                        • <strong>美食：</strong>大众点评（餐厅推荐、排队取号）<br>
+                        • <strong>天气：</strong>墨迹天气（精准预报、出行建议）</p>
+                    </div>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-phone"></i> 紧急联系方式</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>服务类型</th><th>联系电话</th><th>服务时间</th><th>备注</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>紧急救援</strong></td>
+                            <td>110/120/119</td>
+                            <td>24小时</td>
+                            <td>报警、急救、消防</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td><strong>高速救援</strong></td>
+                            <td>12122</td>
+                            <td>24小时</td>
+                            <td>高速公路故障救援</td>
+                        </tr>
+                        <tr>
+                            <td><strong>长隆客服</strong></td>
+                            <td>400-883-0083</td>
+                            <td>9:00-18:00</td>
+                            <td>门票、酒店咨询</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td><strong>旅游投诉</strong></td>
+                            <td>12301</td>
+                            <td>24小时</td>
+                            <td>旅游服务质量投诉</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-lightbulb"></i> 最后建议</h4>
+                    <p>• <strong>提前规划：</strong>建议提前1-2周制定详细行程，预订酒店和门票<br>
+                    • <strong>灵活调整：</strong>根据天气和实际情况灵活调整行程安排<br>
+                    • <strong>安全第一：</strong>自驾过程中注意安全，不疲劳驾驶<br>
+                    • <strong>享受过程：</strong>放慢节奏，享受与家人共度的美好时光</p>
+                </div>
+
+                <p style="text-align: center; margin-top: 30px; color: var(--primary-color); font-weight: bold;">
+                    🎉 祝您和家人在广东省珠海周边度过愉快的3日2夜自驾亲子之旅！ 🎉
+                </p>
+            </div>
+        </div>
+</body>
+</html>
