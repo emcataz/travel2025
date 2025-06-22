@@ -222,6 +222,14 @@
             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
         }
 
+        .card-header.shunde {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
+        .card-button.shunde {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
         .card-button::before {
             content: '';
             position: absolute;
@@ -282,13 +290,19 @@
         }
 
         /* Responsive */
-        @media (min-width: 1200px) {
+        @media (min-width: 1400px) {
             .destinations {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
-        @media (max-width: 1199px) and (min-width: 769px) {
+        @media (min-width: 1000px) and (max-width: 1399px) {
+            .destinations {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 999px) and (min-width: 769px) {
             .destinations {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -342,7 +356,7 @@
             <h1><i class="fas fa-globe-asia"></i> 亲子旅行规划中心</h1>
             <div class="subtitle">精心策划的多元化亲子旅行方案</div>
             <div class="description">
-                为您和家人量身定制的详细旅行规划，涵盖海滨度假、城市探索、自驾文化游三大主题。
+                为您和家人量身定制的详细旅行规划，涵盖海滨度假、城市探索、自驾文化游、美食深度游四大主题。
                 包含航班、酒店、景点、交通、预算等全方位信息，每个方案都经过精心设计，确保大人小孩都能享受愉快的旅行体验。
             </div>
         </div>
@@ -456,6 +470,43 @@
 
                     <a href="guangdong-travel-planner.html" class="card-button guangdong">
                         <i class="fas fa-car"></i> 查看详细规划
+                    </a>
+                </div>
+            </div>
+
+            <!-- Shunde Card -->
+            <div class="destination-card fade-in">
+                <div class="card-header shunde">
+                    <div class="card-icon">🍜</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">顺德周边三日二夜</h2>
+                    <p class="card-subtitle">美食文化深度游 • 40分钟车程控制</p>
+
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">天数</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">¥5.5K</div>
+                            <div class="stat-label">预算</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">全年龄</div>
+                            <div class="stat-label">适合年龄</div>
+                        </div>
+                    </div>
+
+                    <div class="card-highlights">
+                        <span class="highlight">🥛 双皮奶姜撞奶</span>
+                        <span class="highlight">🐷 均安蒸猪</span>
+                        <span class="highlight">🏛️ 清晖园</span>
+                        <span class="highlight">🚢 逢简水乡</span>
+                    </div>
+
+                    <a href="shunde-travel-planner.html" class="card-button shunde">
+                        <i class="fas fa-utensils"></i> 查看详细规划
                     </a>
                 </div>
             </div>

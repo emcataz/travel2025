@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顺德周边深度三天二夜美食文化之旅 - 亲子旅行规划表</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff6b35;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+            --bg-light: #f8f9fa;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 24px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .description {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e3c72 100%);
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .table th {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .table tr:hover {
+            background: var(--bg-light);
+        }
+
+        .info-box, .warning-box, .success-box {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-color: #ff9800;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            border-color: #4caf50;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #1e3c72;
+            transform: translateY(-2px);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .table {
+                font-size: 14px;
+            }
+
+            .table th, .table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍜 顺德周边深度三天二夜</h1>
+            <div class="subtitle">美食文化之旅 • 40分钟车程控制</div>
+            <div class="description">
+                以顺德为中心，深度体验粤菜发源地文化，每段驾车时间严格控制在40分钟内，
+                适合美食爱好者家庭的经济实惠文化之旅。
+            </div>
+        </div>
+
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> 返回主页
+        </a>
+
+        <!-- 路线概览 -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-route"></i>
+                <h3>🗺️ 路线设计理念与特色</h3>
+            </div>
+            <div class="card-content">
+                <div class="success-box">
+                    <h4><i class="fas fa-star"></i> 深度体验路线设计</h4>
+                    <p><strong>核心理念：</strong>40分钟车程内深度体验粤菜发源地 | <strong>适合人群：</strong>美食爱好者家庭<br>
+                    <strong>路线设计：</strong>珠海→中山（中途站）→顺德（核心区）→佛山（延伸区）<br>
+                    <strong>总预算：</strong>5532元（4人3天2夜） | <strong>最佳季节：</strong>全年适宜</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-route"></i> 40分钟车程控制策略</h4>
+                    <p><strong>珠海拱北→中山石岐：</strong>65公里，1小时15分钟（设为中途站，停留2-3小时）<br>
+                    <strong>中山石岐→顺德大良：</strong>35公里，40分钟（核心区域，住宿2晚）<br>
+                    <strong>顺德大良→逢简水乡：</strong>12公里，20分钟（水乡体验）<br>
+                    <strong>顺德→佛山南海：</strong>25公里，35分钟（延伸体验）</p>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr><th>路段</th><th>距离</th><th>时间</th><th>特色</th><th>停留时间</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>珠海→中山</strong></td>
+                            <td>65公里</td>
+                            <td>1小时15分钟</td>
+                            <td>中途休息站，石岐乳鸽</td>
+                            <td>2-3小时</td>
+                        </tr>
+                        <tr>
+                            <td><strong>中山→顺德</strong></td>
+                            <td>35公里</td>
+                            <td>40分钟</td>
+                            <td>核心区域，住宿2晚</td>
+                            <td>2天</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>顺德→逢简</strong></td>
+                            <td>12公里</td>
+                            <td>20分钟</td>
+                            <td>千年水乡，游船体验</td>
+                            <td>3小时</td>
+                        </tr>
+                        <tr>
+                            <td><strong>顺德→佛山</strong></td>
+                            <td>25公里</td>
+                            <td>35分钟</td>
+                            <td>现代商业，亲子乐园</td>
+                            <td>4小时</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Day 1 详细行程 -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-calendar-day"></i>
+                <h3>📅 Day 1：珠海拱北 → 中山石岐 → 顺德大良</h3>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <h4><i class="fas fa-clock"></i> 行程亮点</h4>
+                    <p><strong>中山中途站：</strong>品尝石岐乳鸽，体验中山商业文化<br>
+                    <strong>顺德初体验：</strong>华盖路步行街，双皮奶姜撞奶<br>
+                    <strong>住宿安排：</strong>桔子酒店清晖园店，性价比高，位置便利</p>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr><th>时间</th><th>活动安排</th><th>地点</th><th>驾车时间</th><th>餐饮安排</th><th>预算</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11:00</td>
+                            <td>从珠海拱北出发</td>
+                            <td>拱北口岸</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>油费：50元</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>12:15</td>
+                            <td>抵达中山石岐（中途站）</td>
+                            <td>中山石岐区</td>
+                            <td>1小时15分钟（65公里）</td>
+                            <td>-</td>
+                            <td>高速费：35元<br>停车费：10元</td>
+                        </tr>
+                        <tr>
+                            <td>12:30</td>
+                            <td>中山特色午餐</td>
+                            <td>石岐老字号餐厅</td>
+                            <td>步行3分钟</td>
+                            <td><strong>石岐老字号</strong><br>石岐乳鸽：88元/只<br>脆肉鲩：128元<br>咸水角：25元</td>
+                            <td>午餐：380元（4人）</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>14:00</td>
+                            <td>大信新都汇购物</td>
+                            <td>大信新都汇</td>
+                            <td>驾车5分钟</td>
+                            <td><strong>商场小食</strong><br>港式茶餐厅：50元/人</td>
+                            <td>购物+小食：300元</td>
+                        </tr>
+                        <tr>
+                            <td>15:30</td>
+                            <td>前往顺德大良</td>
+                            <td>中山→顺德</td>
+                            <td>40分钟（35公里）</td>
+                            <td>-</td>
+                            <td>高速费：25元</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>16:30</td>
+                            <td>入住顺德酒店</td>
+                            <td>桔子酒店清晖园店</td>
+                            <td>到达即入住</td>
+                            <td>-</td>
+                            <td>住宿：450元/晚</td>
+                        </tr>
+                        <tr>
+                            <td>17:30</td>
+                            <td>华盖路步行街</td>
+                            <td>清晖园华盖路</td>
+                            <td>步行5分钟</td>
+                            <td><strong>顺德特色小食</strong><br>双皮奶：25元<br>姜撞奶：18元</td>
+                            <td>小食：172元（4人）</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>19:00</td>
+                            <td>顺德特色晚餐</td>
+                            <td>民信老铺附近</td>
+                            <td>步行8分钟</td>
+                            <td><strong>顺德家常菜</strong><br>白切鸡：88元<br>清蒸鲈鱼：68元<br>菜心：28元</td>
+                            <td>晚餐：420元（4人）</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="success-box">
+                    <h4><i class="fas fa-utensils"></i> Day 1 美食推荐详情</h4>
+                    <p><strong>午餐 - 石岐老字号：</strong>百年老店，中山最著名的乳鸽餐厅，距离停车场步行3分钟<br>
+                    <strong>招牌菜：</strong>石岐乳鸽（皮脆肉嫩）、脆肉鲩（当地特色鱼）、咸水角（传统点心）<br>
+                    <strong>下午茶 - 大信新都汇：</strong>现代商场内港式茶餐厅，适合休息购物<br>
+                    <strong>晚餐 - 顺德家常菜：</strong>华盖路步行街正宗顺德菜，白切鸡、清蒸鲈鱼是招牌</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 详细行程 -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-calendar-day"></i>
+                <h3>📅 Day 2：顺德深度美食文化体验</h3>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <h4><i class="fas fa-star"></i> 行程亮点</h4>
+                    <p><strong>文化体验：</strong>清晖园岭南古典园林，逢简水乡千年古村<br>
+                    <strong>美食深度：</strong>凤城酒家早茶，水乡人家均安蒸猪，毋米粥顺德鱼生<br>
+                    <strong>亲子时光：</strong>大良新都汇儿童游乐场，适合全家休闲</p>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr><th>时间</th><th>活动安排</th><th>地点</th><th>驾车时间</th><th>餐饮安排</th><th>预算</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09:00</td>
+                            <td>顺德传统早茶</td>
+                            <td>凤城酒家</td>
+                            <td>步行8分钟</td>
+                            <td><strong>凤城酒家早茶</strong><br>虾饺：28元<br>烧卖：25元<br>肠粉：18元</td>
+                            <td>早茶：280元（4人）</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>10:30</td>
+                            <td>清晖园游览</td>
+                            <td>清晖园</td>
+                            <td>步行5分钟</td>
+                            <td>-</td>
+                            <td>门票：60元（4人）</td>
+                        </tr>
+                        <tr>
+                            <td>12:00</td>
+                            <td>前往逢简水乡</td>
+                            <td>顺德→逢简</td>
+                            <td>20分钟（12公里）</td>
+                            <td>-</td>
+                            <td>油费：10元<br>停车费：10元</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>12:30</td>
+                            <td>逢简水乡午餐</td>
+                            <td>水乡人家餐厅</td>
+                            <td>步行3分钟</td>
+                            <td><strong>水乡人家</strong><br>均安蒸猪：250元<br>鱼皮角：40元<br>水乡河鲜：120元</td>
+                            <td>午餐：410元（4人）</td>
+                        </tr>
+                        <tr>
+                            <td>14:00</td>
+                            <td>逢简水乡游船</td>
+                            <td>逢简古村</td>
+                            <td>步行到码头</td>
+                            <td><strong>水乡小食</strong><br>艇仔粥：15元<br>煎堆：12元</td>
+                            <td>船票：200元（4人）<br>小食：108元</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>16:00</td>
+                            <td>返回顺德大良</td>
+                            <td>逢简→大良</td>
+                            <td>20分钟（12公里）</td>
+                            <td>-</td>
+                            <td>油费：10元</td>
+                        </tr>
+                        <tr>
+                            <td>16:30</td>
+                            <td>大良新都汇亲子时光</td>
+                            <td>大良新都汇</td>
+                            <td>驾车5分钟</td>
+                            <td><strong>商场下午茶</strong><br>港式茶餐厅：60元/人</td>
+                            <td>儿童乐园：100元<br>下午茶：240元</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>19:00</td>
+                            <td>顺德特色晚餐</td>
+                            <td>毋米粥</td>
+                            <td>步行10分钟</td>
+                            <td><strong>毋米粥</strong><br>顺德鱼生：128元<br>白切鸡：88元<br>菜心：28元</td>
+                            <td>晚餐：480元（4人）</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="success-box">
+                    <h4><i class="fas fa-utensils"></i> Day 2 美食推荐详情</h4>
+                    <p><strong>早茶 - 凤城酒家：</strong>顺德老字号茶楼，正宗广式早茶，虾饺皮薄馅鲜<br>
+                    <strong>午餐 - 水乡人家：</strong>逢简水乡内知名餐厅，均安蒸猪是招牌，鱼皮角独特<br>
+                    <strong>下午茶 - 大良新都汇：</strong>现代商场内港式茶餐厅，适合亲子休息<br>
+                    <strong>晚餐 - 毋米粥：</strong>顺德鱼生专门店，白切鸡嫩滑，菜心清甜</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 详细行程 -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-calendar-day"></i>
+                <h3>📅 Day 3：顺德 → 佛山南海 → 珠海拱北</h3>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <h4><i class="fas fa-flag-checkered"></i> 行程亮点</h4>
+                    <p><strong>传统早餐：</strong>仁信老铺姜撞奶、双皮奶，顺德甜品精华<br>
+                    <strong>现代体验：</strong>佛山南海万达，BDuck小黄鸭主题乐园<br>
+                    <strong>完美收官：</strong>购物休闲后返回珠海，为旅程画下句号</p>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr><th>时间</th><th>活动安排</th><th>地点</th><th>驾车时间</th><th>餐饮安排</th><th>预算</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09:00</td>
+                            <td>顺德传统早餐</td>
+                            <td>仁信老铺</td>
+                            <td>步行5分钟</td>
+                            <td><strong>仁信老铺</strong><br>姜撞奶：18元<br>双皮奶：25元<br>伦教糕：15元</td>
+                            <td>早餐：232元（4人）</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>10:30</td>
+                            <td>前往佛山南海</td>
+                            <td>顺德→佛山</td>
+                            <td>35分钟（25公里）</td>
+                            <td>-</td>
+                            <td>油费：20元<br>高速费：15元</td>
+                        </tr>
+                        <tr>
+                            <td>11:30</td>
+                            <td>南海万达广场</td>
+                            <td>南海万达</td>
+                            <td>到达即游玩</td>
+                            <td>-</td>
+                            <td>停车费：10元</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>12:00</td>
+                            <td>BDuck小黄鸭乐园</td>
+                            <td>万达1号门广场</td>
+                            <td>步行1分钟</td>
+                            <td><strong>万达美食广场</strong><br>儿童套餐：45元/人<br>成人简餐：35元/人</td>
+                            <td>乐园：200元（4人）<br>午餐：160元</td>
+                        </tr>
+                        <tr>
+                            <td>14:30</td>
+                            <td>万达购物休闲</td>
+                            <td>万达购物中心</td>
+                            <td>电梯直达</td>
+                            <td><strong>下午茶</strong><br>星巴克：120元<br>甜品：80元</td>
+                            <td>购物：300元<br>下午茶：200元</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td>16:00</td>
+                            <td>返回珠海拱北</td>
+                            <td>佛山→珠海</td>
+                            <td>1小时30分钟（95公里）</td>
+                            <td>-</td>
+                            <td>油费：60元<br>高速费：45元</td>
+                        </tr>
+                        <tr>
+                            <td>18:00</td>
+                            <td>抵达拱北，行程结束</td>
+                            <td>拱北口岸</td>
+                            <td>-</td>
+                            <td><strong>告别晚餐（可选）</strong><br>拱北海鲜：400元</td>
+                            <td>晚餐：400元（可选）</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="success-box">
+                    <h4><i class="fas fa-utensils"></i> Day 3 美食推荐详情</h4>
+                    <p><strong>早餐 - 仁信老铺：</strong>顺德百年老店，姜撞奶和双皮奶是招牌，伦教糕传统糕点<br>
+                    <strong>午餐 - 万达美食广场：</strong>多样选择，儿童套餐丰富，适合亲子用餐<br>
+                    <strong>下午茶 - 万达商场：</strong>星巴克咖啡配甜品，购物休闲两不误<br>
+                    <strong>告别晚餐：</strong>拱北海鲜餐厅，为旅程画下完美句号</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 预算总结 -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-calculator"></i>
+                <h3>💰 预算总结与性价比分析</h3>
+            </div>
+            <div class="card-content">
+                <div class="success-box">
+                    <h4><i class="fas fa-chart-line"></i> 总预算明细（4人3天2夜）</h4>
+                    <p><strong>住宿费用：</strong>桔子酒店清晖园店450元 × 2晚 = 900元<br>
+                    <strong>餐饮费用：</strong>Day1: 1272元 + Day2: 1518元 + Day3: 992元 = 3782元<br>
+                    <strong>门票费用：</strong>清晖园60元 + 逢简水乡200元 + 儿童乐园300元 = 560元<br>
+                    <strong>交通费用：</strong>油费140元 + 高速费120元 + 停车费30元 = 290元<br>
+                    <strong>总计：</strong><span class="highlight">5532元（约6100港币）</span></p>
+                </div>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-route"></i> 40分钟车程控制效果</h4>
+                    <p><strong>成功控制：</strong>除首段珠海→中山（1小时15分钟）外，其余路段均≤40分钟<br>
+                    <strong>中途休息：</strong>中山设为2-3小时中途站，有效缓解长途驾驶疲劳<br>
+                    <strong>深度体验：</strong>顺德停留2天，充分体验粤菜发源地文化<br>
+                    <strong>性价比高：</strong>总预算5532元，比海洋主题路线节省2300元</p>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr><th>费用类别</th><th>金额</th><th>占比</th><th>说明</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>餐饮费用</strong></td>
+                            <td>3782元</td>
+                            <td>68.4%</td>
+                            <td>深度美食体验，物有所值</td>
+                        </tr>
+                        <tr>
+                            <td><strong>住宿费用</strong></td>
+                            <td>900元</td>
+                            <td>16.3%</td>
+                            <td>经济型酒店，性价比高</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>门票费用</strong></td>
+                            <td>560元</td>
+                            <td>10.1%</td>
+                            <td>文化景点为主，价格合理</td>
+                        </tr>
+                        <tr>
+                            <td><strong>交通费用</strong></td>
+                            <td>290元</td>
+                            <td>5.2%</td>
+                            <td>距离控制合理，费用较低</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-lightbulb"></i> 省钱小贴士</h4>
+                    <p>• <strong>住宿选择：</strong>选择经济型连锁酒店，干净舒适且价格合理<br>
+                    • <strong>餐饮策略：</strong>正餐选择特色餐厅，小食在街边老店品尝<br>
+                    • <strong>景点门票：</strong>提前网上预订可享受优惠价格<br>
+                    • <strong>交通费用：</strong>合理规划路线，避免重复行驶</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 总结 -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-heart"></i>
+                <h3>🎉 旅行总结</h3>
+            </div>
+            <div class="card-content">
+                <div class="success-box">
+                    <h4><i class="fas fa-check-circle"></i> 行程特色总结</h4>
+                    <p>✅ <strong>40分钟车程控制</strong> - 除首段外，所有路段均在40分钟内<br>
+                    ✅ <strong>深度美食体验</strong> - 涵盖顺德传统美食精华<br>
+                    ✅ <strong>文化历史体验</strong> - 清晖园、逢简水乡文化底蕴深厚<br>
+                    ✅ <strong>亲子友好设施</strong> - 商场儿童乐园、主题游乐场<br>
+                    ✅ <strong>经济实惠</strong> - 总预算5532元，性价比极高<br>
+                    ✅ <strong>雨天备选</strong> - 室内商场、文化场馆应对天气变化</p>
+                </div>
+
+                <p style="text-align: center; margin-top: 30px; color: var(--primary-color); font-weight: bold; font-size: 18px;">
+                    🍜 祝您和家人在顺德周边度过愉快的美食文化之旅！ 🍜
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0; color: white;">
+            <p>制表时间: 2025年6月22日 | 数据来源: 高德地图、小红书、官方旅游局</p>
+        </div>
+    </div>
+</body>
+</html>
