@@ -72,8 +72,8 @@
         /* Destination Cards */
         .destinations {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
             margin-bottom: 50px;
         }
 
@@ -104,6 +104,10 @@
 
         .card-header.singapore {
             background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+
+        .card-header.guangdong {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
         }
 
         .card-header::before {
@@ -214,6 +218,10 @@
             background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
         }
 
+        .card-button.guangdong {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+
         .card-button::before {
             content: '';
             position: absolute;
@@ -274,6 +282,18 @@
         }
 
         /* Responsive */
+        @media (min-width: 1200px) {
+            .destinations {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1199px) and (min-width: 769px) {
+            .destinations {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -320,10 +340,10 @@
         <!-- Header -->
         <div class="header fade-in">
             <h1><i class="fas fa-globe-asia"></i> 亲子旅行规划中心</h1>
-            <div class="subtitle">精心策划的五日四夜亲子旅行方案</div>
+            <div class="subtitle">精心策划的多元化亲子旅行方案</div>
             <div class="description">
-                为您和家人量身定制的详细旅行规划，包含航班、酒店、景点、交通、预算等全方位信息。
-                每个方案都经过精心设计，确保大人小孩都能享受愉快的旅行体验。
+                为您和家人量身定制的详细旅行规划，涵盖海滨度假、城市探索、自驾文化游三大主题。
+                包含航班、酒店、景点、交通、预算等全方位信息，每个方案都经过精心设计，确保大人小孩都能享受愉快的旅行体验。
             </div>
         </div>
 
@@ -402,6 +422,43 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Guangdong Card -->
+            <div class="destination-card fade-in">
+                <div class="card-header guangdong">
+                    <div class="card-icon">🚗</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">广东省三日二夜</h2>
+                    <p class="card-subtitle">珠海周边自驾游 • 亲子文化之旅</p>
+
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">天数</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">¥8K</div>
+                            <div class="stat-label">预算</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3-12岁</div>
+                            <div class="stat-label">适合年龄</div>
+                        </div>
+                    </div>
+
+                    <div class="card-highlights">
+                        <span class="highlight">🌊 长隆海洋王国</span>
+                        <span class="highlight">🏰 开平碉楼</span>
+                        <span class="highlight">🍜 顺德美食</span>
+                        <span class="highlight">♨️ 中山温泉</span>
+                    </div>
+
+                    <a href="guangdong-travel-planner.html" class="card-button guangdong">
+                        <i class="fas fa-car"></i> 查看详细规划
+                    </a>
+                </div>
+            </div>
         </div>
 
         <!-- Quick Features -->
@@ -431,7 +488,7 @@
         <!-- Footer -->
         <div class="footer">
             <p><i class="fas fa-heart"></i> 祝您和家人度过愉快的亲子时光！</p>
-            <p>制表时间: 2025年6月21日 | 数据来源: 官方旅游局、小红书、高德地图</p>
+            <p>制表时间: 2025年6月22日 | 数据来源: 官方旅游局、小红书、高德地图、12306、航班管家</p>
         </div>
     </div>
 
