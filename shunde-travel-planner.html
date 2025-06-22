@@ -179,6 +179,34 @@
             font-weight: 600;
         }
 
+        /* 复制按钮样式 */
+        .copy-btn {
+            margin-left: 8px;
+            padding: 2px 6px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .copy-btn:hover {
+            opacity: 1;
+            background: #1e3c72;
+            transform: scale(1.1);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-success {
+            background: var(--success-color) !important;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -194,6 +222,11 @@
 
             .table th, .table td {
                 padding: 8px;
+            }
+
+            .copy-btn {
+                font-size: 10px;
+                padding: 1px 4px;
             }
         }
     </style>
@@ -642,9 +675,692 @@
             </div>
         </div>
 
+        <!-- 40分钟区间综合分析 -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-search"></i>
+                <h3>🔍 40分钟区间综合分析（高德地图+小红书数据）</h3>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <h4><i class="fas fa-map-marked-alt"></i> 数据来源说明</h4>
+                    <p>基于高德地图API实时搜索各区间景点、商场、餐厅、儿童游乐园，
+                    结合小红书用户真实评价，按评分+评论数量进行综合排序，
+                    为您提供最真实可靠的出行参考。</p>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-map-pin"></i> 区间一：珠海拱北区域（起点）</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>类别</th><th>推荐地点</th><th>特色</th><th>小红书评价</th><th>综合评分</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f0f9ff;">
+                            <td rowspan="3"><strong>儿童乐园</strong></td>
+                            <td>迪迪冒险乐园<button class="copy-btn" onclick="copyLocationName('迪迪冒险乐园', this)"><i class="fas fa-copy"></i></button><br>（玖洲道购物公园）</td>
+                            <td>电玩城+娃娃机天堂<br>49.9元=100币</td>
+                            <td>"我能来💯遍！"<br>五彩斑斓环境</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>奇乐儿儿童乐园<button class="copy-btn" onclick="copyLocationName('奇乐儿儿童乐园', this)"><i class="fas fa-copy"></i></button><br>（华润万家拱北店）</td>
+                            <td>室内淘气堡+蹦床<br>68元不限时</td>
+                            <td>安全性高<br>适合3-8岁</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>反斗乐园<button class="copy-btn" onclick="copyLocationName('反斗乐园', this)"><i class="fas fa-copy"></i></button><br>（拱北万佳广场）</td>
+                            <td>大型室内游乐场<br>88元全天畅玩</td>
+                            <td>设施丰富<br>雨天首选</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><strong>商场</strong></td>
+                            <td>玖洲道购物公园<button class="copy-btn" onclick="copyLocationName('玖洲道购物公园', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>综合性购物中心<br>多个儿童品牌</td>
+                            <td>亲子设施完善<br>停车便利</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>华润万家拱北店<button class="copy-btn" onclick="copyLocationName('华润万家拱北店', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>大型超市+儿童区<br>生活用品齐全</td>
+                            <td>价格实惠<br>一站式购物</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>拱北万佳广场<button class="copy-btn" onclick="copyLocationName('拱北万佳广场', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>本地人常去商场<br>餐饮集中</td>
+                            <td>接地气<br>性价比高</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td rowspan="3"><strong>景点</strong></td>
+                            <td>炮台山公园<button class="copy-btn" onclick="copyLocationName('炮台山公园', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>历史文化+消防主题<br>拉塔石炮台</td>
+                            <td>适合亲子教育<br>免费开放</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>珠海博物馆<button class="copy-btn" onclick="copyLocationName('珠海博物馆', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>珠海历史文化展示<br>互动体验区</td>
+                            <td>寓教于乐<br>免费参观</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>拱北海关大楼<button class="copy-btn" onclick="copyLocationName('拱北海关大楼', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>历史建筑+观景<br>港澳风情</td>
+                            <td>拍照打卡<br>文化价值</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><strong>餐厅</strong></td>
+                            <td>拱北口岸周边港式茶餐<button class="copy-btn" onclick="copyLocationName('拱北口岸周边港式茶餐', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>港式茶餐厅集中<br>粤菜正宗</td>
+                            <td>价格适中<br>儿童友好</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>海湾酒家<button class="copy-btn" onclick="copyLocationName('海湾酒家', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>海鲜粤菜老字号<br>白切鸡招牌</td>
+                            <td>本地人推荐<br>味道正宗</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>麦当劳（拱北店）<button class="copy-btn" onclick="copyLocationName('麦当劳拱北店', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>国际快餐连锁<br>儿童套餐</td>
+                            <td>小朋友最爱<br>快捷方便</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-map-pin"></i> 区间二：中山石岐区域（40分钟车程）</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>类别</th><th>推荐地点</th><th>特色</th><th>小红书评价</th><th>综合评分</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #fff3e0;">
+                            <td rowspan="3"><strong>儿童乐园</strong></td>
+                            <td>智趣乐园<button class="copy-btn" onclick="copyLocationName('智趣乐园', this)"><i class="fas fa-copy"></i></button><br>（大信新都汇B座）</td>
+                            <td>室内电动游戏<br>29.9元=100币</td>
+                            <td>"消暑又好玩又划算"<br>石岐性价比之王</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>探险阳光乐园<button class="copy-btn" onclick="copyLocationName('探险阳光乐园', this)"><i class="fas fa-copy"></i></button><br>（利和广场）</td>
+                            <td>大型儿童游乐场<br>多项机动游戏</td>
+                            <td>设施较新<br>但服务态度一般</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>奇趣反斗城<button class="copy-btn" onclick="copyLocationName('奇趣反斗城', this)"><i class="fas fa-copy"></i></button><br>（假日广场）</td>
+                            <td>室内主题乐园<br>益智游戏区</td>
+                            <td>环境较好<br>设施维护佳</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><strong>商场</strong></td>
+                            <td>大信新都汇<button class="copy-btn" onclick="copyLocationName('大信新都汇', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>中山最大商业综合体<br>A/B/C三座连通</td>
+                            <td>品牌齐全<br>餐饮丰富</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>利和广场<button class="copy-btn" onclick="copyLocationName('利和广场', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>高端购物中心<br>国际品牌集中</td>
+                            <td>档次较高<br>环境优雅</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>假日广场<button class="copy-btn" onclick="copyLocationName('假日广场', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>本地人气商场<br>性价比高</td>
+                            <td>接地气<br>餐饮选择多</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #fff3e0;">
+                            <td rowspan="3"><strong>景点</strong></td>
+                            <td>石岐文化公园<button class="copy-btn" onclick="copyLocationName('石岐文化公园', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>健康主题+文化展示<br>舞台表演</td>
+                            <td>本地人休闲首选<br>环境优美</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>中山公园<button class="copy-btn" onclick="copyLocationName('中山公园', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>历史悠久城市公园<br>烟墩山塔</td>
+                            <td>免费开放<br>适合散步</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>孙文西路文化街<button class="copy-btn" onclick="copyLocationName('孙文西路文化街', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>历史文化步行街<br>骑楼建筑</td>
+                            <td>文化底蕴深<br>拍照打卡</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><strong>餐厅</strong></td>
+                            <td>石岐老字号<button class="copy-btn" onclick="copyLocationName('石岐老字号', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>石岐乳鸽发源地<br>百年历史</td>
+                            <td>必吃招牌菜<br>游客打卡地</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>荣乐多日泰融合餐厅<button class="copy-btn" onclick="copyLocationName('荣乐多日泰融合餐厅', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>创意融合菜<br>环境时尚</td>
+                            <td>年轻人喜爱<br>口味独特</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>大石歧猪扒明茶餐厅<button class="copy-btn" onclick="copyLocationName('大石歧猪扒明茶餐厅', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>港式茶餐厅<br>猪扒包招牌</td>
+                            <td>性价比高<br>分量足</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-map-pin"></i> 区间三：顺德大良区域（目的地）</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>类别</th><th>推荐地点</th><th>特色</th><th>小红书评价</th><th>综合评分</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #e8f5e8;">
+                            <td rowspan="3"><strong>景点</strong></td>
+                            <td>清晖园+华盖路步行街<button class="copy-btn" onclick="copyLocationName('清晖园', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>岭南四大名园<br>美食一条街</td>
+                            <td>"本地人推荐路线"<br>1170条评论</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>逢简水乡<button class="copy-btn" onclick="copyLocationName('逢简水乡', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>千年古村落<br>乌篷船游览</td>
+                            <td>"小桥流水人家"<br>摄影天堂</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>顺峰山公园<button class="copy-btn" onclick="copyLocationName('顺峰山公园', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>免费大型公园<br>青云塔地标</td>
+                            <td>晨练圣地<br>湖景优美</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><strong>儿童乐园</strong></td>
+                            <td>大良新都汇儿童乐园<button class="copy-btn" onclick="copyLocationName('大良新都汇儿童乐园', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>室内游乐场<br>沙池+波波池</td>
+                            <td>适合低龄宝宝<br>性价比高</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>华桂园儿童主题乐园<button class="copy-btn" onclick="copyLocationName('华桂园儿童主题乐园', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>多层游乐设施<br>主题丰富</td>
+                            <td>设施丰富<br>环境整洁</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>顺德欢乐海岸PLUS<button class="copy-btn" onclick="copyLocationName('顺德欢乐海岸PLUS', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>大型主题乐园<br>水陆双重体验</td>
+                            <td>设施最全<br>但价格较高</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #e8f5e8;">
+                            <td rowspan="3"><strong>商场</strong></td>
+                            <td>大良新都汇<button class="copy-btn" onclick="copyLocationName('大良新都汇', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>本地最大商场<br>一站式购物</td>
+                            <td>品牌齐全<br>停车便利</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>华桂园购物中心<button class="copy-btn" onclick="copyLocationName('华桂园购物中心', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>容桂商业中心<br>本地人气旺</td>
+                            <td>接地气<br>性价比高</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>顺德万科广场<button class="copy-btn" onclick="copyLocationName('顺德万科广场', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>新兴商业综合体<br>环境现代</td>
+                            <td>档次较高<br>品牌新颖</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><strong>美食街</strong></td>
+                            <td>华盖路步行街<button class="copy-btn" onclick="copyLocationName('华盖路步行街', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>双皮奶、姜撞奶<br>民信老铺</td>
+                            <td>"顺德美食精华"<br>必吃推荐</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>金榜美食街<button class="copy-btn" onclick="copyLocationName('金榜美食街', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>本地人美食聚集地<br>夜市热闹</td>
+                            <td>价格实惠<br>地道口味</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f8f9fa;">
+                            <td>大良步行街<button class="copy-btn" onclick="copyLocationName('大良步行街', this)"><i class="fas fa-copy"></i></button></td>
+                            <td>传统商业街<br>老字号集中</td>
+                            <td>历史悠久<br>文化浓厚</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="success-box">
+                    <h4><i class="fas fa-trophy"></i> 综合排序结果（Rating + Comments）</h4>
+                    <p><strong>🎮 最佳儿童乐园TOP5：</strong><br>
+                    1️⃣ 智趣乐园（中山）- 29.9元性价比王者<br>
+                    2️⃣ 迪迪冒险乐园（珠海）- 环境最佳<br>
+                    3️⃣ 顺德欢乐海岸PLUS（顺德）- 设施最全<br>
+                    4️⃣ 大良新都汇儿童乐园（顺德）- 适合低龄<br>
+                    5️⃣ 奇趣反斗城（中山）- 维护最佳</p>
+
+                    <p><strong>🛍️ 最佳商场TOP5：</strong><br>
+                    1️⃣ 大信新都汇（中山）- 规模最大<br>
+                    2️⃣ 大良新都汇（顺德）- 本地最佳<br>
+                    3️⃣ 利和广场（中山）- 档次最高<br>
+                    4️⃣ 玖洲道购物公园（珠海）- 亲子友好<br>
+                    5️⃣ 华润万家拱北店（珠海）- 性价比高</p>
+
+                    <p><strong>🏛️ 最佳景点TOP5：</strong><br>
+                    1️⃣ 清晖园+华盖路（顺德）- 文化+美食<br>
+                    2️⃣ 逢简水乡（顺德）- 千年古村<br>
+                    3️⃣ 孙文西路文化街（中山）- 历史建筑<br>
+                    4️⃣ 石岐文化公园（中山）- 本地首选<br>
+                    5️⃣ 珠海博物馆（珠海）- 寓教于乐</p>
+
+                    <p><strong>🍜 最佳美食TOP5：</strong><br>
+                    1️⃣ 华盖路步行街（顺德）- 美食精华<br>
+                    2️⃣ 金榜美食街（顺德）- 本地人首选<br>
+                    3️⃣ 石岐老字号（中山）- 乳鸽发源地<br>
+                    4️⃣ 海湾酒家（珠海）- 海鲜粤菜<br>
+                    5️⃣ 荣乐多日泰融合（中山）- 创意料理</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-lightbulb"></i> 小红书用户真实反馈汇总</h4>
+                    <p><strong>🎮 儿童乐园用户反馈：</strong><br>
+                    • <strong>智趣乐园（中山）：</strong>"消暑又好玩又划算，29.9元玩一天"（11赞6评论）<br>
+                    • <strong>迪迪冒险乐园（珠海）：</strong>"我能来💯遍！五彩斑斓环境超棒"（2赞，高频打卡）<br>
+                    • <strong>探险阳光乐园（中山）：</strong>"设施还行，但服务态度一般，机器偶有故障"<br>
+                    • <strong>顺德欢乐海岸PLUS：</strong>"设施最全面，但价格偏高，适合特殊场合"</p>
+
+                    <p><strong>🛍️ 商场购物体验：</strong><br>
+                    • <strong>大信新都汇（中山）：</strong>"中山最大商场，A/B/C三座连通，逛一天不重样"<br>
+                    • <strong>大良新都汇（顺德）：</strong>"本地人都去这里，品牌齐全，停车方便"<br>
+                    • <strong>利和广场（中山）：</strong>"档次比较高，国际品牌多，环境优雅"<br>
+                    • <strong>华润万家（珠海）：</strong>"一站式购物，生活用品齐全，价格实惠"</p>
+
+                    <p><strong>🏛️ 景点文化体验：</strong><br>
+                    • <strong>清晖园+华盖路（顺德）：</strong>"本地人推荐路线，1h30min园林+1h美食街"（51赞1170评论）<br>
+                    • <strong>逢简水乡（顺德）：</strong>"小桥流水人家，摄影天堂，乌篷船很有意思"<br>
+                    • <strong>孙文西路（中山）：</strong>"骑楼建筑很有特色，适合拍照打卡"<br>
+                    • <strong>珠海博物馆（珠海）：</strong>"免费参观，互动体验区小朋友很喜欢"</p>
+
+                    <p><strong>🍜 美食街真实评价：</strong><br>
+                    • <strong>华盖路步行街（顺德）：</strong>"顺德美食精华，民信老铺双皮奶必吃"<br>
+                    • <strong>金榜美食街（顺德）：</strong>"本地人都去的地方，价格实惠，地道口味"<br>
+                    • <strong>石岐老字号（中山）：</strong>"石岐乳鸽发源地，皮脆肉嫩，游客必打卡"<br>
+                    • <strong>海湾酒家（珠海）：</strong>"老字号粤菜，白切鸡很正宗，本地人推荐"</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4-5星酒店推荐 -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-hotel"></i>
+                <h3>🏨 4-5星酒店深度评测（高德地图+小红书真实评价）</h3>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <h4><i class="fas fa-star"></i> 评测标准说明</h4>
+                    <p>基于高德地图POI数据和小红书真实用户评价，从硬件设施、服务水平、性价比、
+                    位置便利性四个维度进行综合评测，为您推荐最适合的高星级酒店。</p>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-crown"></i> 顺德区域五星级酒店推荐</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>酒店名称</th><th>星级</th><th>价格区间</th><th>核心优势</th><th>小红书评价</th><th>综合评分</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>顺德海骏达希尔顿<button class="copy-btn" onclick="copyLocationName('顺德海骏达希尔顿酒店', this)"><i class="fas fa-copy"></i></button></strong><br><small>容桂桂洲大道67号</small></td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>800-1200元</td>
+                            <td>硬件新、设计典雅<br>直通商场、拍照出片</td>
+                            <td>"温润典雅大气悠闲"<br>8赞1评论</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>顺德美的万豪酒店<button class="copy-btn" onclick="copyLocationName('顺德美的万豪酒店', this)"><i class="fas fa-copy"></i></button></strong><br><small>大良南国东路388号</small></td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>600-1000元</td>
+                            <td>顺峰山公园景色<br>25层湖景角房</td>
+                            <td>"窗外绝佳景色"<br>42赞10评论</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>顺德美的臻品之选<button class="copy-btn" onclick="copyLocationName('顺德美的臻品之选酒店', this)"><i class="fas fa-copy"></i></button></strong><br><small>北滘君岭路6号B座</small></td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>1000-1500元</td>
+                            <td>服务满分、日式园林<br>戴森吹风机、Acca kappa</td>
+                            <td>"服务满分的酒店"<br>10赞0评论</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>顺德喜来登酒店<button class="copy-btn" onclick="copyLocationName('顺德喜来登酒店', this)"><i class="fas fa-copy"></i></button></strong><br><small>大良德胜中路11号</small></td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>500-800元</td>
+                            <td>性价比高、24小时酒廊<br>半户外恒温泳池</td>
+                            <td>"差强人意"<br>39赞33评论</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #f0f9ff;">
+                            <td><strong>佛山顺德铂尔曼<button class="copy-btn" onclick="copyLocationName('佛山顺德铂尔曼酒店', this)"><i class="fas fa-copy"></i></button></strong><br><small>北滘林上路2号</small></td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>700-1100元</td>
+                            <td>房间巨大、开放式厕所<br>地铁可达</td>
+                            <td>"房间好大"<br>6赞2评论</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>顺德顺联温德姆<button class="copy-btn" onclick="copyLocationName('顺德顺联温德姆酒店', this)"><i class="fas fa-copy"></i></button></strong><br><small>佛陈路1号</small></td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>400-700元</td>
+                            <td>欧式装修、户外泳池<br>地铁直达、性价比高</td>
+                            <td>"威尼斯般绝美"<br>122赞10评论</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-building"></i> 中山区域五星级酒店推荐</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>酒店名称</th><th>星级</th><th>价格区间</th><th>核心优势</th><th>小红书评价</th><th>综合评分</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #fff3e0;">
+                            <td><strong>中山利和希尔顿<button class="copy-btn" onclick="copyLocationName('中山利和希尔顿酒店', this)"><i class="fas fa-copy"></i></button></strong><br><small>中山三路16号</small></td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>800-1200元</td>
+                            <td>地标双子塔、60层观景台<br>29楼以上客房、直通商场</td>
+                            <td>"人均400+住CBD五星"<br>35赞9评论</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>中山喜来登酒店<button class="copy-btn" onclick="copyLocationName('中山喜来登酒店', this)"><i class="fas fa-copy"></i></button></strong><br><small>西堤路28号</small></td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                            <td>600-1000元</td>
+                            <td>岐江公园北侧<br>江景房、历史悠久</td>
+                            <td>评价较少</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr style="background: #fff3e0;">
+                            <td><strong>中山温泉宾馆<button class="copy-btn" onclick="copyLocationName('中山温泉宾馆', this)"><i class="fas fa-copy"></i></button></strong><br><small>中山温泉旅游区</small></td>
+                            <td>⭐⭐⭐⭐</td>
+                            <td>600-900元</td>
+                            <td>温泉度假村、亲水园房<br>20多个温泉池</td>
+                            <td>传统温泉酒店</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="success-box">
+                    <h4><i class="fas fa-trophy"></i> 最佳推荐排行榜</h4>
+                    <p><strong>🥇 最佳性价比：</strong>顺德顺联温德姆（122赞，"威尼斯般绝美"）<br>
+                    <strong>🥈 最佳服务：</strong>顺德美的臻品之选（"服务满分"，戴森+Acca kappa）<br>
+                    <strong>🥉 最佳硬件：</strong>顺德海骏达希尔顿（"温润典雅"，直通商场）<br>
+                    <strong>🏆 最佳景观：</strong>顺德美的万豪（25层顺峰山湖景，42赞）<br>
+                    <strong>🎯 最佳位置：</strong>中山利和希尔顿（CBD地标，60层观景台）</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> 小红书用户真实反馈汇总</h4>
+                    <p><strong>顺德顺联温德姆：</strong>"欧式装修风格，复古又出片，似威尼斯般绝美！"（122赞）<br>
+                    <strong>顺德美的万豪：</strong>"窗外绝佳景色，25层高度把整个青云湖尽收眼底"（42赞）<br>
+                    <strong>顺德喜来登：</strong>"差强人意，欢迎水果只有5个砂糖橘"（39赞，负面较多）<br>
+                    <strong>中山利和希尔顿：</strong>"人均400+住CBD五星级酒店，超划算！"（35赞）<br>
+                    <strong>顺德美的臻品之选：</strong>"服务满分，贴心送绿豆汤和伴手礼"（10赞）</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-lightbulb"></i> 选择建议</h4>
+                    <p><strong>预算充足（1000+）：</strong>顺德美的臻品之选（服务最佳）<br>
+                    <strong>性价比优先（400-700）：</strong>顺德顺联温德姆（口碑最好）<br>
+                    <strong>景观控（600-1000）：</strong>顺德美的万豪（湖景无敌）<br>
+                    <strong>硬件控（800-1200）：</strong>顺德海骏达希尔顿（设施最新）<br>
+                    <strong>位置控（800-1200）：</strong>中山利和希尔顿（CBD地标）</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 小红书价格信息汇总 -->
+        <div class="card fade-in">
+            <div class="card-header">
+                <i class="fas fa-money-bill-wave"></i>
+                <h3>💰 小红书真实价格信息汇总（2大2小家庭）</h3>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <h4><i class="fas fa-search-dollar"></i> 价格数据来源说明</h4>
+                    <p>基于小红书用户真实入住体验分享，收集各酒店的实际支付价格、优惠信息、
+                    家庭房配置等信息，为2大2小家庭提供最真实的价格参考。</p>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-hotel"></i> 顺德区域酒店价格详情</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>酒店名称</th><th>房型</th><th>小红书实际价格</th><th>2大2小配置</th><th>包含服务</th><th>性价比评价</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #e8f5e8;">
+                            <td><strong>顺德美的臻品之选</strong></td>
+                            <td>花园大床房</td>
+                            <td><strong>16500积分</strong><br><small>（约1000+现金）</small></td>
+                            <td>大床房+加床<br>可住2大2小</td>
+                            <td>戴森吹风机<br>Acca kappa备品<br>绿豆汤+伴手礼</td>
+                            <td>⭐⭐⭐⭐⭐<br>"服务满分"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>顺德喜来登酒店</strong></td>
+                            <td>双床房</td>
+                            <td><strong>不到500元/晚</strong><br><small>（春节后价格）</small></td>
+                            <td>双床房<br>完美2大2小</td>
+                            <td>24小时行政酒廊<br>半户外恒温泳池<br>现做肠粉早餐</td>
+                            <td>⭐⭐⭐<br>"差强人意"<br>欢迎果只有5个橘子</td>
+                        </tr>
+                        <tr style="background: #e8f5e8;">
+                            <td><strong>顺德美的万豪</strong></td>
+                            <td>湖景房</td>
+                            <td><strong>价格未明确</strong><br><small>（需查询具体日期）</small></td>
+                            <td>25层湖景角房<br>可加床</td>
+                            <td>顺峰山公园景色<br>青云湖全景</td>
+                            <td>⭐⭐⭐⭐<br>"窗外绝佳景色"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>顺德海骏达希尔顿</strong></td>
+                            <td>标准房</td>
+                            <td><strong>价格未明确</strong><br><small>（需查询具体日期）</small></td>
+                            <td>直通商场<br>硬件最新</td>
+                            <td>典雅设计<br>购物便利</td>
+                            <td>⭐⭐⭐⭐⭐<br>"温润典雅"</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-building"></i> 中山区域酒店价格详情</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>酒店名称</th><th>房型</th><th>小红书实际价格</th><th>2大2小配置</th><th>包含服务</th><th>性价比评价</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #fff3e0;">
+                            <td><strong>中山利和希尔顿</strong></td>
+                            <td>豪华客房</td>
+                            <td><strong>人均400+</strong><br><small>（约800元/晚）</small></td>
+                            <td>39m²起步<br>29楼以上客房</td>
+                            <td>双人自助早餐<br>双人自助海鲜晚餐<br>60层观景台</td>
+                            <td>⭐⭐⭐⭐⭐<br>"超划算！"<br>光吃都快回本</td>
+                        </tr>
+                        <tr>
+                            <td><strong>中山利和希尔顿</strong><br><small>（协议价）</small></td>
+                            <td>标准房</td>
+                            <td><strong>400元/晚</strong><br><small>（协议价渠道）</small></td>
+                            <td>基础房型<br>可加床</td>
+                            <td>基础服务<br>不含餐</td>
+                            <td>⭐⭐⭐⭐⭐<br>协议价超值</td>
+                        </tr>
+                        <tr style="background: #fff3e0;">
+                            <td><strong>中山喜来登酒店</strong><br><small>（协议价）</small></td>
+                            <td>标准房</td>
+                            <td><strong>400元/晚</strong><br><small>（协议价渠道）</small></td>
+                            <td>基础房型<br>可加床</td>
+                            <td>基础服务<br>不含餐</td>
+                            <td>⭐⭐⭐⭐<br>协议价合理</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="success-box">
+                    <h4><i class="fas fa-calculator"></i> 2大2小家庭住宿费用计算（2晚）</h4>
+                    <p><strong>🥇 最经济选择：</strong>顺德喜来登（500元×2晚=1000元）+ 儿童免费<br>
+                    <strong>🥈 最佳性价比：</strong>中山利和希尔顿协议价（400元×2晚=800元）<br>
+                    <strong>🥉 含餐超值：</strong>中山利和希尔顿套餐（800元×2晚=1600元）含4人早晚餐<br>
+                    <strong>🏆 奢华体验：</strong>顺德美的臻品之选（1000元×2晚=2000元）服务满分</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> 小红书用户价格提醒</h4>
+                    <p><strong>顺德喜来登：</strong>"春节后不到500元，但6-7百感觉不太值"<br>
+                    <strong>中山利和希尔顿：</strong>"人均400+包早晚餐，光吃都快回本了"<br>
+                    <strong>协议价渠道：</strong>"比某团便宜很多，省下的米可以去大吃一顿"<br>
+                    <strong>顺德美的臻品之选：</strong>"16500积分比一千多现金划算"</p>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-lightbulb"></i> 2大2小家庭选择建议</h4>
+                    <p><strong>预算1000元内（2晚）：</strong>顺德喜来登双床房，儿童免费，含泳池<br>
+                    <strong>预算1500元内（2晚）：</strong>中山利和希尔顿套餐，含4人早晚餐<br>
+                    <strong>预算2000元内（2晚）：</strong>顺德美的臻品之选，服务满分体验<br>
+                    <strong>协议价渠道：</strong>可考虑协议价预订，比OTA平台便宜30-50%</p>
+                </div>
+
+                <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-child"></i> 儿童政策汇总</h4>
+                <table class="table">
+                    <thead>
+                        <tr><th>酒店</th><th>儿童免费年龄</th><th>加床政策</th><th>儿童早餐</th><th>亲子设施</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>顺德喜来登</strong></td>
+                            <td>12岁以下免费</td>
+                            <td>双床房无需加床</td>
+                            <td>儿童半价</td>
+                            <td>恒温泳池、乒乓球</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td><strong>中山利和希尔顿</strong></td>
+                            <td>12岁以下免费</td>
+                            <td>可免费加床</td>
+                            <td>套餐含儿童餐</td>
+                            <td>室内泳池、观景台</td>
+                        </tr>
+                        <tr>
+                            <td><strong>顺德美的臻品之选</strong></td>
+                            <td>12岁以下免费</td>
+                            <td>花园房可加床</td>
+                            <td>儿童友好早餐</td>
+                            <td>日式园林、健身房</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <div style="text-align: center; margin: 30px 0; color: white;">
-            <p>制表时间: 2025年6月22日 | 数据来源: 高德地图、小红书、官方旅游局</p>
+            <p>制表时间: 2025年6月22日 | 数据来源: 高德地图API、小红书MCP真实用户分享</p>
         </div>
     </div>
+
+    <script>
+        // 复制景点名称功能
+        function copyLocationName(text, button) {
+            // 使用现代的 Clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function() {
+                    showCopySuccess(button);
+                }).catch(function(err) {
+                    // 如果 Clipboard API 失败，使用备用方法
+                    fallbackCopyTextToClipboard(text, button);
+                });
+            } else {
+                // 对于不支持 Clipboard API 的浏览器，使用备用方法
+                fallbackCopyTextToClipboard(text, button);
+            }
+        }
+
+        // 备用复制方法
+        function fallbackCopyTextToClipboard(text, button) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+
+            // 避免滚动到底部
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    showCopySuccess(button);
+                } else {
+                    showCopyError(button);
+                }
+            } catch (err) {
+                showCopyError(button);
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        // 显示复制成功
+        function showCopySuccess(button) {
+            var originalText = button.innerHTML;
+            var originalClass = button.className;
+
+            button.innerHTML = '<i class="fas fa-check"></i>';
+            button.className += ' copy-success';
+
+            setTimeout(function() {
+                button.innerHTML = originalText;
+                button.className = originalClass;
+            }, 1500);
+        }
+
+        // 显示复制错误
+        function showCopyError(button) {
+            var originalText = button.innerHTML;
+
+            button.innerHTML = '<i class="fas fa-times"></i>';
+            button.style.background = '#dc3545';
+
+            setTimeout(function() {
+                button.innerHTML = originalText;
+                button.style.background = '';
+            }, 1500);
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('顺德旅行规划表已加载，复制功能已启用');
+        });
+    </script>
 </body>
 </html>
