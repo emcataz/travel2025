@@ -234,6 +234,60 @@
             font-weight: bold;
             color: #4caf50;
         }
+
+        /* Link Buttons */
+        .link-btn {
+            margin-left: 4px;
+            padding: 4px 6px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .link-btn:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+            text-decoration: none;
+            color: white;
+        }
+
+        .link-btn.official {
+            background: #27ae60;
+        }
+
+        .link-btn.official:hover {
+            background: #229954;
+        }
+
+        .link-btn.map {
+            background: #f39c12;
+        }
+
+        .link-btn.map:hover {
+            background: #e67e22;
+        }
+
+        .link-btn.airbnb {
+            background: #ff5a5f;
+        }
+
+        .link-btn.airbnb:hover {
+            background: #e74c3c;
+        }
+
+        .link-btn.search {
+            background: #9b59b6;
+        }
+
+        .link-btn.search:hover {
+            background: #8e44ad;
+        }
         
         @media (max-width: 768px) {
             .container {
@@ -431,7 +485,9 @@
                         <p>⭐ 4.96/5 (24 reviews)</p>
                         <p class="price">MOP$2,690 / 3晚 (~¥13,000/晚)</p>
                         <p>🚗 免費停車位</p>
-                        <button class="copy-btn" onclick="copyToClipboard('https://www.airbnb.com/rooms/1330336330057994696')">複製連結</button>
+                        <a href="https://www.airbnb.com/rooms/1330336330057994696" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=東大阪市,大阪府,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=東大阪市+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
 
                     <div class="hotel-card">
