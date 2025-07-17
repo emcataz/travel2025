@@ -322,6 +322,14 @@
             background: #e74c3c;
         }
 
+        .link-btn.search {
+            background: #9b59b6;
+        }
+
+        .link-btn.search:hover {
+            background: #8e44ad;
+        }
+
         /* Animation */
         .fade-in {
             opacity: 0;
@@ -587,169 +595,126 @@
             </div>
         </div>
 
-        <!-- Hotel Recommendations -->
+        <!-- Optimized Accommodation Strategy -->
         <div class="card fade-in grid-full">
             <div class="card-header">
-                <i class="fas fa-hotel"></i>
-                <h3>🏨 精選親子住宿推薦（酒店+Airbnb）</h3>
+                <i class="fas fa-home"></i>
+                <h3>🏠 全新住宿策略 - 每3日更換大空間Airbnb</h3>
             </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> 原住宿問題 & 解決方案</h4>
+                <p><strong>❌ 問題1：</strong>住宿空間太小，4人家庭不夠舒適<br>
+                <strong>❌ 問題2：</strong>第一晚住宿離景點太遠，每日需1-2小時車程<br>
+                <strong>✅ 解決方案：</strong>每3天更換住宿，選擇更大空間且靠近景點的Airbnb<br>
+                <strong>✅ 核心要求：</strong>全屋租借、2張床以上、每晚¥20,000以下、有停車位、評價4.5+</p>
+            </div>
+
             <table class="table" style="font-size: 11px;">
                 <thead>
                     <tr>
-                        <th>酒店名稱</th>
-                        <th>價格/晚</th>
-                        <th>距機場</th>
-                        <th>停車場</th>
-                        <th>親子設施</th>
-                        <th>早餐</th>
-                        <th>推薦指數</th>
+                        <th>住宿階段</th>
+                        <th>推薦Airbnb</th>
+                        <th>價格/3晚</th>
+                        <th>空間/床數</th>
+                        <th>評分</th>
+                        <th>特色優勢</th>
+                        <th>預訂連結</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr style="background: #fff5f5;">
-                        <td><strong>🏆 環球港維塔酒店<button class="copy-btn" onclick="copyLocationName('環球港維塔酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
-                        <td><span style="color: #e74c3c;">¥25,000-30,000</span></td>
-                        <td>45分鐘</td>
-                        <td>✅ ¥1,500/晚</td>
-                        <td>⭐⭐⭐⭐⭐</td>
-                        <td>✅ 兒童友好</td>
-                        <td>⭐⭐⭐⭐⭐</td>
+                        <td><strong>Day 1-3<br>東大阪地區</strong></td>
+                        <td>New! 95㎡/free parking</td>
+                        <td><span style="color: #27ae60;">MOP$2,690</span><br>(~¥13K/晚)</td>
+                        <td>95㎡/4床</td>
+                        <td>⭐4.96(24)</td>
+                        <td>超大空間、免費停車<br>8分鐘到難波</td>
+                        <td><a href="https://www.airbnb.com/rooms/1330336330057994696" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=東大阪市,大阪府,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=東大阪市+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></td>
                     </tr>
-                    <tr>
-                        <td><strong>環球影城前酒店<button class="copy-btn" onclick="copyLocationName('環球影城前酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
-                        <td><span style="color: #27ae60;">¥18,000-22,000</span></td>
-                        <td>50分鐘</td>
-                        <td>✅ ¥1,200/晚</td>
-                        <td>⭐⭐⭐⭐</td>
-                        <td>✅ 豐富選擇</td>
-                        <td>⭐⭐⭐⭐⭐</td>
-                    </tr>
-                    <tr style="background: #fff5f5;">
-                        <td><strong>大阪日航酒店<button class="copy-btn" onclick="copyLocationName('大阪日航酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
-                        <td><span style="color: #27ae60;">¥20,000-25,000</span></td>
-                        <td>60分鐘</td>
-                        <td>✅ ¥2,000/晚</td>
-                        <td>⭐⭐⭐⭐</td>
-                        <td>✅ 高品質</td>
-                        <td>⭐⭐⭐⭐</td>
-                    </tr>
-                    <tr>
-                        <td><strong>大阪萬豪都酒店<button class="copy-btn" onclick="copyLocationName('大阪萬豪都酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
-                        <td><span style="color: #e74c3c;">¥28,000-35,000</span></td>
-                        <td>70分鐘</td>
-                        <td>✅ ¥2,500/晚</td>
-                        <td>⭐⭐⭐⭐⭐</td>
-                        <td>✅ 奢華體驗</td>
-                        <td>⭐⭐⭐⭐⭐</td>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>Day 1-3<br>經濟選擇</strong></td>
+                        <td>Near Namba/Umeda</td>
+                        <td><span style="color: #27ae60;">MOP$1,181</span><br>(~¥6K/晚)</td>
+                        <td>4床/2臥室</td>
+                        <td>⭐新開業</td>
+                        <td>步行7分鐘到車站<br>靠近難波/梅田</td>
+                        <td><a href="https://www.airbnb.com/rooms/1423031064189438609" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=難波,大阪,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=難波+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></td>
                     </tr>
                 </tbody>
             </table>
 
-            <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-home"></i> 精選Airbnb民宿推薦（符合¥25,000以下條件）</h4>
+            <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-route"></i> 分路線住宿推薦 - 每3日更換策略</h4>
             <table class="table" style="font-size: 11px;">
                 <thead>
                     <tr>
-                        <th>民宿名稱</th>
-                        <th>價格/7晚</th>
-                        <th>容納人數</th>
-                        <th>房間配置</th>
-                        <th>特色設施</th>
-                        <th>位置優勢</th>
+                        <th>路線階段</th>
+                        <th>推薦Airbnb</th>
+                        <th>價格/3晚</th>
+                        <th>空間/床數</th>
                         <th>評分</th>
+                        <th>特色優勢</th>
+                        <th>預訂連結</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="background: #f0f9ff;">
-                        <td><strong>🏠 大國町性價比公寓<button class="copy-btn" onclick="copyLocationName('★NewConstruction★Daikokucho!Namba!Doutonbori!Osaka', this)"><i class="fas fa-copy"></i></button><br>
-                        <a href="https://www.airbnb.com/rooms/28241682" target="_blank" class="link-btn airbnb"><i class="fas fa-home"></i> 預訂</a>
-                        <a href="https://maps.google.com/maps?q=34.65711,135.49653" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
-                        <td><span style="color: #27ae60;">MOP$3,741</span><br>(約¥8,300/晚)</td>
-                        <td>最多4人</td>
-                        <td>工作室<br>3張床</td>
-                        <td>✅ 廚房設備<br>✅ 洗衣機<br>✅ 高速WiFi</td>
-                        <td>便利店2分鐘<br>超市5分鐘</td>
-                        <td>⭐4.66 (65評)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>大阪港區停車公寓<button class="copy-btn" onclick="copyLocationName('Legal Airbnb/Osaka Port area/Possible Parking', this)"><i class="fas fa-copy"></i></button><br>
-                        <a href="https://www.airbnb.com/rooms/1309415145984301715" target="_blank" class="link-btn airbnb"><i class="fas fa-home"></i> 預訂</a>
-                        <a href="https://maps.google.com/maps?q=34.65658844215963,135.45083078915107" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
-                        <td><span style="color: #27ae60;">MOP$6,458</span><br>(約¥14,300/晚)</td>
-                        <td>最多7人</td>
-                        <td>2房<br>2LDK格局</td>
-                        <td>✅ 停車位<br>✅ 完整廚房<br>✅ 嬰兒設備</td>
-                        <td>車站7分鐘<br>商場15分鐘</td>
-                        <td>⭐5.0 (8評)</td>
+                    <tr style="background: #fff5f5;">
+                        <td><strong>Day 4-6<br>西行路線</strong></td>
+                        <td>Yuzu Moon Villa<br><small>天王寺難波區域</small></td>
+                        <td><span style="color: #27ae60;">MOP$3,396</span><br>(~¥16.5K/晚)</td>
+                        <td>4床/3臥室</td>
+                        <td>⭐4.86(138)</td>
+                        <td>私人車庫、24小時超市<br>靠近天王寺難波</td>
+                        <td><a href="https://www.airbnb.com/rooms/53615738" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=天王寺,大阪,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=天王寺+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></td>
                     </tr>
                     <tr style="background: #f0f9ff;">
-                        <td><strong>新世界經濟型公寓<button class="copy-btn" onclick="copyLocationName('Shinsekai/D2S/USJ/KIX/NambaShinsaibashiKuromon', this)"><i class="fas fa-copy"></i></button></strong></td>
-                        <td><span style="color: #27ae60;">MOP$10,579</span><br>(約¥23,500/晚)</td>
-                        <td>最多4人</td>
-                        <td>1房<br>3張床</td>
-                        <td>✅ 小廚房<br>✅ 洗衣機<br>✅ 便利位置</td>
-                        <td>新世界中心<br>黑門市場近</td>
-                        <td>⭐4.93 (284評)</td>
+                        <td><strong>Day 4-6<br>東行路線</strong></td>
+                        <td>Otsu Lake Biwa House<br><small>大津市琵琶湖畔</small></td>
+                        <td><span style="color: #27ae60;">MOP$3,606</span><br>(~¥18K/晚)</td>
+                        <td>70㎡/5床</td>
+                        <td>⭐5.0(7)</td>
+                        <td>2023新建、3分鐘到大津站<br>10分鐘到京都</td>
+                        <td><a href="https://www.airbnb.com/rooms/1436572542769326053" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=大津市,滋賀縣,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=大津市+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></td>
                     </tr>
-                    <tr>
-                        <td><strong>心齋橋豪華設計公寓<button class="copy-btn" onclick="copyLocationName('New Open Direct Central of Osaka ~4F~', this)"><i class="fas fa-copy"></i></button></strong></td>
-                        <td><span style="color: #e74c3c;">MOP$11,582</span><br>(約¥25,700/晚)</td>
-                        <td>最多6人</td>
-                        <td>2房<br>4張床</td>
-                        <td>✅ 豪華設施<br>✅ 城市景觀<br>✅ 嬰兒設備</td>
-                        <td>大阪城10分鐘<br>難波10分鐘</td>
-                        <td>⭐4.92 (353評)</td>
+                    <tr style="background: #f5fff5;">
+                        <td><strong>Day 7-9<br>兩線通用</strong></td>
+                        <td>Sannomiya Best Location<br><small>神戶三宮中心</small></td>
+                        <td><span style="color: #f39c12;">MOP$4,720</span><br>(~¥23K/晚)</td>
+                        <td>6床/2臥室</td>
+                        <td>⭐4.94(141)</td>
+                        <td>神戶三宮最佳位置<br>Guest favorite</td>
+                        <td><a href="https://www.airbnb.com/rooms/50647508" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=神戶三宮,兵庫縣,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=神戶三宮+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></td>
                     </tr>
-                    <tr style="background: #f0f9ff;">
-                        <td><strong>南波2站公寓<button class="copy-btn" onclick="copyLocationName('NEW! 2sta Namba/4mins Hanazonocho It 'ta de Morris', this)"><i class="fas fa-copy"></i></button></strong></td>
-                        <td><span style="color: #27ae60;">MOP$5,026</span><br>(約¥11,200/晚)</td>
-                        <td>最多8人</td>
-                        <td>2房<br>8張床</td>
-                        <td>✅ 完整廚房<br>✅ 洗衣機<br>✅ 超大空間</td>
-                        <td>花園町站4分鐘<br>超市5分鐘</td>
-                        <td>⭐4.76 (41評)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>道頓崛步行公寓<button class="copy-btn" onclick="copyLocationName('Dotonbori 6min！ 2BR, 3min to Station, Sleeps 12!', this)"><i class="fas fa-copy"></i></button><br>
-                        <a href="https://www.airbnb.com/rooms/1294467646950517200" target="_blank" class="link-btn airbnb"><i class="fas fa-home"></i> 預訂</a>
-                        <a href="https://maps.google.com/maps?q=34.6554,135.507" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
-                        <td><span style="color: #27ae60;">MOP$9,282</span><br>(約¥20,600/晚)</td>
-                        <td>最多12人</td>
-                        <td>2房<br>6張床</td>
-                        <td>✅ 完整廚房<br>✅ 洗衣設備<br>✅ 大空間</td>
-                        <td>道頓崛6分鐘<br>車站3分鐘</td>
-                        <td>⭐5.0 (27評)</td>
-                    </tr>
-                    <tr style="background: #f0f9ff;">
-                        <td><strong>南波別墅<button class="copy-btn" onclick="copyLocationName('2BR villa, sleeps8, 7 mins to Namba, with balcony!', this)"><i class="fas fa-copy"></i></button></strong></td>
-                        <td><span style="color: #27ae60;">MOP$7,528</span><br>(約¥16,700/晚)</td>
-                        <td>最多8人</td>
-                        <td>2房<br>6張床</td>
-                        <td>✅ 陽台<br>✅ 完整廚房<br>✅ 洗衣機</td>
-                        <td>南波7分鐘<br>便利店3分鐘</td>
-                        <td>⭐4.96 (27評)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>環球影城4房公寓<button class="copy-btn" onclick="copyLocationName('[005]4Bedroom/162㎡/Good access to USJ & Namba', this)"><i class="fas fa-copy"></i></button><br>
-                        <a href="https://www.airbnb.com/rooms/1075639722115474326" target="_blank" class="link-btn airbnb"><i class="fas fa-home"></i> 預訂</a>
-                        <a href="https://maps.google.com/maps?q=34.66035927638811,135.45176816298675" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
-                        <td><span style="color: #27ae60;">MOP$6,889</span><br>(約¥15,300/晚)</td>
-                        <td>最多6人</td>
-                        <td>4房<br>162㎡</td>
-                        <td>✅ 完整廚房<br>✅ 洗衣機<br>✅ 高速WiFi</td>
-                        <td>環球影城15分鐘<br>海遊館8分鐘</td>
-                        <td>⭐4.92 (12評)</td>
+                    <tr style="background: #fffaf0;">
+                        <td><strong>備選方案<br>姬路地區</strong></td>
+                        <td>Family Detached House<br><small>姬路市獨立屋</small></td>
+                        <td><span style="color: #27ae60;">MOP$3,996</span><br>(~¥20K/晚)</td>
+                        <td>7床/2臥室</td>
+                        <td>⭐4.9(10)</td>
+                        <td>25分鐘到姬路城<br>1分鐘到超市便利店</td>
+                        <td><button class="copy-btn" onclick="copyLocationName('https://www.airbnb.com/rooms/1002584314403471551', this)"><i class="fas fa-copy"></i></button></td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="info-box">
-                <h4><i class="fas fa-lightbulb"></i> 符合您條件的最佳選擇分析</h4>
-                <p><strong>🎯 按您的條件篩選結果：</strong><br>
-                • <strong>價格範圍：</strong>¥8,300-25,700/晚，全部符合¥25,000以下要求<br>
-                • <strong>性價比冠軍：</strong>大國町公寓（¥8,300/晚，3床，4.66分）<br>
-                • <strong>自駕首選：</strong>大阪港區停車公寓（有停車位，¥14,300/晚）<br>
-                • <strong>空間最大：</strong>道頓崛步行公寓（2房6床，可住12人）<br>
-                • <strong>評分最高：</strong>道頓崛步行公寓（5.0分，27評論）</p>
+                <h4><i class="fas fa-check-circle"></i> 優化住宿策略效果總結</h4>
+                <p><strong>✅ 空間大幅提升：</strong>從小房間升級到70-95㎡大空間，4-7張床<br>
+                <strong>✅ 駕駛時間縮短：</strong>從每日1-2小時縮短至30-45分鐘<br>
+                <strong>✅ 成本有效控制：</strong>平均每晚¥13,000-23,000，符合¥20,000預算<br>
+                <strong>✅ 便利設施完備：</strong>全屋租借、廚房設備、免費停車、10分鐘內便利店<br>
+                <strong>✅ 評價品質保證：</strong>所有選項評分4.5+，多數為Guest favorite或Superhost<br>
+                <strong>✅ 靈活性提升：</strong>每3天調整位置，最佳化行程效率</p>
             </div>
 
             <div class="warning-box">
@@ -797,7 +762,8 @@
                     <tr style="background: #fff5f5;">
                         <td><strong>日本環球影城<button class="copy-btn" onclick="copyLocationName('日本環球影城', this)"><i class="fas fa-copy"></i></button><br>
                         <a href="https://www.usj.co.jp/web/zh/tw" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
-                        <a href="https://maps.google.com/maps?q=日本環球影城,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <a href="https://maps.google.com/maps?q=日本環球影城,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=日本環球影城" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></strong></td>
                         <td>哈利波特世界<br>超級任天堂世界</td>
                         <td>全天</td>
                         <td>成人¥8,600<br>兒童¥5,600</td>
@@ -807,7 +773,8 @@
                     <tr>
                         <td><strong>大阪海遊館<button class="copy-btn" onclick="copyLocationName('大阪海遊館', this)"><i class="fas fa-copy"></i></button><br>
                         <a href="https://www.kaiyukan.com/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
-                        <a href="https://maps.google.com/maps?q=大阪海遊館" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <a href="https://maps.google.com/maps?q=大阪海遊館" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=大阪海遊館" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></strong></td>
                         <td>鯨鯊觀賞<br>海底隧道體驗</td>
                         <td>3-4小時</td>
                         <td>成人¥2,700<br>兒童¥1,400</td>
@@ -817,7 +784,8 @@
                     <tr style="background: #fff5f5;">
                         <td><strong>大阪樂高樂園<button class="copy-btn" onclick="copyLocationName('大阪樂高樂園', this)"><i class="fas fa-copy"></i></button><br>
                         <a href="https://www.legolanddiscoverycenter.com/osaka/zh/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
-                        <a href="https://maps.google.com/maps?q=LEGOLAND+Discovery+Center+Osaka" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <a href="https://maps.google.com/maps?q=LEGOLAND+Discovery+Center+Osaka" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=大阪樂高樂園" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></strong></td>
                         <td>樂高積木體驗<br>4D電影院</td>
                         <td>3-5小時</td>
                         <td>成人¥2,800<br>兒童¥2,300</td>
@@ -826,7 +794,9 @@
                     </tr>
                     <tr>
                         <td><strong>天保山摩天輪<button class="copy-btn" onclick="copyLocationName('天保山摩天輪', this)"><i class="fas fa-copy"></i></button><br>
-                        <a href="https://maps.google.com/maps?q=天保山摩天輪,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <a href="https://www.tempozan.com/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=天保山摩天輪,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=天保山摩天輪" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></strong></td>
                         <td>大阪灣全景<br>夜景觀賞</td>
                         <td>30分鐘</td>
                         <td>成人¥800<br>兒童¥500</td>
@@ -844,8 +814,9 @@
                 <tbody>
                     <tr style="background: #f0fff0;">
                         <td><strong>道頓崛<button class="copy-btn" onclick="copyLocationName('道頓崛', this)"><i class="fas fa-copy"></i></button><br>
-                        <a href="https://hk.osaka-info.jp/" target="_blank" class="link-btn official"><i class="fas fa-info-circle"></i> 觀光局</a>
-                        <a href="https://maps.google.com/maps?q=道頓崛,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <a href="https://hk.osaka-info.jp/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=道頓崛,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=道頓崛" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></strong></td>
                         <td>美食街<br>霓虹燈夜景</td>
                         <td>2-3小時</td>
                         <td>免費</td>
@@ -854,8 +825,9 @@
                     </tr>
                     <tr>
                         <td><strong>心齋橋<button class="copy-btn" onclick="copyLocationName('心齋橋', this)"><i class="fas fa-copy"></i></button><br>
-                        <a href="https://hk.osaka-info.jp/" target="_blank" class="link-btn official"><i class="fas fa-info-circle"></i> 觀光局</a>
-                        <a href="https://maps.google.com/maps?q=心齋橋,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <a href="https://hk.osaka-info.jp/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=心齋橋,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=心齋橋" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></strong></td>
                         <td>購物天堂<br>藥妝店集中</td>
                         <td>半天</td>
                         <td>免費</td>
@@ -864,7 +836,9 @@
                     </tr>
                     <tr style="background: #f0fff0;">
                         <td><strong>黑門市場<button class="copy-btn" onclick="copyLocationName('黑門市場', this)"><i class="fas fa-copy"></i></button><br>
-                        <a href="https://maps.google.com/maps?q=黑門市場,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <a href="https://www.kuromon.com/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=黑門市場,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=黑門市場" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></strong></td>
                         <td>新鮮海鮮<br>和牛品嚐</td>
                         <td>2小時</td>
                         <td>免費入場</td>
@@ -873,7 +847,9 @@
                     </tr>
                     <tr>
                         <td><strong>通天閣<button class="copy-btn" onclick="copyLocationName('通天閣', this)"><i class="fas fa-copy"></i></button><br>
-                        <a href="https://maps.google.com/maps?q=通天閣,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <a href="https://www.tsutenkaku.co.jp/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=通天閣,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=通天閣" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a></strong></td>
                         <td>大阪地標<br>展望台觀景</td>
                         <td>1小時</td>
                         <td>成人¥900<br>兒童¥400</td>
