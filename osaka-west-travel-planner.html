@@ -288,6 +288,160 @@
         .link-btn.search:hover {
             background: #8e44ad;
         }
+
+        /* Compact table buttons for itinerary overview */
+        .table-btn {
+            margin: 1px 2px;
+            padding: 2px 4px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            font-size: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1.2;
+        }
+
+        .table-btn:hover {
+            transform: scale(1.1);
+            text-decoration: none;
+            color: white;
+        }
+
+        .table-btn.official {
+            background: #27ae60;
+        }
+
+        .table-btn.official:hover {
+            background: #229954;
+        }
+
+        .table-btn.map {
+            background: #f39c12;
+        }
+
+        .table-btn.map:hover {
+            background: #e67e22;
+        }
+
+        .table-btn.search {
+            background: #9b59b6;
+        }
+
+        .table-btn.search:hover {
+            background: #8e44ad;
+        }
+
+        /* Mobile Responsive Itinerary Cards */
+        @media (max-width: 768px) {
+            .itinerary-overview-table {
+                display: none;
+            }
+
+            .mobile-itinerary-cards {
+                display: block;
+                margin: 25px 0;
+            }
+
+            .mobile-day-card {
+                background: white;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                overflow: hidden;
+            }
+
+            .mobile-day-header {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 15px 20px;
+                font-weight: 600;
+            }
+
+            .mobile-day-content {
+                padding: 20px;
+            }
+
+            .mobile-info-row {
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .mobile-info-row:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+
+            .mobile-info-label {
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 8px;
+                font-size: 14px;
+            }
+
+            .mobile-info-content {
+                color: #666;
+                line-height: 1.5;
+                font-size: 13px;
+            }
+
+            .mobile-table-btn {
+                margin: 3px 4px;
+                padding: 6px 10px;
+                background: #3498db;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 11px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                text-decoration: none;
+                display: inline-block;
+                line-height: 1.2;
+                min-width: 50px;
+                text-align: center;
+            }
+
+            .mobile-table-btn:hover {
+                transform: scale(1.05);
+                text-decoration: none;
+                color: white;
+            }
+
+            .mobile-table-btn.official {
+                background: #27ae60;
+            }
+
+            .mobile-table-btn.official:hover {
+                background: #229954;
+            }
+
+            .mobile-table-btn.map {
+                background: #f39c12;
+            }
+
+            .mobile-table-btn.map:hover {
+                background: #e67e22;
+            }
+
+            .mobile-table-btn.search {
+                background: #9b59b6;
+            }
+
+            .mobile-table-btn.search:hover {
+                background: #8e44ad;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-itinerary-cards {
+                display: none;
+            }
+        }
         
         @media (max-width: 768px) {
             .container {
@@ -588,33 +742,60 @@
                         <td>7/22 (二)</td>
                         <td>東大阪地區</td>
                         <td>關西機場→住宿安頓</td>
-                        <td>臨空城Outlets輕鬆購物</td>
-                        <td>永旺夢樂城室內採買</td>
+                        <td>臨空城Outlets輕鬆購物<br>
+                        <a href="https://www.premiumoutlets.co.jp/rinku/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=臨空城Outlets" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=臨空城Outlets" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>永旺夢樂城室內採買<br>
+                        <a href="https://www.aeon.com/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=永旺夢樂城" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=永旺夢樂城" target="_blank" class="table-btn search">搜索</a></td>
                         <td>~30分鐘</td>
                     </tr>
                     <tr>
                         <td><strong>Day 2</strong></td>
                         <td>7/23 (三)</td>
                         <td>東大阪地區</td>
-                        <td>心齋橋寶可夢中心</td>
-                        <td>寶可夢咖啡廳→美國村散步</td>
-                        <td>大丸心齋橋店→難波PARKS</td>
+                        <td>心齋橋寶可夢中心<br>
+                        <a href="https://www.pokemon.co.jp/gp/pokecen/osaka/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=心齋橋寶可夢中心" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=心齋橋寶可夢中心" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>寶可夢咖啡廳→美國村散步<br>
+                        <a href="https://www.pokemon.co.jp/gp/pokecen/osaka/" target="_blank" class="table-btn official">寶可夢咖啡廳</a>
+                        <a href="https://maps.google.com/maps?q=美國村" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=美國村" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>大丸心齋橋店→難波PARKS<br>
+                        <a href="https://www.daimaru.co.jp/shinsaibashi/" target="_blank" class="table-btn official">大丸心齋橋</a>
+                        <a href="https://maps.google.com/maps?q=難波PARKS" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=難波PARKS" target="_blank" class="table-btn search">搜索</a></td>
                         <td>~45分鐘</td>
                     </tr>
                     <tr style="background: #f0f9ff;">
                         <td><strong>Day 3</strong></td>
                         <td>7/24 (四)</td>
                         <td>東大阪地區</td>
-                        <td>梅田鋼彈基地</td>
-                        <td>鋼彈基地→藍天大廈展望台</td>
-                        <td>鋼彈基地→GRAND FRONT購物</td>
+                        <td>梅田鋼彈基地<br>
+                        <a href="https://www.gundam-base.net/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=梅田鋼彈基地" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=梅田鋼彈基地" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>鋼彈基地→藍天大廈展望台<br>
+                        <a href="https://www.skybldg.co.jp/" target="_blank" class="table-btn official">藍天大廈</a>
+                        <a href="https://maps.google.com/maps?q=藍天大廈展望台" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=藍天大廈展望台" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>鋼彈基地→GRAND FRONT購物<br>
+                        <a href="https://www.grandfront-osaka.jp/" target="_blank" class="table-btn official">GRAND FRONT</a>
+                        <a href="https://maps.google.com/maps?q=GRAND+FRONT+OSAKA" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=GRAND+FRONT+OSAKA" target="_blank" class="table-btn search">搜索</a></td>
                         <td>~45分鐘</td>
                     </tr>
                     <tr>
                         <td><strong>Day 4</strong></td>
                         <td>7/25 (五)</td>
                         <td>明石/加古川地區</td>
-                        <td>神戶動物王國</td>
+                        <td>神戶動物王國<br>
+                        <a href="https://www.kobe-oukoku.com/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=神戶動物王國" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=神戶動物王國" target="_blank" class="table-btn search">搜索</a></td>
                         <td>全天候動植物園體驗</td>
                         <td>室內展區完美雨天方案</td>
                         <td>~1.5-2小時</td>
@@ -623,36 +804,66 @@
                         <td><strong>Day 5</strong></td>
                         <td>7/26 (六)</td>
                         <td>明石/加古川地區</td>
-                        <td>姬路城</td>
-                        <td>國寶天守閣→好古園庭園</td>
-                        <td>雨中城堡→兵庫縣立歷史博物館</td>
+                        <td>姬路城<br>
+                        <a href="https://www.city.himeji.lg.jp/guide/castle/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=姬路城" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=姬路城" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>國寶天守閣→好古園庭園<br>
+                        <a href="https://www.himeji-machishin.jp/kokoen/" target="_blank" class="table-btn official">好古園</a>
+                        <a href="https://maps.google.com/maps?q=好古園" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=好古園" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>雨中城堡→兵庫縣立歷史博物館<br>
+                        <a href="https://www.hyogo-c.ed.jp/~rekihaku-bo/" target="_blank" class="table-btn official">歷史博物館</a>
+                        <a href="https://maps.google.com/maps?q=兵庫縣立歷史博物館" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=兵庫縣立歷史博物館" target="_blank" class="table-btn search">搜索</a></td>
                         <td>~1小時</td>
                     </tr>
                     <tr>
                         <td><strong>Day 6</strong></td>
                         <td>7/27 (日)</td>
                         <td>明石/加古川地區</td>
-                        <td>姫路セントラルパーク</td>
+                        <td>姫路セントラルパーク<br>
+                        <a href="https://www.central-park.co.jp/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=姫路セントラルパーク" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=姫路セントラルパーク" target="_blank" class="table-btn search">搜索</a></td>
                         <td>駕車遊獵→遊樂園區</td>
-                        <td>空調車內遊獵→加古川Aeon Mall</td>
+                        <td>空調車內遊獵→加古川Aeon Mall<br>
+                        <a href="https://kakogawa-aeonmall.com/" target="_blank" class="table-btn official">加古川Aeon</a>
+                        <a href="https://maps.google.com/maps?q=加古川Aeon+Mall" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=加古川Aeon+Mall" target="_blank" class="table-btn search">搜索</a></td>
                         <td>~1小時</td>
                     </tr>
                     <tr style="background: #fffaf0;">
                         <td><strong>Day 7</strong></td>
                         <td>7/28 (一)</td>
                         <td>神戶市區</td>
-                        <td>須磨海浜水族園</td>
+                        <td>須磨海浜水族園<br>
+                        <a href="https://suma-aqualife.jp/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=須磨海浜水族園" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=須磨海浜水族園" target="_blank" class="table-btn search">搜索</a></td>
                         <td>全新水族館→虎鯨表演</td>
-                        <td>室內水族館→umie MOSAIC</td>
+                        <td>室內水族館→umie MOSAIC<br>
+                        <a href="https://umie.jp/" target="_blank" class="table-btn official">umie MOSAIC</a>
+                        <a href="https://maps.google.com/maps?q=umie+MOSAIC" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=umie+MOSAIC" target="_blank" class="table-btn search">搜索</a></td>
                         <td>~1.5-2小時</td>
                     </tr>
                     <tr>
                         <td><strong>Day 8</strong></td>
                         <td>7/29 (二)</td>
                         <td>神戶市區</td>
-                        <td>神戶購物娛樂</td>
-                        <td>寶可夢中心KOBE→神戶港散步</td>
-                        <td>umie MOSAIC→大型電玩中心</td>
+                        <td>神戶購物娛樂<br>
+                        <a href="https://www.feel-kobe.jp/" target="_blank" class="table-btn official">神戶觀光</a>
+                        <a href="https://maps.google.com/maps?q=神戶購物娛樂" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=神戶購物娛樂" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>寶可夢中心KOBE→神戶港散步<br>
+                        <a href="https://www.pokemon.co.jp/gp/pokecen/kobe/" target="_blank" class="table-btn official">寶可夢中心</a>
+                        <a href="https://maps.google.com/maps?q=神戶港" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=神戶港" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>umie MOSAIC→大型電玩中心<br>
+                        <a href="https://umie.jp/" target="_blank" class="table-btn official">umie MOSAIC</a>
+                        <a href="https://maps.google.com/maps?q=大型電玩中心+神戶" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=大型電玩中心+神戶" target="_blank" class="table-btn search">搜索</a></td>
                         <td>~1小時</td>
                     </tr>
                     <tr style="background: #f0fff0;">
@@ -660,8 +871,14 @@
                         <td>7/30 (三)</td>
                         <td>神戶市區</td>
                         <td>彈性悠閒日</td>
-                        <td>淡路島國營明石海峽公園</td>
-                        <td>EXPOCITY巨型複合設施</td>
+                        <td>淡路島國營明石海峽公園<br>
+                        <a href="https://awaji-kaikyo.or.jp/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=淡路島國營明石海峽公園" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=淡路島國營明石海峽公園" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>EXPOCITY巨型複合設施<br>
+                        <a href="https://www.expocity-mf.com/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=EXPOCITY" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=EXPOCITY" target="_blank" class="table-btn search">搜索</a></td>
                         <td>~2-2.5小時</td>
                     </tr>
                     <tr>
@@ -675,6 +892,354 @@
                     </tr>
                 </tbody>
                 </table>
+            </div>
+
+            <!-- Mobile Responsive Cards -->
+            <div class="mobile-itinerary-cards">
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 1 - 7/22 (二) | 東大阪地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">關西機場→住宿安頓</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                臨空城Outlets輕鬆購物<br>
+                                <a href="https://www.premiumoutlets.co.jp/rinku/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=臨空城Outlets" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=臨空城Outlets" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                永旺夢樂城室內採買<br>
+                                <a href="https://www.aeon.com/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=永旺夢樂城" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=永旺夢樂城" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~30分鐘</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 2 - 7/23 (三) | 東大阪地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                心齋橋寶可夢中心<br>
+                                <a href="https://www.pokemon.co.jp/gp/pokecen/osaka/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=心齋橋寶可夢中心" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=心齋橋寶可夢中心" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                寶可夢咖啡廳→美國村散步<br>
+                                <a href="https://www.pokemon.co.jp/gp/pokecen/osaka/" target="_blank" class="mobile-table-btn official">寶可夢咖啡廳</a>
+                                <a href="https://maps.google.com/maps?q=美國村" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=美國村" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                大丸心齋橋店→難波PARKS<br>
+                                <a href="https://www.daimaru.co.jp/shinsaibashi/" target="_blank" class="mobile-table-btn official">大丸心齋橋</a>
+                                <a href="https://maps.google.com/maps?q=難波PARKS" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=難波PARKS" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~45分鐘</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 3 - 7/24 (四) | 東大阪地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                梅田鋼彈基地<br>
+                                <a href="https://www.gundam-base.net/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=梅田鋼彈基地" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=梅田鋼彈基地" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                鋼彈基地→藍天大廈展望台<br>
+                                <a href="https://www.skybldg.co.jp/" target="_blank" class="mobile-table-btn official">藍天大廈</a>
+                                <a href="https://maps.google.com/maps?q=藍天大廈展望台" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=藍天大廈展望台" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                鋼彈基地→GRAND FRONT購物<br>
+                                <a href="https://www.grandfront-osaka.jp/" target="_blank" class="mobile-table-btn official">GRAND FRONT</a>
+                                <a href="https://maps.google.com/maps?q=GRAND+FRONT+OSAKA" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=GRAND+FRONT+OSAKA" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~45分鐘</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 4 - 7/25 (五) | 明石/加古川地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                神戶動物王國<br>
+                                <a href="https://www.kobe-oukoku.com/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=神戶動物王國" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=神戶動物王國" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">全天候動植物園體驗</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">室內展區完美雨天方案</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~1.5-2小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 5 - 7/26 (六) | 明石/加古川地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                姬路城<br>
+                                <a href="https://www.city.himeji.lg.jp/guide/castle/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=姬路城" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=姬路城" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                國寶天守閣→好古園庭園<br>
+                                <a href="https://www.himeji-machishin.jp/kokoen/" target="_blank" class="mobile-table-btn official">好古園</a>
+                                <a href="https://maps.google.com/maps?q=好古園" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=好古園" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                雨中城堡→兵庫縣立歷史博物館<br>
+                                <a href="https://www.hyogo-c.ed.jp/~rekihaku-bo/" target="_blank" class="mobile-table-btn official">歷史博物館</a>
+                                <a href="https://maps.google.com/maps?q=兵庫縣立歷史博物館" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=兵庫縣立歷史博物館" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~1小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 6 - 7/27 (日) | 明石/加古川地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                姫路セントラルパーク<br>
+                                <a href="https://www.central-park.co.jp/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=姫路セントラルパーク" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=姫路セントラルパーク" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">駕車遊獵→遊樂園區</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                空調車內遊獵→加古川Aeon Mall<br>
+                                <a href="https://kakogawa-aeonmall.com/" target="_blank" class="mobile-table-btn official">加古川Aeon</a>
+                                <a href="https://maps.google.com/maps?q=加古川Aeon+Mall" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=加古川Aeon+Mall" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~1小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 7 - 7/28 (一) | 神戶市區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                須磨海浜水族園<br>
+                                <a href="https://suma-aqualife.jp/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=須磨海浜水族園" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=須磨海浜水族園" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">全新水族館→虎鯨表演</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                室內水族館→umie MOSAIC<br>
+                                <a href="https://umie.jp/" target="_blank" class="mobile-table-btn official">umie MOSAIC</a>
+                                <a href="https://maps.google.com/maps?q=umie+MOSAIC" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=umie+MOSAIC" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~1.5-2小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 8 - 7/29 (二) | 神戶市區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                神戶購物娛樂<br>
+                                <a href="https://www.feel-kobe.jp/" target="_blank" class="mobile-table-btn official">神戶觀光</a>
+                                <a href="https://maps.google.com/maps?q=神戶購物娛樂" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=神戶購物娛樂" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                寶可夢中心KOBE→神戶港散步<br>
+                                <a href="https://www.pokemon.co.jp/gp/pokecen/kobe/" target="_blank" class="mobile-table-btn official">寶可夢中心</a>
+                                <a href="https://maps.google.com/maps?q=神戶港" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=神戶港" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                umie MOSAIC→大型電玩中心<br>
+                                <a href="https://umie.jp/" target="_blank" class="mobile-table-btn official">umie MOSAIC</a>
+                                <a href="https://maps.google.com/maps?q=大型電玩中心+神戶" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=大型電玩中心+神戶" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~1小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 9 - 7/30 (三) | 神戶市區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">彈性悠閒日</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                淡路島國營明石海峽公園<br>
+                                <a href="https://awaji-kaikyo.or.jp/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=淡路島國營明石海峽公園" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=淡路島國營明石海峽公園" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                EXPOCITY巨型複合設施<br>
+                                <a href="https://www.expocity-mf.com/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=EXPOCITY" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=EXPOCITY" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~2-2.5小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 10 - 7/31 (四) | 前往機場
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">前往機場</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">悠閒早餐→最後採買→機場</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">從容準備→室內採買→機場</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~1小時</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

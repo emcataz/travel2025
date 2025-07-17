@@ -334,6 +334,114 @@
         .table-btn.search:hover {
             background: #8e44ad;
         }
+
+        /* Mobile Responsive Itinerary Cards */
+        @media (max-width: 768px) {
+            .itinerary-overview-table {
+                display: none;
+            }
+
+            .mobile-itinerary-cards {
+                display: block;
+                margin: 25px 0;
+            }
+
+            .mobile-day-card {
+                background: white;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                overflow: hidden;
+            }
+
+            .mobile-day-header {
+                background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+                color: white;
+                padding: 15px 20px;
+                font-weight: 600;
+            }
+
+            .mobile-day-content {
+                padding: 20px;
+            }
+
+            .mobile-info-row {
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .mobile-info-row:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+
+            .mobile-info-label {
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 8px;
+                font-size: 14px;
+            }
+
+            .mobile-info-content {
+                color: #666;
+                line-height: 1.5;
+                font-size: 13px;
+            }
+
+            .mobile-table-btn {
+                margin: 3px 4px;
+                padding: 6px 10px;
+                background: #3498db;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 11px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                text-decoration: none;
+                display: inline-block;
+                line-height: 1.2;
+                min-width: 50px;
+                text-align: center;
+            }
+
+            .mobile-table-btn:hover {
+                transform: scale(1.05);
+                text-decoration: none;
+                color: white;
+            }
+
+            .mobile-table-btn.official {
+                background: #27ae60;
+            }
+
+            .mobile-table-btn.official:hover {
+                background: #229954;
+            }
+
+            .mobile-table-btn.map {
+                background: #f39c12;
+            }
+
+            .mobile-table-btn.map:hover {
+                background: #e67e22;
+            }
+
+            .mobile-table-btn.search {
+                background: #9b59b6;
+            }
+
+            .mobile-table-btn.search:hover {
+                background: #8e44ad;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-itinerary-cards {
+                display: none;
+            }
+        }
         
         @media (max-width: 768px) {
             .container {
@@ -805,6 +913,352 @@
                     </tr>
                 </tbody>
                 </table>
+            </div>
+
+            <!-- Mobile Responsive Cards -->
+            <div class="mobile-itinerary-cards">
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 1 - 7/22 (二) | 東大阪地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">關西機場→住宿安頓</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                臨空城Outlets輕鬆購物<br>
+                                <a href="https://www.premiumoutlets.co.jp/rinku/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=臨空城Outlets" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=臨空城Outlets" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                永旺夢樂城室內採買<br>
+                                <a href="https://www.aeon.com/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=永旺夢樂城" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=永旺夢樂城" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">低於1小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 2 - 7/23 (三) | 東大阪地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                堺・綠之博物館<br>
+                                <a href="https://www.sakai-tcb.or.jp/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=堺・綠之博物館" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=堺・綠之博物館" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">廣闊農業公園→動物互動</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                狹山池博物館→安藤忠雄建築<br>
+                                <a href="https://www.sayamaikehaku.osakasayama.osaka.jp/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=狹山池博物館" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=狹山池博物館" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">1-1.5小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 3 - 7/24 (四) | 東大阪地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                飛鳥歷史公園<br>
+                                <a href="https://www.asuka-park.go.jp/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=飛鳥歷史公園" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=飛鳥歷史公園" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">電動自行車探索→古墳群</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                橿原考古學博物館→文物展示<br>
+                                <a href="https://www.kashikoken.jp/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=橿原考古學博物館" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=橿原考古學博物館" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">1-1.5小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 4 - 7/25 (五) | 滋賀縣琵琶湖地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                琵琶湖博物館<br>
+                                <a href="https://www.biwahaku.jp/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=琵琶湖博物館" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=琵琶湖博物館" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">世界級博物館→水族展示</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">全室內展區→完美雨天方案</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">1.5-2小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 5 - 7/26 (六) | 滋賀縣琵琶湖地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                京都東山<br>
+                                <a href="https://kyoto.travel/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=京都東山" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=京都東山" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                南禪寺→哲學之道→祇園→清水寺<br>
+                                <a href="https://www.nanzen.net/" target="_blank" class="mobile-table-btn official">南禪寺</a>
+                                <a href="https://maps.google.com/maps?q=南禪寺" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=南禪寺" target="_blank" class="mobile-table-btn search">搜索</a><br>
+                                <a href="https://www.kiyomizudera.or.jp/" target="_blank" class="mobile-table-btn official">清水寺</a>
+                                <a href="https://maps.google.com/maps?q=清水寺" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=清水寺" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">雨中古都→寺廟建築內部參觀</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">1-1.5小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 6 - 7/27 (日) | 滋賀縣琵琶湖地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                京都鐵道博物館<br>
+                                <a href="https://www.kyotorailwaymuseum.jp/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=京都鐵道博物館" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=京都鐵道博物館" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">54輛實物車輛→SL蒸氣號體驗</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">室內展館→模擬駕駛體驗</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">1-1.5小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 7 - 7/28 (一) | 京都/神戶地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                淡路島二次元之森<br>
+                                <a href="https://nijigennomori.com/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=淡路島二次元之森" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=淡路島二次元之森" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">哥吉拉迎擊→火影忍者忍里</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                神戶動物王國→大阪海遊館<br>
+                                <a href="https://www.kobe-oukoku.com/" target="_blank" class="mobile-table-btn official">神戶動物王國</a>
+                                <a href="https://maps.google.com/maps?q=神戶動物王國" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=神戶動物王國" target="_blank" class="mobile-table-btn search">搜索</a><br>
+                                <a href="https://www.kaiyukan.com/" target="_blank" class="mobile-table-btn official">大阪海遊館</a>
+                                <a href="https://maps.google.com/maps?q=大阪海遊館" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=大阪海遊館" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">2-2.5小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 8 - 7/29 (二) | 京都/神戶地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">
+                                京都文化巡禮<br>
+                                <a href="https://kyoto.travel/" target="_blank" class="mobile-table-btn official">官網</a>
+                                <a href="https://maps.google.com/maps?q=京都文化巡禮" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=京都文化巡禮" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                寶可夢中心KYOTO→錦市場→伏見稻荷<br>
+                                <a href="https://www.pokemon.co.jp/gp/pokecen/kyoto/" target="_blank" class="mobile-table-btn official">寶可夢中心</a>
+                                <a href="https://maps.google.com/maps?q=寶可夢中心KYOTO" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=寶可夢中心KYOTO" target="_blank" class="mobile-table-btn search">搜索</a><br>
+                                <a href="https://www.kyoto-nishiki.or.jp/" target="_blank" class="mobile-table-btn official">錦市場</a>
+                                <a href="https://maps.google.com/maps?q=錦市場" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=錦市場" target="_blank" class="mobile-table-btn search">搜索</a><br>
+                                <a href="https://inari.jp/" target="_blank" class="mobile-table-btn official">伏見稻荷</a>
+                                <a href="https://maps.google.com/maps?q=伏見稻荷大社" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=伏見稻荷大社" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                寶可夢中心→京都國際漫畫博物館<br>
+                                <a href="https://www.kyotomm.jp/" target="_blank" class="mobile-table-btn official">漫畫博物館</a>
+                                <a href="https://maps.google.com/maps?q=京都國際漫畫博物館" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=京都國際漫畫博物館" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">1-1.5小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 9 - 7/30 (三) | 京都/神戶地區
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">彈性探索日</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">
+                                奈良公園→東大寺→春日大社<br>
+                                <a href="https://www.nara-park.com/" target="_blank" class="mobile-table-btn official">奈良公園</a>
+                                <a href="https://maps.google.com/maps?q=奈良公園" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=奈良公園" target="_blank" class="mobile-table-btn search">搜索</a><br>
+                                <a href="https://www.todaiji.or.jp/" target="_blank" class="mobile-table-btn official">東大寺</a>
+                                <a href="https://maps.google.com/maps?q=東大寺" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=東大寺" target="_blank" class="mobile-table-btn search">搜索</a><br>
+                                <a href="https://www.kasugataisha.or.jp/" target="_blank" class="mobile-table-btn official">春日大社</a>
+                                <a href="https://maps.google.com/maps?q=春日大社" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=春日大社" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">
+                                奈良國立博物館→大阪市區購物<br>
+                                <a href="https://www.narahaku.go.jp/" target="_blank" class="mobile-table-btn official">奈良國立博物館</a>
+                                <a href="https://maps.google.com/maps?q=奈良國立博物館" target="_blank" class="mobile-table-btn map">地圖</a>
+                                <a href="https://www.google.com/search?q=奈良國立博物館" target="_blank" class="mobile-table-btn search">搜索</a>
+                            </div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">1-2小時</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile-day-card">
+                    <div class="mobile-day-header">
+                        Day 10 - 7/31 (四) | 前往機場
+                    </div>
+                    <div class="mobile-day-content">
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">主要目的地</div>
+                            <div class="mobile-info-content">前往機場</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">☀️ 晴天方案</div>
+                            <div class="mobile-info-content">悠閒早餐→最後採買→機場</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">🌧️ 雨天方案</div>
+                            <div class="mobile-info-content">從容準備→室內採買→機場</div>
+                        </div>
+                        <div class="mobile-info-row">
+                            <div class="mobile-info-label">駕駛時間</div>
+                            <div class="mobile-info-content">~1小時</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
