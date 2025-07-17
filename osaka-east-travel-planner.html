@@ -288,6 +288,52 @@
         .link-btn.search:hover {
             background: #8e44ad;
         }
+
+        /* Compact table buttons for itinerary overview */
+        .table-btn {
+            margin: 1px 2px;
+            padding: 2px 4px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            font-size: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1.2;
+        }
+
+        .table-btn:hover {
+            transform: scale(1.1);
+            text-decoration: none;
+            color: white;
+        }
+
+        .table-btn.official {
+            background: #27ae60;
+        }
+
+        .table-btn.official:hover {
+            background: #229954;
+        }
+
+        .table-btn.map {
+            background: #f39c12;
+        }
+
+        .table-btn.map:hover {
+            background: #e67e22;
+        }
+
+        .table-btn.search {
+            background: #9b59b6;
+        }
+
+        .table-btn.search:hover {
+            background: #8e44ad;
+        }
         
         @media (max-width: 768px) {
             .container {
@@ -497,7 +543,9 @@
                         <p>⭐ 新開業</p>
                         <p class="price">MOP$1,181 / 3晚 (~¥6,000/晚)</p>
                         <p>🚇 步行7分鐘到車站</p>
-                        <button class="copy-btn" onclick="copyToClipboard('https://www.airbnb.com/rooms/1423031064189438609')">複製連結</button>
+                        <a href="https://www.airbnb.com/rooms/1423031064189438609" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=難波,大阪,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=難波+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
                 </div>
             </div>
@@ -513,7 +561,9 @@
                         <p class="price">MOP$3,606 / 3晚 (~¥18,000/晚)</p>
                         <p>🏠 2023年新建</p>
                         <p>🚇 10分鐘到京都</p>
-                        <button class="copy-btn" onclick="copyToClipboard('https://www.airbnb.com/rooms/1436572542769326053')">複製連結</button>
+                        <a href="https://www.airbnb.com/rooms/1436572542769326053" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=大津市,滋賀縣,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=大津市+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
 
                     <div class="hotel-card">
@@ -524,7 +574,9 @@
                         <p class="price">MOP$4,200 / 3晚 (~¥21,000/晚)</p>
                         <p>🏛️ 傳統京都町屋風格</p>
                         <p>🚇 步行到地鐵站</p>
-                        <button class="copy-btn" onclick="copyToClipboard('https://www.airbnb.com/rooms/kyoto-traditional')">複製連結</button>
+                        <a href="https://www.airbnb.com/rooms/kyoto-traditional" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=京都市東山區,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=京都東山+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
                 </div>
             </div>
@@ -540,7 +592,9 @@
                         <p class="price">MOP$4,500 / 3晚 (~¥22,500/晚)</p>
                         <p>🚇 步行到京都車站</p>
                         <p>🛒 周邊購物中心林立</p>
-                        <button class="copy-btn" onclick="copyToClipboard('https://www.airbnb.com/rooms/kyoto-station-area')">複製連結</button>
+                        <a href="https://www.airbnb.com/rooms/kyoto-station-area" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=京都車站,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=京都車站+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
 
                     <div class="hotel-card">
@@ -551,7 +605,9 @@
                         <p class="price">MOP$5,100 / 3晚 (~¥25,500/晚)</p>
                         <p>🏮 祇園花見小路步行5分鐘</p>
                         <p>🍵 傳統茶屋文化體驗</p>
-                        <button class="copy-btn" onclick="copyToClipboard('https://www.airbnb.com/rooms/gion-district')">複製連結</button>
+                        <a href="https://www.airbnb.com/rooms/gion-district" target="_blank" class="link-btn official"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=祇園,京都,日本" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=祇園+住宿" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
                 </div>
             </div>
@@ -593,33 +649,54 @@
                         <td>7/22 (二)</td>
                         <td>東大阪地區</td>
                         <td>關西機場→住宿安頓</td>
-                        <td>臨空城Outlets輕鬆購物</td>
-                        <td>永旺夢樂城室內採買</td>
+                        <td>臨空城Outlets輕鬆購物<br>
+                        <a href="https://www.premiumoutlets.co.jp/rinku/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=臨空城Outlets" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=臨空城Outlets" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>永旺夢樂城室內採買<br>
+                        <a href="https://www.aeon.com/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=永旺夢樂城" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=永旺夢樂城" target="_blank" class="table-btn search">搜索</a></td>
                         <td>低於1小時</td>
                     </tr>
                     <tr>
                         <td><strong>Day 2</strong></td>
                         <td>7/23 (三)</td>
                         <td>東大阪地區</td>
-                        <td>堺・綠之博物館</td>
+                        <td>堺・綠之博物館<br>
+                        <a href="https://www.sakai-tcb.or.jp/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=堺・綠之博物館" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=堺・綠之博物館" target="_blank" class="table-btn search">搜索</a></td>
                         <td>廣闊農業公園→動物互動</td>
-                        <td>狹山池博物館→安藤忠雄建築</td>
+                        <td>狹山池博物館→安藤忠雄建築<br>
+                        <a href="https://www.sayamaikehaku.osakasayama.osaka.jp/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=狹山池博物館" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=狹山池博物館" target="_blank" class="table-btn search">搜索</a></td>
                         <td>1-1.5小時</td>
                     </tr>
                     <tr style="background: #f0f9ff;">
                         <td><strong>Day 3</strong></td>
                         <td>7/24 (四)</td>
                         <td>東大阪地區</td>
-                        <td>飛鳥歷史公園</td>
+                        <td>飛鳥歷史公園<br>
+                        <a href="https://www.asuka-park.go.jp/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=飛鳥歷史公園" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=飛鳥歷史公園" target="_blank" class="table-btn search">搜索</a></td>
                         <td>電動自行車探索→古墳群</td>
-                        <td>橿原考古學博物館→文物展示</td>
+                        <td>橿原考古學博物館→文物展示<br>
+                        <a href="https://www.kashikoken.jp/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=橿原考古學博物館" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=橿原考古學博物館" target="_blank" class="table-btn search">搜索</a></td>
                         <td>1-1.5小時</td>
                     </tr>
                     <tr>
                         <td><strong>Day 4</strong></td>
                         <td>7/25 (五)</td>
                         <td>滋賀縣琵琶湖地區</td>
-                        <td>琵琶湖博物館</td>
+                        <td>琵琶湖博物館<br>
+                        <a href="https://www.biwahaku.jp/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=琵琶湖博物館" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=琵琶湖博物館" target="_blank" class="table-btn search">搜索</a></td>
                         <td>世界級博物館→水族展示</td>
                         <td>全室內展區→完美雨天方案</td>
                         <td>1.5-2小時</td>
@@ -628,8 +705,17 @@
                         <td><strong>Day 5</strong></td>
                         <td>7/26 (六)</td>
                         <td>滋賀縣琵琶湖地區</td>
-                        <td>京都東山</td>
-                        <td>南禪寺→哲學之道→祇園→清水寺</td>
+                        <td>京都東山<br>
+                        <a href="https://kyoto.travel/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=京都東山" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=京都東山" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>南禪寺→哲學之道→祇園→清水寺<br>
+                        <a href="https://www.nanzen.net/" target="_blank" class="table-btn official">南禪寺</a>
+                        <a href="https://maps.google.com/maps?q=南禪寺" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=南禪寺" target="_blank" class="table-btn search">搜索</a><br>
+                        <a href="https://www.kiyomizudera.or.jp/" target="_blank" class="table-btn official">清水寺</a>
+                        <a href="https://maps.google.com/maps?q=清水寺" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=清水寺" target="_blank" class="table-btn search">搜索</a></td>
                         <td>雨中古都→寺廟建築內部參觀</td>
                         <td>1-1.5小時</td>
                     </tr>
@@ -637,7 +723,10 @@
                         <td><strong>Day 6</strong></td>
                         <td>7/27 (日)</td>
                         <td>滋賀縣琵琶湖地區</td>
-                        <td>京都鐵道博物館</td>
+                        <td>京都鐵道博物館<br>
+                        <a href="https://www.kyotorailwaymuseum.jp/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=京都鐵道博物館" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=京都鐵道博物館" target="_blank" class="table-btn search">搜索</a></td>
                         <td>54輛實物車輛→SL蒸氣號體驗</td>
                         <td>室內展館→模擬駕駛體驗</td>
                         <td>1-1.5小時</td>
@@ -646,18 +735,42 @@
                         <td><strong>Day 7</strong></td>
                         <td>7/28 (一)</td>
                         <td>京都/神戶地區</td>
-                        <td>淡路島二次元之森</td>
+                        <td>淡路島二次元之森<br>
+                        <a href="https://nijigennomori.com/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=淡路島二次元之森" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=淡路島二次元之森" target="_blank" class="table-btn search">搜索</a></td>
                         <td>哥吉拉迎擊→火影忍者忍里</td>
-                        <td>神戶動物王國→大阪海遊館</td>
+                        <td>神戶動物王國→大阪海遊館<br>
+                        <a href="https://www.kobe-oukoku.com/" target="_blank" class="table-btn official">神戶動物王國</a>
+                        <a href="https://maps.google.com/maps?q=神戶動物王國" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=神戶動物王國" target="_blank" class="table-btn search">搜索</a><br>
+                        <a href="https://www.kaiyukan.com/" target="_blank" class="table-btn official">大阪海遊館</a>
+                        <a href="https://maps.google.com/maps?q=大阪海遊館" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=大阪海遊館" target="_blank" class="table-btn search">搜索</a></td>
                         <td>2-2.5小時</td>
                     </tr>
                     <tr>
                         <td><strong>Day 8</strong></td>
                         <td>7/29 (二)</td>
                         <td>京都/神戶地區</td>
-                        <td>京都文化巡禮</td>
-                        <td>寶可夢中心KYOTO→錦市場→伏見稻荷</td>
-                        <td>寶可夢中心→京都國際漫畫博物館</td>
+                        <td>京都文化巡禮<br>
+                        <a href="https://kyoto.travel/" target="_blank" class="table-btn official">官網</a>
+                        <a href="https://maps.google.com/maps?q=京都文化巡禮" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=京都文化巡禮" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>寶可夢中心KYOTO→錦市場→伏見稻荷<br>
+                        <a href="https://www.pokemon.co.jp/gp/pokecen/kyoto/" target="_blank" class="table-btn official">寶可夢中心</a>
+                        <a href="https://maps.google.com/maps?q=寶可夢中心KYOTO" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=寶可夢中心KYOTO" target="_blank" class="table-btn search">搜索</a><br>
+                        <a href="https://www.kyoto-nishiki.or.jp/" target="_blank" class="table-btn official">錦市場</a>
+                        <a href="https://maps.google.com/maps?q=錦市場" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=錦市場" target="_blank" class="table-btn search">搜索</a><br>
+                        <a href="https://inari.jp/" target="_blank" class="table-btn official">伏見稻荷</a>
+                        <a href="https://maps.google.com/maps?q=伏見稻荷大社" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=伏見稻荷大社" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>寶可夢中心→京都國際漫畫博物館<br>
+                        <a href="https://www.kyotomm.jp/" target="_blank" class="table-btn official">漫畫博物館</a>
+                        <a href="https://maps.google.com/maps?q=京都國際漫畫博物館" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=京都國際漫畫博物館" target="_blank" class="table-btn search">搜索</a></td>
                         <td>1-1.5小時</td>
                     </tr>
                     <tr style="background: #f0fff0;">
@@ -665,8 +778,20 @@
                         <td>7/30 (三)</td>
                         <td>京都/神戶地區</td>
                         <td>彈性探索日</td>
-                        <td>奈良公園→東大寺→春日大社</td>
-                        <td>奈良國立博物館→大阪市區購物</td>
+                        <td>奈良公園→東大寺→春日大社<br>
+                        <a href="https://www.nara-park.com/" target="_blank" class="table-btn official">奈良公園</a>
+                        <a href="https://maps.google.com/maps?q=奈良公園" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=奈良公園" target="_blank" class="table-btn search">搜索</a><br>
+                        <a href="https://www.todaiji.or.jp/" target="_blank" class="table-btn official">東大寺</a>
+                        <a href="https://maps.google.com/maps?q=東大寺" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=東大寺" target="_blank" class="table-btn search">搜索</a><br>
+                        <a href="https://www.kasugataisha.or.jp/" target="_blank" class="table-btn official">春日大社</a>
+                        <a href="https://maps.google.com/maps?q=春日大社" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=春日大社" target="_blank" class="table-btn search">搜索</a></td>
+                        <td>奈良國立博物館→大阪市區購物<br>
+                        <a href="https://www.narahaku.go.jp/" target="_blank" class="table-btn official">奈良國立博物館</a>
+                        <a href="https://maps.google.com/maps?q=奈良國立博物館" target="_blank" class="table-btn map">地圖</a>
+                        <a href="https://www.google.com/search?q=奈良國立博物館" target="_blank" class="table-btn search">搜索</a></td>
                         <td>1-2小時</td>
                     </tr>
                     <tr>
@@ -984,6 +1109,9 @@
                         <p><strong>費用：</strong>普通車¥1,000/日</p>
                         <p><strong>優勢：</strong>步行5分鐘即達奈良公園</p>
                         <p><strong>容量：</strong>充足車位，較少客滿問題</p>
+                        <a href="https://www.nara-park.com/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=奈良公園" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=奈良公園" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
 
                     <div class="hotel-card">
@@ -1005,6 +1133,9 @@
                         <p><strong>費用：</strong>免費</p>
                         <p><strong>容量：</strong>普通車420台</p>
                         <p><strong>重要：</strong>需事先官網預約入館</p>
+                        <a href="https://www.biwahaku.jp/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=滋賀縣立琵琶湖博物館" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=滋賀縣立琵琶湖博物館" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
 
                     <div class="hotel-card">
@@ -1035,6 +1166,9 @@
                         <p>📍 京都經濟中心SUINA室町2F</p>
                         <p>🌟 和風設計，限定「公卿皮卡丘」</p>
                         <p>🎯 地鐵烏丸線「四條站」直結</p>
+                        <a href="https://www.pokemon.co.jp/gp/pokecen/kyoto/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=Pokémon+Center+KYOTO" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=Pokémon+Center+KYOTO" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
                     
                     <div class="hotel-card">
@@ -1042,6 +1176,9 @@
                         <p>📍 梅小路公園內</p>
                         <p>🌟 54輛實物車輛，模擬駕駛體驗</p>
                         <p>🎯 可搭乘「SL蒸氣號」，需抽籤</p>
+                        <a href="https://www.kyotorailwaymuseum.jp/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=京都鐵道博物館" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=京都鐵道博物館" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
                 </div>
             </div>
@@ -1117,6 +1254,9 @@
                         <p>🎯 必須事先官網預約入館</p>
                         <p><strong>開館時間：</strong>10:00-17:00 (週一休館)</p>
                         <p><strong>門票：</strong>大人¥800、小學生¥200</p>
+                        <a href="https://www.biwahaku.jp/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=滋賀縣立琵琶湖博物館" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=滋賀縣立琵琶湖博物館" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
 
                     <div class="hotel-card">
@@ -1126,6 +1266,9 @@
                         <p>🎯 推薦停車場：F停車場 (最近入口)</p>
                         <p><strong>營業時間：</strong>10:00-22:00</p>
                         <p><strong>門票：</strong>大人¥3,300、兒童¥1,200</p>
+                        <a href="https://nijigennomori.com/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=淡路島二次元之森" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=淡路島二次元之森" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
 
                     <div class="hotel-card">
@@ -1135,6 +1278,9 @@
                         <p>🎯 SL蒸氣號需抽籤預約</p>
                         <p><strong>開館時間：</strong>10:00-17:00 (週三休館)</p>
                         <p><strong>門票：</strong>大人¥1,200、兒童¥500</p>
+                        <a href="https://www.kyotorailwaymuseum.jp/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=京都鐵道博物館" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a>
+                        <a href="https://www.google.com/search?q=京都鐵道博物館" target="_blank" class="link-btn search"><i class="fas fa-search"></i> 搜索</a>
                     </div>
                 </div>
             </div>
