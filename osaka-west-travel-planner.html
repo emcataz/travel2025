@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 夏季關西親子自駕深度遊：西行探索計畫</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            border-radius: 15px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .section h2 {
+            color: #ff6b6b;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2::before {
+            content: '🌸';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .day-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .day-number {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .day-date {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .itinerary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .weather-option {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .weather-option h4 {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sunny::before { content: '☀️ '; }
+        .rainy::before { content: '🌧️ '; }
+        
+        .accommodation-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .accommodation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .hotel-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hotel-card h4 {
+            margin-bottom: 10px;
+            color: #feca57;
+        }
+        
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-top: 10px;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #feca57, #ff9ff3);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .tips {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .tips::before {
+            content: '💡 ';
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .itinerary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .day-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .accommodation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌸 2025 夏季關西親子自駕深度遊 🌸</h1>
+            <p>西行探索計畫：姬路城、神戶港都風情</p>
+        </div>
+
+        <div class="section">
+            <h2>旅程概覽</h2>
+            <p>這是一份為您精心設計的10日關西深度自駕之旅，以大阪為起點，向西探索姬路城、神戶等經典景點。行程特色包括寶可夢中心朝聖、鋼彈文化體驗、親子友善景點，以及靈活的晴雨天備案。</p>
+            
+            <div class="highlight">
+                <strong>核心理念：</strong>步調悠閒、親子同樂、避開人潮、深度體驗
+            </div>
+            
+            <div class="tips">
+                採用「Park & Ride」策略，避開市中心交通壅塞，每日駕駛時間控制在1-2小時內
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>住宿推薦</h2>
+            <div class="accommodation-section">
+                <h3>🏨 精選住宿選項</h3>
+                <div class="accommodation-grid">
+                    <div class="hotel-card">
+                        <h4>ABC/15min to KIX Private bathroom</h4>
+                        <p>📍 泉佐野市</p>
+                        <p>🛏️ 5 beds, 1 bedroom</p>
+                        <p>⭐ 4.81/5 (101 reviews)</p>
+                        <p class="price">MOP$2,090 / 3晚</p>
+                        <button class="copy-btn" onclick="copyToClipboard('https://www.airbnb.com/rooms/944716225339940298')">複製連結</button>
+                    </div>
+                    
+                    <div class="hotel-card">
+                        <h4>KIX 20min/Outlet 1 stop/Up to 7 people</h4>
+                        <p>📍 泉佐野市</p>
+                        <p>🛏️ 2 bedrooms</p>
+                        <p>⭐ 4.84/5 (144 reviews)</p>
+                        <p class="price">MOP$2,470 / 3晚</p>
+                        <button class="copy-btn" onclick="copyToClipboard('https://www.airbnb.com/rooms/22533122')">複製連結</button>
+                    </div>
+                    
+                    <div class="hotel-card">
+                        <h4>2 stations from Kansai Airport</h4>
+                        <p>📍 泉佐野市</p>
+                        <p>🛏️ 5 beds, 3 bedrooms</p>
+                        <p>⭐ 4.91/5 (11 reviews)</p>
+                        <p class="price">MOP$5,013 / 3晚</p>
+                        <button class="copy-btn" onclick="copyToClipboard('https://www.airbnb.com/rooms/1336085840137183025')">複製連結</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>詳細行程安排</h2>
+            
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 1</div>
+                    <div class="day-date">7/22 (二) - 抵達與安頓</div>
+                </div>
+                <div class="itinerary-grid">
+                    <div class="weather-option">
+                        <h4 class="sunny">晴天方案</h4>
+                        <p>關西機場取車 → 住宿點Check-in → 臨空城 Rinku Premium Outlets 輕鬆購物與晚餐</p>
+                    </div>
+                    <div class="weather-option">
+                        <h4 class="rainy">雨天方案</h4>
+                        <p>關西機場取車 → 住宿點Check-in → 永旺夢樂城臨空泉南 (室內購物中心) 採買與晚餐</p>
+                    </div>
+                </div>
+                <div class="tips">
+                    預估駕駛時間：~30分鐘。第一天重點是無壓力安頓，適應環境。
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 2</div>
+                    <div class="day-date">7/23 (三) - 大阪市區初探 (寶可夢)</div>
+                </div>
+                <div class="itinerary-grid">
+                    <div class="weather-option">
+                        <h4 class="sunny">晴天方案</h4>
+                        <p>Park & Ride at 江坂駅 → 搭乘御堂筋線 → 心齋橋：寶可夢中心OSAKA DX & 寶可夢咖啡廳 → 美國村/道頓堀散步</p>
+                    </div>
+                    <div class="weather-option">
+                        <h4 class="rainy">雨天方案</h4>
+                        <p>Park & Ride at 江坂駅 → 心齋橋：寶可夢中心OSAKA DX → 大丸心齋橋店深入探索或轉往難波PARKS</p>
+                    </div>
+                </div>
+                <div class="highlight">
+                    <strong>重要提醒：</strong>寶可夢咖啡廳需提前在官網預約席位！
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 3</div>
+                    <div class="day-date">7/24 (四) - 大阪北區探索 (鋼彈)</div>
+                </div>
+                <div class="itinerary-grid">
+                    <div class="weather-option">
+                        <h4 class="sunny">晴天方案</h4>
+                        <p>Park & Ride at 江坂駅 → 梅田：THE GUNDAM BASE POP-UP OSAKA → 梅田藍天大廈空中庭園展望台</p>
+                    </div>
+                    <div class="weather-option">
+                        <h4 class="rainy">雨天方案</h4>
+                        <p>Park & Ride at 江坂駅 → 梅田：THE GUNDAM BASE POP-UP OSAKA → GRAND FRONT OSAKA 或 LUCUA 購物中心</p>
+                    </div>
+                </div>
+                <div class="highlight">
+                    <strong>關鍵行動：</strong>鋼彈基地需透過官方數位整理券系統預約入場時段！
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 4</div>
+                    <div class="day-date">7/25 (五) - 移動 & 神戶港都風光</div>
+                </div>
+                <div class="itinerary-grid">
+                    <div class="weather-option">
+                        <h4 class="sunny">晴天方案</h4>
+                        <p>Check-out → 神戶動物王國 (全天候型) → 午後前往明石/加古川新住宿點</p>
+                    </div>
+                    <div class="weather-option">
+                        <h4 class="rainy">雨天方案</h4>
+                        <p>Check-out → 神戶動物王國 (完美雨天備案，大部分室內) → 午後前往新住宿點</p>
+                    </div>
+                </div>
+                <div class="tips">
+                    預估駕駛時間：~1.5-2小時。神戶動物王國是絕佳的全天候親子景點。
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-number">Day 5</div>
+                    <div class="day-date">7/26 (六) - 國寶姬路城</div>
+                </div>
+                <div class="itinerary-grid">
+                    <div class="weather-option">
+                        <h4 class="sunny">晴天方案</h4>
+                        <p>提早出發 → 姬路城 (目標9點抵達) → 好古園 → 午後返回，途中道之驛みき休息</p>
+                    </div>
+                    <div class="weather-option">
+                        <h4 class="rainy">雨天方案</h4>
+                        <p>提早出發 → 姬路城 (雨中城堡別有風情) → 兵庫縣立歷史博物館 (室內) → 午後返回</p>
+                    </div>
+                </div>
+                <div class="highlight">
+                    <strong>攻略重點：</strong>採用「車站周邊停車」策略，避開城堡正門停車場
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Park & Ride 停車轉乘攻略</h2>
+            <div class="tips">
+                <strong>江坂站方案：</strong>停車在Times CARINO ESAKA，24小時最高收費¥770-¥880，搭御堂筋線直達心齋橋(20分鐘)或梅田(11分鐘)
+            </div>
+            <div class="tips">
+                <strong>姬路站方案：</strong>停車在JR姬路站周邊，搭姫路城ループバス直達城堡入口，車資約¥210
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>寶可夢 & 鋼彈朝聖指南</h2>
+            <div class="accommodation-section">
+                <h3>🎮 動漫文化景點</h3>
+                <div class="accommodation-grid">
+                    <div class="hotel-card">
+                        <h4>Pokémon Center OSAKA DX</h4>
+                        <p>📍 大丸心齋橋店本館9樓</p>
+                        <p>🌟 關西旗艦店，附設寶可夢咖啡廳</p>
+                        <p>🎯 必須提前官網預約咖啡廳</p>
+                    </div>
+                    
+                    <div class="hotel-card">
+                        <h4>THE GUNDAM BASE POP-UP OSAKA</h4>
+                        <p>📍 大丸梅田店5樓</p>
+                        <p>🌟 2025萬博限定展，4/11-10/13</p>
+                        <p>🎯 需使用mogily數位預約系統</p>
+                    </div>
+                    
+                    <div class="hotel-card">
+                        <h4>日本橋電電城</h4>
+                        <p>📍 難波地區</p>
+                        <p>🌟 鋼彈模型聖地，多家專賣店</p>
+                        <p>🎯 Yellow Submarine、Joshin等</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                // 創建提示元素
+                const toast = document.createElement('div');
+                toast.textContent = '連結已複製到剪貼板！';
+                toast.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #4caf50;
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 25px;
+                    font-weight: bold;
+                    z-index: 1000;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    animation: slideIn 0.3s ease;
+                `;
+                
+                // 添加動畫
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideIn {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                document.body.appendChild(toast);
+                
+                // 3秒後移除提示
+                setTimeout(() => {
+                    toast.remove();
+                    style.remove();
+                }, 3000);
+            }).catch(function(err) {
+                console.error('複製失敗: ', err);
+                alert('複製失敗，請手動複製連結');
+            });
+        }
+        
+        // 添加滾動動畫效果
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.day-card, .section');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardVisible = 150;
+                
+                if (cardTop < window.innerHeight - cardVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // 初始化動畫
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.day-card, .section');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // 觸發初始動畫
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+</body>
+</html>

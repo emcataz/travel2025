@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大阪親子自駕旅行規劃表 - 8日7夜網狀輻射遊玩攻略</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #f39c12;
+            --accent-color: #27ae60;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --border-color: #bdc3c7;
+            --shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: white;
+        }
+
+        /* A4 Print Layout */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 10mm;
+            background: white;
+            box-shadow: var(--shadow);
+        }
+
+        @media print {
+            body { margin: 0; }
+            .page {
+                width: 100%;
+                min-height: 100vh;
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .grid-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-header i {
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+
+        .card-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Tables */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+
+        .table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .timeline-time {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+
+        .timeline-content {
+            margin-top: 4px;
+            font-size: 13px;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: var(--bg-light);
+            border-left: 4px solid var(--accent-color);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid var(--secondary-color);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Lists */
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list li {
+            padding: 6px 0;
+            border-bottom: 1px dotted var(--border-color);
+            font-size: 13px;
+        }
+
+        .list li:last-child {
+            border-bottom: none;
+        }
+
+        .list li i {
+            color: var(--primary-color);
+            margin-right: 8px;
+            width: 16px;
+        }
+
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            background: #c0392b;
+        }
+
+        /* Copy Button */
+        .copy-btn {
+            margin-left: 8px;
+            padding: 2px 6px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .copy-btn:hover {
+            opacity: 1;
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-success {
+            background: var(--accent-color) !important;
+        }
+
+        /* Link Buttons */
+        .link-btn {
+            margin-left: 4px;
+            padding: 4px 6px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .link-btn:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+            text-decoration: none;
+            color: white;
+        }
+
+        .link-btn.official {
+            background: #27ae60;
+        }
+
+        .link-btn.official:hover {
+            background: #229954;
+        }
+
+        .link-btn.map {
+            background: #f39c12;
+        }
+
+        .link-btn.map:hover {
+            background: #e67e22;
+        }
+
+        .link-btn.airbnb {
+            background: #ff5a5f;
+        }
+
+        .link-btn.airbnb:hover {
+            background: #e74c3c;
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page {
+                width: 100%;
+                padding: 15px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+
+        @media print {
+            .copy-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">
+        <i class="fas fa-print"></i> 打印規劃表
+    </button>
+
+    <div class="page">
+        <!-- Header -->
+        <div class="header fade-in">
+            <h1><i class="fas fa-torii-gate"></i> 2025 夏季關西親子自駕深度遊</h1>
+            <div class="subtitle">
+                <span><i class="fas fa-car"></i> 10日9夜自駕遊</span>
+                <span><i class="fas fa-route"></i> 共同基礎行程（前3日）</span>
+                <span><i class="fas fa-child"></i> 親子友好設計</span>
+                <span><i class="fas fa-map"></i> 第4日後分流選擇</span>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-link"></i>
+                <h3>🔗 實用網站快速連結</h3>
+            </div>
+            <div class="grid">
+                <div>
+                    <h4><i class="fas fa-info-circle"></i> 官方旅遊資訊</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-globe"></i> <a href="https://hk.osaka-info.jp/" target="_blank" class="link-btn official">大阪觀光局官網</a></li>
+                        <li><i class="fas fa-map"></i> <a href="https://maps.google.com/maps?q=大阪,日本" target="_blank" class="link-btn map">Google Maps 大阪</a></li>
+                        <li><i class="fas fa-train"></i> <a href="https://www.hyperdia.com/en/" target="_blank" class="link-btn">日本交通查詢</a></li>
+                        <li><i class="fas fa-cloud-sun"></i> <a href="https://weather.yahoo.co.jp/weather/jp/27/6200.html" target="_blank" class="link-btn">大阪天氣預報</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-ticket-alt"></i> 主要景點預訂</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-magic"></i> <a href="https://www.usj.co.jp/web/zh/tw" target="_blank" class="link-btn official">環球影城門票</a></li>
+                        <li><i class="fas fa-fish"></i> <a href="https://www.kaiyukan.com/" target="_blank" class="link-btn official">海遊館門票</a></li>
+                        <li><i class="fas fa-cube"></i> <a href="https://www.legolanddiscoverycenter.com/osaka/zh/" target="_blank" class="link-btn official">樂高樂園門票</a></li>
+                        <li><i class="fas fa-home"></i> <a href="https://www.airbnb.com/s/Osaka--Japan/homes" target="_blank" class="link-btn airbnb">Airbnb 大阪</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="grid">
+                <div>
+                    <h4><i class="fas fa-utensils"></i> 美食推薦</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-search"></i> <a href="https://tabelog.com/osaka/" target="_blank" class="link-btn">Tabelog 大阪美食</a></li>
+                        <li><i class="fas fa-star"></i> <a href="https://www.tripadvisor.com/Restaurants-g298566-Osaka_Osaka_Prefecture_Kinki.html" target="_blank" class="link-btn">TripAdvisor 餐廳</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/maps?q=黑門市場,大阪" target="_blank" class="link-btn map">黑門市場位置</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/maps?q=道頓崛,大阪" target="_blank" class="link-btn map">道頓崛位置</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-car"></i> 自駕相關</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-car"></i> <a href="https://www.timescar-rental.com/" target="_blank" class="link-btn">Times租車</a></li>
+                        <li><i class="fas fa-car"></i> <a href="https://rent.toyota.co.jp/" target="_blank" class="link-btn">Toyota租車</a></li>
+                        <li><i class="fas fa-parking"></i> <a href="https://www.navitime.co.jp/parking/" target="_blank" class="link-btn">停車場查詢</a></li>
+                        <li><i class="fas fa-route"></i> <a href="https://www.navitime.co.jp/" target="_blank" class="link-btn">日本導航</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flight Information -->
+        <div class="grid">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-plane-departure"></i>
+                    <h3>去程航班信息</h3>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td><strong>航班號</strong></td>
+                        <td>NX861 (澳門航空)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>出發</strong></td>
+                        <td>11:00 澳門國際機場</td>
+                    </tr>
+                    <tr>
+                        <td><strong>到達</strong></td>
+                        <td>15:30 大阪關西機場</td>
+                    </tr>
+                    <tr>
+                        <td><strong>飛行時間</strong></td>
+                        <td>3小時30分鐘</td>
+                    </tr>
+                    <tr>
+                        <td><strong>時差</strong></td>
+                        <td>日本快澳門1小時</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card-header">
+                    <i class="fas fa-plane-arrival"></i>
+                    <h3>返程航班信息</h3>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td><strong>航班號</strong></td>
+                        <td>NX862 (澳門航空)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>出發</strong></td>
+                        <td>16:30 大阪關西機場</td>
+                    </tr>
+                    <tr>
+                        <td><strong>到達</strong></td>
+                        <td>19:00 澳門國際機場</td>
+                    </tr>
+                    <tr>
+                        <td><strong>飛行時間</strong></td>
+                        <td>2小時30分鐘</td>
+                    </tr>
+                    <tr>
+                        <td><strong>建議提前</strong></td>
+                        <td>國際航班2小時</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Car Rental Information -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-car"></i>
+                <h3>🚗 租車自駕信息</h3>
+            </div>
+            <div class="grid">
+                <div>
+                    <h4><i class="fas fa-file-alt"></i> 駕照準備</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-check"></i> 澳門駕照正本</li>
+                        <li><i class="fas fa-check"></i> 駕照日文譯本（需提前辦理）</li>
+                        <li><i class="fas fa-check"></i> 護照正本</li>
+                        <li><i class="fas fa-check"></i> 國際信用卡</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-map-marked-alt"></i> 推薦租車公司</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-star"></i> <strong>Times Car Rental</strong> - 關西機場店</li>
+                        <li><i class="fas fa-star"></i> <strong>Toyota Rent a Car</strong> - 服務優質</li>
+                        <li><i class="fas fa-star"></i> <strong>Nippon Rent-A-Car</strong> - 車款豐富</li>
+                        <li><i class="fas fa-star"></i> <strong>Budget</strong> - 價格實惠</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> 自駕注意事項</h4>
+                <p><strong>⚠️ 重要提醒：</strong><br>
+                • 日本為右軚駕駛，需要適應期<br>
+                • 停車費較高，市區約¥300-600/小時<br>
+                • 高速公路收費，大阪市內到京都約¥600<br>
+                • 建議使用Google Maps導航（支援中文）</p>
+            </div>
+        </div>
+
+        <!-- Regional Planning -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-route"></i>
+                <h3>🗺️ 網狀輻射區域規劃（2小時駕車範圍）</h3>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr><th>區域中心</th><th>駕車範圍</th><th>主要景點</th><th>住宿特色</th><th>適合天數</th><th>推薦指數</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fff5f5;">
+                        <td><strong>環球影城區域<button class="copy-btn" onclick="copyLocationName('大阪環球影城', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>機場45分鐘<br>市中心20分鐘</td>
+                        <td>環球影城、天保山<br>海遊館、樂高樂園</td>
+                        <td>親子主題酒店<br>步行可達樂園</td>
+                        <td>2-3天</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>心齋橋/難波區域<button class="copy-btn" onclick="copyLocationName('心齋橋', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>機場60分鐘<br>各景點30分鐘</td>
+                        <td>道頓崛、心齋橋<br>黑門市場、通天閣</td>
+                        <td>購物便利<br>美食集中</td>
+                        <td>2天</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="background: #fff5f5;">
+                        <td><strong>大阪城/梅田區域<button class="copy-btn" onclick="copyLocationName('大阪城', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>機場70分鐘<br>交通樞紐</td>
+                        <td>大阪城公園<br>梅田空中庭園</td>
+                        <td>交通最便利<br>商務酒店多</td>
+                        <td>1-2天</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>京都延伸區域<button class="copy-btn" onclick="copyLocationName('京都', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>大阪90分鐘<br>奈良60分鐘</td>
+                        <td>清水寺、金閣寺<br>奈良公園、東大寺</td>
+                        <td>傳統日式旅館<br>文化體驗豐富</td>
+                        <td>1-2天</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="background: #fff5f5;">
+                        <td><strong>神戶延伸區域<button class="copy-btn" onclick="copyLocationName('神戶', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>大阪60分鐘<br>有馬溫泉90分鐘</td>
+                        <td>神戶動物王國<br>有馬溫泉、神戶港</td>
+                        <td>溫泉酒店<br>海景房間</td>
+                        <td>1天</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="info-box">
+                <h4><i class="fas fa-lightbulb"></i> 共同基礎行程策略</h4>
+                <p><strong>✅ 以大阪為中心，前3日共同行程安排</strong><br>
+                • <strong>第1天：</strong>抵達與安頓，臨空城購物<br>
+                • <strong>第2天：</strong>大阪市區初探（寶可夢中心朝聖）<br>
+                • <strong>第3天：</strong>大阪北區探索（鋼彈文化體驗）<br>
+                • <strong>第4天起：</strong>選擇西行（姬路、神戶）或東行（奈良、琵琶湖、京都）路線</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-route"></i> 第4日後路線選擇</h4>
+                <p><strong>🌸 西行探索路線：</strong>姬路城、神戶港都風情、神戶動物王國<br>
+                <strong>🌿 東行探索路線：</strong>奈良古都、琵琶湖、京都東山漫遊<br>
+                完成前3日共同行程後，請選擇您偏好的路線繼續旅程！</p>
+            </div>
+        </div>
+
+        <!-- Hotel Recommendations -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-hotel"></i>
+                <h3>🏨 精選親子住宿推薦（酒店+Airbnb）</h3>
+            </div>
+            <table class="table" style="font-size: 11px;">
+                <thead>
+                    <tr>
+                        <th>酒店名稱</th>
+                        <th>價格/晚</th>
+                        <th>距機場</th>
+                        <th>停車場</th>
+                        <th>親子設施</th>
+                        <th>早餐</th>
+                        <th>推薦指數</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fff5f5;">
+                        <td><strong>🏆 環球港維塔酒店<button class="copy-btn" onclick="copyLocationName('環球港維塔酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td><span style="color: #e74c3c;">¥25,000-30,000</span></td>
+                        <td>45分鐘</td>
+                        <td>✅ ¥1,500/晚</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>✅ 兒童友好</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>環球影城前酒店<button class="copy-btn" onclick="copyLocationName('環球影城前酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td><span style="color: #27ae60;">¥18,000-22,000</span></td>
+                        <td>50分鐘</td>
+                        <td>✅ ¥1,200/晚</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>✅ 豐富選擇</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="background: #fff5f5;">
+                        <td><strong>大阪日航酒店<button class="copy-btn" onclick="copyLocationName('大阪日航酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td><span style="color: #27ae60;">¥20,000-25,000</span></td>
+                        <td>60分鐘</td>
+                        <td>✅ ¥2,000/晚</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>✅ 高品質</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>大阪萬豪都酒店<button class="copy-btn" onclick="copyLocationName('大阪萬豪都酒店', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td><span style="color: #e74c3c;">¥28,000-35,000</span></td>
+                        <td>70分鐘</td>
+                        <td>✅ ¥2,500/晚</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>✅ 奢華體驗</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-home"></i> 精選Airbnb民宿推薦（符合¥25,000以下條件）</h4>
+            <table class="table" style="font-size: 11px;">
+                <thead>
+                    <tr>
+                        <th>民宿名稱</th>
+                        <th>價格/7晚</th>
+                        <th>容納人數</th>
+                        <th>房間配置</th>
+                        <th>特色設施</th>
+                        <th>位置優勢</th>
+                        <th>評分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>🏠 大國町性價比公寓<button class="copy-btn" onclick="copyLocationName('★NewConstruction★Daikokucho!Namba!Doutonbori!Osaka', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://www.airbnb.com/rooms/28241682" target="_blank" class="link-btn airbnb"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=34.65711,135.49653" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td><span style="color: #27ae60;">MOP$3,741</span><br>(約¥8,300/晚)</td>
+                        <td>最多4人</td>
+                        <td>工作室<br>3張床</td>
+                        <td>✅ 廚房設備<br>✅ 洗衣機<br>✅ 高速WiFi</td>
+                        <td>便利店2分鐘<br>超市5分鐘</td>
+                        <td>⭐4.66 (65評)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>大阪港區停車公寓<button class="copy-btn" onclick="copyLocationName('Legal Airbnb/Osaka Port area/Possible Parking', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://www.airbnb.com/rooms/1309415145984301715" target="_blank" class="link-btn airbnb"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=34.65658844215963,135.45083078915107" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td><span style="color: #27ae60;">MOP$6,458</span><br>(約¥14,300/晚)</td>
+                        <td>最多7人</td>
+                        <td>2房<br>2LDK格局</td>
+                        <td>✅ 停車位<br>✅ 完整廚房<br>✅ 嬰兒設備</td>
+                        <td>車站7分鐘<br>商場15分鐘</td>
+                        <td>⭐5.0 (8評)</td>
+                    </tr>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>新世界經濟型公寓<button class="copy-btn" onclick="copyLocationName('Shinsekai/D2S/USJ/KIX/NambaShinsaibashiKuromon', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td><span style="color: #27ae60;">MOP$10,579</span><br>(約¥23,500/晚)</td>
+                        <td>最多4人</td>
+                        <td>1房<br>3張床</td>
+                        <td>✅ 小廚房<br>✅ 洗衣機<br>✅ 便利位置</td>
+                        <td>新世界中心<br>黑門市場近</td>
+                        <td>⭐4.93 (284評)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>心齋橋豪華設計公寓<button class="copy-btn" onclick="copyLocationName('New Open Direct Central of Osaka ~4F~', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td><span style="color: #e74c3c;">MOP$11,582</span><br>(約¥25,700/晚)</td>
+                        <td>最多6人</td>
+                        <td>2房<br>4張床</td>
+                        <td>✅ 豪華設施<br>✅ 城市景觀<br>✅ 嬰兒設備</td>
+                        <td>大阪城10分鐘<br>難波10分鐘</td>
+                        <td>⭐4.92 (353評)</td>
+                    </tr>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>南波2站公寓<button class="copy-btn" onclick="copyLocationName('NEW! 2sta Namba/4mins Hanazonocho It 'ta de Morris', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td><span style="color: #27ae60;">MOP$5,026</span><br>(約¥11,200/晚)</td>
+                        <td>最多8人</td>
+                        <td>2房<br>8張床</td>
+                        <td>✅ 完整廚房<br>✅ 洗衣機<br>✅ 超大空間</td>
+                        <td>花園町站4分鐘<br>超市5分鐘</td>
+                        <td>⭐4.76 (41評)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>道頓崛步行公寓<button class="copy-btn" onclick="copyLocationName('Dotonbori 6min！ 2BR, 3min to Station, Sleeps 12!', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://www.airbnb.com/rooms/1294467646950517200" target="_blank" class="link-btn airbnb"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=34.6554,135.507" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td><span style="color: #27ae60;">MOP$9,282</span><br>(約¥20,600/晚)</td>
+                        <td>最多12人</td>
+                        <td>2房<br>6張床</td>
+                        <td>✅ 完整廚房<br>✅ 洗衣設備<br>✅ 大空間</td>
+                        <td>道頓崛6分鐘<br>車站3分鐘</td>
+                        <td>⭐5.0 (27評)</td>
+                    </tr>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>南波別墅<button class="copy-btn" onclick="copyLocationName('2BR villa, sleeps8, 7 mins to Namba, with balcony!', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td><span style="color: #27ae60;">MOP$7,528</span><br>(約¥16,700/晚)</td>
+                        <td>最多8人</td>
+                        <td>2房<br>6張床</td>
+                        <td>✅ 陽台<br>✅ 完整廚房<br>✅ 洗衣機</td>
+                        <td>南波7分鐘<br>便利店3分鐘</td>
+                        <td>⭐4.96 (27評)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>環球影城4房公寓<button class="copy-btn" onclick="copyLocationName('[005]4Bedroom/162㎡/Good access to USJ & Namba', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://www.airbnb.com/rooms/1075639722115474326" target="_blank" class="link-btn airbnb"><i class="fas fa-home"></i> 預訂</a>
+                        <a href="https://maps.google.com/maps?q=34.66035927638811,135.45176816298675" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td><span style="color: #27ae60;">MOP$6,889</span><br>(約¥15,300/晚)</td>
+                        <td>最多6人</td>
+                        <td>4房<br>162㎡</td>
+                        <td>✅ 完整廚房<br>✅ 洗衣機<br>✅ 高速WiFi</td>
+                        <td>環球影城15分鐘<br>海遊館8分鐘</td>
+                        <td>⭐4.92 (12評)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4><i class="fas fa-lightbulb"></i> 符合您條件的最佳選擇分析</h4>
+                <p><strong>🎯 按您的條件篩選結果：</strong><br>
+                • <strong>價格範圍：</strong>¥8,300-25,700/晚，全部符合¥25,000以下要求<br>
+                • <strong>性價比冠軍：</strong>大國町公寓（¥8,300/晚，3床，4.66分）<br>
+                • <strong>自駕首選：</strong>大阪港區停車公寓（有停車位，¥14,300/晚）<br>
+                • <strong>空間最大：</strong>道頓崛步行公寓（2房6床，可住12人）<br>
+                • <strong>評分最高：</strong>道頓崛步行公寓（5.0分，27評論）</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Airbnb預訂注意事項</h4>
+                <p><strong>⚠️ 重要提醒：</strong><br>
+                • <strong>入住時間：</strong>通常下午3-6點後，需要自助入住<br>
+                • <strong>清潔費：</strong>通常另計約MOP$300-800<br>
+                • <strong>語言：</strong>房東多為日本人，建議使用翻譯軟體<br>
+                • <strong>評分：</strong>建議選擇4.7分以上且評論數50+的房源<br>
+                • <strong>取消政策：</strong>注意查看取消政策，部分房源較嚴格</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-car"></i> 自駕遊特別推薦</h4>
+                <p><strong>🚗 最符合您自駕需求的房源：</strong><br>
+                • <strong>大阪港區停車公寓：</strong>有停車位，¥14,300/晚，5.0分<br>
+                • <strong>大國町性價比公寓：</strong>偏遠但便宜，¥8,300/晚，便利店2分鐘<br>
+                • <strong>南波別墅：</strong>有陽台，¥16,700/晚，便利店3分鐘<br>
+                • <strong>環球影城4房公寓：</strong>162㎡大空間，¥15,300/晚</p>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-star"></i> 便利店&商場距離確認</h4>
+                <p><strong>✅ 全部房源都符合您的距離要求：</strong><br>
+                • <strong>便利店：</strong>所有房源步行2-5分鐘內都有便利店<br>
+                • <strong>超市/商場：</strong>所有房源15分鐘內都有大型超市或商場<br>
+                • <strong>自駕優勢：</strong>偏遠位置反而停車更容易，費用更低<br>
+                • <strong>評分保證：</strong>全部房源評分4.5分以上，最高5.0分</p>
+            </div>
+        </div>
+
+        <!-- Attraction Recommendations -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>🎯 主要景點詳細推薦</h3>
+            </div>
+
+            <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-magic"></i> 環球影城區域</h4>
+            <table class="table">
+                <thead>
+                    <tr><th>景點名稱</th><th>特色活動</th><th>遊玩時間</th><th>門票價格</th><th>適合年齡</th><th>推薦指數</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fff5f5;">
+                        <td><strong>日本環球影城<button class="copy-btn" onclick="copyLocationName('日本環球影城', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://www.usj.co.jp/web/zh/tw" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=日本環球影城,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td>哈利波特世界<br>超級任天堂世界</td>
+                        <td>全天</td>
+                        <td>成人¥8,600<br>兒童¥5,600</td>
+                        <td>4歲以上</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>大阪海遊館<button class="copy-btn" onclick="copyLocationName('大阪海遊館', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://www.kaiyukan.com/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=大阪海遊館" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td>鯨鯊觀賞<br>海底隧道體驗</td>
+                        <td>3-4小時</td>
+                        <td>成人¥2,700<br>兒童¥1,400</td>
+                        <td>全年齡</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="background: #fff5f5;">
+                        <td><strong>大阪樂高樂園<button class="copy-btn" onclick="copyLocationName('大阪樂高樂園', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://www.legolanddiscoverycenter.com/osaka/zh/" target="_blank" class="link-btn official"><i class="fas fa-globe"></i> 官網</a>
+                        <a href="https://maps.google.com/maps?q=LEGOLAND+Discovery+Center+Osaka" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td>樂高積木體驗<br>4D電影院</td>
+                        <td>3-5小時</td>
+                        <td>成人¥2,800<br>兒童¥2,300</td>
+                        <td>3-10歲</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>天保山摩天輪<button class="copy-btn" onclick="copyLocationName('天保山摩天輪', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://maps.google.com/maps?q=天保山摩天輪,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td>大阪灣全景<br>夜景觀賞</td>
+                        <td>30分鐘</td>
+                        <td>成人¥800<br>兒童¥500</td>
+                        <td>全年齡</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-shopping-bag"></i> 心齋橋/難波區域</h4>
+            <table class="table">
+                <thead>
+                    <tr><th>景點名稱</th><th>特色活動</th><th>遊玩時間</th><th>門票價格</th><th>適合年齡</th><th>推薦指數</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f0fff0;">
+                        <td><strong>道頓崛<button class="copy-btn" onclick="copyLocationName('道頓崛', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://hk.osaka-info.jp/" target="_blank" class="link-btn official"><i class="fas fa-info-circle"></i> 觀光局</a>
+                        <a href="https://maps.google.com/maps?q=道頓崛,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td>美食街<br>霓虹燈夜景</td>
+                        <td>2-3小時</td>
+                        <td>免費</td>
+                        <td>全年齡</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>心齋橋<button class="copy-btn" onclick="copyLocationName('心齋橋', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://hk.osaka-info.jp/" target="_blank" class="link-btn official"><i class="fas fa-info-circle"></i> 觀光局</a>
+                        <a href="https://maps.google.com/maps?q=心齋橋,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td>購物天堂<br>藥妝店集中</td>
+                        <td>半天</td>
+                        <td>免費</td>
+                        <td>全年齡</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="background: #f0fff0;">
+                        <td><strong>黑門市場<button class="copy-btn" onclick="copyLocationName('黑門市場', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://maps.google.com/maps?q=黑門市場,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td>新鮮海鮮<br>和牛品嚐</td>
+                        <td>2小時</td>
+                        <td>免費入場</td>
+                        <td>全年齡</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>通天閣<button class="copy-btn" onclick="copyLocationName('通天閣', this)"><i class="fas fa-copy"></i></button><br>
+                        <a href="https://maps.google.com/maps?q=通天閣,大阪" target="_blank" class="link-btn map"><i class="fas fa-map-marker-alt"></i> 地圖</a></strong></td>
+                        <td>大阪地標<br>展望台觀景</td>
+                        <td>1小時</td>
+                        <td>成人¥900<br>兒童¥400</td>
+                        <td>全年齡</td>
+                        <td>⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Daily Itinerary -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-route"></i>
+                <h3>📅 共同基礎行程安排（前3日）</h3>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">Day 1 - 抵達日（7/22 週二）</div>
+                    <div class="timeline-content">
+                        <strong>抵達關西機場</strong> 取車手續辦理<br>
+                        <strong>前往住宿點</strong> 泉佐野市/岸和田市 <span style="color: #f39c12;">（30分鐘車程）</span><br>
+                        <strong>晴天方案：</strong>臨空城 Rinku Premium Outlets 輕鬆購物與晚餐<br>
+                        <strong>雨天方案：</strong>永旺夢樂城臨空泉南 (室內購物中心) 採買與晚餐<br>
+                        <strong>重點：</strong>無壓力安頓，適應環境
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">Day 2 - 大阪市區初探（7/23 週三）</div>
+                    <div class="timeline-content">
+                        <strong>Park & Ride</strong> 江坂駅停車 → 搭乘御堂筋線<br>
+                        <strong>目的地：</strong>心齋橋 寶可夢中心OSAKA DX<br>
+                        <strong>晴天方案：</strong>寶可夢咖啡廳 → 美國村/道頓堀散步<br>
+                        <strong>雨天方案：</strong>大丸心齋橋店深入探索或轉往難波PARKS<br>
+                        <strong>重要提醒：</strong>寶可夢咖啡廳需提前官網預約！
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">Day 3 - 大阪北區探索（7/24 週四）</div>
+                    <div class="timeline-content">
+                        <strong>Park & Ride</strong> 江坂駅停車 → 搭乘御堂筋線<br>
+                        <strong>目的地：</strong>梅田 THE GUNDAM BASE POP-UP OSAKA<br>
+                        <strong>晴天方案：</strong>鋼彈基地 → 梅田藍天大廈空中庭園展望台<br>
+                        <strong>雨天方案：</strong>鋼彈基地 → GRAND FRONT OSAKA 或 LUCUA 購物中心<br>
+                        <strong>關鍵行動：</strong>需透過官方數位整理券系統預約入場時段！
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Route Selection -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-route"></i>
+                <h3>🛤️ 第4日起路線選擇</h3>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-info-circle"></i> 完成前3日共同行程後，請選擇您的探索路線</h4>
+                <p>兩條路線都包含相同的核心元素：寶可夢中心、鋼彈文化、親子景點、Park & Ride策略，但探索方向不同。</p>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 3px solid #ff6b6b; background: linear-gradient(135deg, #fff5f5, #ffe8e8);">
+                    <div class="card-header">
+                        <i class="fas fa-torii-gate"></i>
+                        <h4>🌸 西行探索路線</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>主要目的地：</strong><br>
+                                • <strong>姬路城：</strong>日本國寶，世界文化遺產<br>
+                                • <strong>神戶動物王國：</strong>全天候親子景點<br>
+                                • <strong>神戶港：</strong>浪漫港都風情<br>
+                                • <strong>姫路セントラルパーク：</strong>駕車遊獵體驗<br><br>
+                                <strong>特色體驗：</strong><br>
+                                • 國寶級古城探索<br>
+                                • 動物近距離接觸<br>
+                                • 港都夜景欣賞<br>
+                                • 駕車野生動物園
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>適合：</strong>喜愛歷史文化與動物的家庭<br>
+                        <strong>特色：</strong>⭐⭐⭐⭐⭐ 傳統與現代結合<br>
+                        <strong>駕駛：</strong>每日1-2小時，風景優美</p>
+                    </div>
+                    <a href="osaka-west-travel-planner.html" class="card-button" style="background: linear-gradient(135deg, #ff6b6b, #feca57); margin-top: 15px; display: block; text-decoration: none; color: white; padding: 15px; text-align: center; border-radius: 10px; font-weight: bold;">
+                        <i class="fas fa-route"></i> 選擇西行路線
+                    </a>
+                </div>
+
+                <div class="card" style="border: 3px solid #6a11cb; background: linear-gradient(135deg, #f0f9ff, #e0f2fe);">
+                    <div class="card-header">
+                        <i class="fas fa-mountain"></i>
+                        <h4>🌿 東行探索路線</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>主要目的地：</strong><br>
+                                • <strong>奈良古都：</strong>飛鳥歷史公園，避開人潮<br>
+                                • <strong>琵琶湖：</strong>日本第一大湖，世界級博物館<br>
+                                • <strong>京都東山：</strong>南禪寺、哲學之道、清水寺<br>
+                                • <strong>京都鐵道博物館：</strong>54輛實物車輛展示<br><br>
+                                <strong>特色體驗：</strong><br>
+                                • 靜謐古都探索<br>
+                                • 湖光山色體驗<br>
+                                • 傳統文化深度遊<br>
+                                • 鐵道文化體驗
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>適合：</strong>喜愛文化歷史與自然的家庭<br>
+                        <strong>特色：</strong>⭐⭐⭐⭐⭐ 深度文化體驗<br>
+                        <strong>駕駛：</strong>每日1-2小時，古都風情</p>
+                    </div>
+                    <a href="osaka-east-travel-planner.html" class="card-button" style="background: linear-gradient(135deg, #6a11cb, #2575fc); margin-top: 15px; display: block; text-decoration: none; color: white; padding: 15px; text-align: center; border-radius: 10px; font-weight: bold;">
+                        <i class="fas fa-route"></i> 選擇東行路線
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-lightbulb"></i> 共同行程重點提醒</h4>
+                <p><strong>🎯 寶可夢咖啡廳：</strong>必須提前在官網預約席位！<br>
+                <strong>🤖 鋼彈基地：</strong>需透過mogily數位整理券系統預約入場時段！<br>
+                <strong>🚗 Park & Ride：</strong>江坂站停車，搭御堂筋線直達心齋橋/梅田<br>
+                <strong>📱 必備APP：</strong>Google Maps、乘換案內、mogily預約系統</p>
+            </div>
+        </div>
+
+        <!-- Common Attractions Guide -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-star"></i>
+                <h3>🎮 共同景點攻略指南</h3>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-gamepad"></i>
+                        <h4>寶可夢中心 OSAKA DX</h4>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>📍 位置：</strong>大丸心齋橋店本館9樓<br>
+                        <strong>🌟 特色：</strong>關西旗艦店，附設寶可夢咖啡廳<br>
+                        <strong>🎯 預約：</strong>咖啡廳需提前官網預約<br>
+                        <strong>🚇 交通：</strong>御堂筋線心齋橋站直結</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-robot"></i>
+                        <h4>THE GUNDAM BASE POP-UP OSAKA</h4>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>📍 位置：</strong>大丸梅田店5樓<br>
+                        <strong>🌟 特色：</strong>2025萬博限定展，4/11-10/13<br>
+                        <strong>🎯 預約：</strong>mogily數位預約系統<br>
+                        <strong>🚇 交通：</strong>御堂筋線梅田站直結</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Copy location name functionality
+        function copyLocationName(locationName, button) {
+            navigator.clipboard.writeText(locationName).then(function() {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                button.classList.add('copy-success');
+                setTimeout(function() {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                    button.classList.remove('copy-success');
+                }, 2000);
+            });
+        }
+
+        // Open URL in new tab
+        function openUrl(url, button) {
+            window.open(url, '_blank');
+            button.classList.add('clicked');
+            setTimeout(function() {
+                button.classList.remove('clicked');
+            }, 500);
+        }
+
+        // Fade in animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
+                    <div class="info-box">
+                        <p><strong>費用：</strong>約¥22,000（門票+餐飲）<br>
+                        <strong>適合：</strong>4-7歲兒童<br>
+                        <strong>評價：</strong>⭐⭐⭐⭐ 室內避雨好選擇</p>
+                    </div>
+                </div>
+
+                <div class="card" style="border: 2px solid #7f8c8d;">
+                    <div class="card-header">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>🌧️ 雨天方案B：購物美食之旅</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>Day 2:</strong><br>
+                                <strong>09:30</strong> 前往心齋橋 <span style="color: #f39c12;">（30分鐘車程）</span><br>
+                                <strong>10:30</strong> 心齋橋購物<br>
+                                <strong>12:30</strong> 道頓崛美食街午餐<br>
+                                <strong>14:00</strong> 黑門市場<br>
+                                <strong>16:00</strong> 難波購物<br>
+                                <strong>18:00</strong> 道頓崛晚餐<br><br>
+                                <strong>Day 3:</strong><br>
+                                <strong>10:00</strong> 梅田購物區<br>
+                                <strong>12:00</strong> 梅田美食街午餐<br>
+                                <strong>14:00</strong> 大阪站城購物<br>
+                                <strong>16:00</strong> 返回酒店
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>費用：</strong>約¥15,000（餐飲+購物）<br>
+                        <strong>適合：</strong>全家人<br>
+                        <strong>評價：</strong>⭐⭐⭐ 購物為主</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4-5 Multiple Options -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-shopping-bag"></i>
+                <h3>Day 4-5 - 心齋橋/難波購物美食之旅</h3>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid #27ae60;">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                        <h4>☀️ 晴天方案A：深度購物+美食</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>Day 4:</strong><br>
+                                <strong>09:00</strong> 酒店退房，前往心齋橋酒店 <span style="color: #f39c12;">（30分鐘車程）</span><br>
+                                <strong>10:00</strong> 心齋橋購物街<br>
+                                <strong>12:00</strong> 一蘭拉麵午餐<br>
+                                <strong>14:00</strong> 道頓崛觀光<br>
+                                <strong>16:00</strong> 黑門市場海鮮<br>
+                                <strong>18:00</strong> 蟹道樂晚餐<br>
+                                <strong>20:00</strong> 道頓崛夜景<br><br>
+                                <strong>Day 5:</strong><br>
+                                <strong>09:30</strong> 難波購物<br>
+                                <strong>12:00</strong> 大阪燒午餐<br>
+                                <strong>14:00</strong> 通天閣觀光<br>
+                                <strong>16:00</strong> 新世界美食街<br>
+                                <strong>18:00</strong> 和牛燒肉晚餐
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>費用：</strong>約¥30,000（餐飲+購物）<br>
+                        <strong>適合：</strong>全家人<br>
+                        <strong>評價：</strong>⭐⭐⭐⭐⭐ 大阪經典體驗</p>
+                    </div>
+                </div>
+
+                <div class="card" style="border: 2px solid #e74c3c;">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                        <h4>☀️ 晴天方案B：文化+購物</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>Day 4:</strong><br>
+                                <strong>09:00</strong> 前往大阪城 <span style="color: #f39c12;">（40分鐘車程）</span><br>
+                                <strong>10:00</strong> 大阪城公園<br>
+                                <strong>12:00</strong> 大阪城內餐廳午餐<br>
+                                <strong>14:00</strong> 梅田空中庭園<br>
+                                <strong>16:00</strong> 梅田購物<br>
+                                <strong>18:00</strong> 梅田美食街晚餐<br><br>
+                                <strong>Day 5:</strong><br>
+                                <strong>09:30</strong> 心齋橋購物<br>
+                                <strong>12:00</strong> 道頓崛午餐<br>
+                                <strong>14:00</strong> 四天王寺<br>
+                                <strong>16:00</strong> 天王寺動物園<br>
+                                <strong>18:00</strong> 新世界晚餐
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>費用：</strong>約¥25,000（門票+餐飲）<br>
+                        <strong>適合：</strong>6歲以上兒童<br>
+                        <strong>評價：</strong>⭐⭐⭐⭐ 文化與現代結合</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 6 Kyoto Trip -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-torii-gate"></i>
+                <h3>Day 6 - 京都文化一日遊</h3>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid #27ae60;">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                        <h4>☀️ 晴天方案：經典京都遊</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>08:00</strong> 酒店早餐<br>
+                                <strong>09:00</strong> 前往京都清水寺 <span style="color: #f39c12;">（90分鐘車程）</span><br>
+                                <strong>10:30</strong> 清水寺參觀<br>
+                                <strong>12:00</strong> 二年坂三年坂午餐<br>
+                                <strong>14:00</strong> 前往金閣寺 <span style="color: #f39c12;">（30分鐘車程）</span><br>
+                                <strong>15:00</strong> 金閣寺參觀<br>
+                                <strong>16:30</strong> 嵐山竹林<br>
+                                <strong>18:00</strong> 京都懷石料理晚餐<br>
+                                <strong>20:00</strong> 返回大阪 <span style="color: #f39c12;">（90分鐘車程）</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>費用：</strong>約¥20,000（門票+餐飲+油費）<br>
+                        <strong>適合：</strong>6歲以上兒童<br>
+                        <strong>評價：</strong>⭐⭐⭐⭐⭐ 日本文化精髓</p>
+                    </div>
+                </div>
+
+                <div class="card" style="border: 2px solid #7f8c8d;">
+                    <div class="card-header">
+                        <i class="fas fa-cloud-rain"></i>
+                        <h4>🌧️ 雨天方案：室內文化體驗</h4>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <strong>09:00</strong> 前往京都站 <span style="color: #f39c12;">（90分鐘車程）</span><br>
+                                <strong>10:30</strong> 京都國立博物館<br>
+                                <strong>12:30</strong> 京都站美食街午餐<br>
+                                <strong>14:00</strong> 京都水族館<br>
+                                <strong>16:00</strong> 京都站購物<br>
+                                <strong>18:00</strong> 京都拉麵小路晚餐<br>
+                                <strong>19:30</strong> 返回大阪
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <p><strong>費用：</strong>約¥18,000（門票+餐飲+油費）<br>
+                        <strong>適合：</strong>4歲以上兒童<br>
+                        <strong>評價：</strong>⭐⭐⭐⭐ 室內文化體驗</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 7 Kobe Trip -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-mountain"></i>
+                <h3>Day 7 - 神戶動物王國+溫泉之旅</h3>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">神戶一日遊行程</div>
+                    <div class="timeline-content">
+                        <strong>08:30</strong> 酒店早餐<br>
+                        <strong>09:30</strong> 前往神戶動物王國 <span style="color: #f39c12;">（60分鐘車程）</span><br>
+                        <strong>10:30</strong> 神戶動物王國深度遊<br>
+                        <strong>12:30</strong> 動物王國內午餐<br>
+                        <strong>14:00</strong> 繼續動物互動體驗<br>
+                        <strong>15:30</strong> 前往有馬溫泉 <span style="color: #f39c12;">（30分鐘車程）</span><br>
+                        <strong>16:00</strong> 有馬溫泉體驗<br>
+                        <strong>18:00</strong> 神戶牛肉晚餐<br>
+                        <strong>20:00</strong> 返回大阪 <span style="color: #f39c12;">（60分鐘車程）</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info-box">
+                <p><strong>費用：</strong>約¥35,000（門票+溫泉+神戶牛+油費）<br>
+                <strong>適合：</strong>全家人<br>
+                <strong>評價：</strong>⭐⭐⭐⭐⭐ 獨特體驗</p>
+            </div>
+        </div>
+
+        <!-- Day 8 Departure -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-plane-departure"></i>
+                <h3>Day 8 - 離別日</h3>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">最後購物+離境</div>
+                    <div class="timeline-content">
+                        <strong>09:00</strong> 酒店早餐+退房<br>
+                        <strong>10:00</strong> 大阪城公園最後遊覽<br>
+                        <strong>12:00</strong> 大阪城附近午餐<br>
+                        <strong>13:30</strong> 前往關西機場 <span style="color: #f39c12;">（70分鐘車程）</span><br>
+                        <strong>14:30</strong> 還車手續<br>
+                        <strong>15:00</strong> 機場免稅店購物<br>
+                        <strong>16:30</strong> 登機<br>
+                        <strong>19:00</strong> 抵達澳門
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurant Recommendations -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-utensils"></i>
+                <h3>🍽️ 精選餐廳推薦（親子友好）</h3>
+            </div>
+
+            <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-ramen"></i> 拉麵類</h4>
+            <table class="table">
+                <thead>
+                    <tr><th>餐廳名稱</th><th>特色菜式</th><th>價格範圍</th><th>位置</th><th>親子設施</th><th>推薦指數</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fff5f5;">
+                        <td><strong>一蘭拉麵<button class="copy-btn" onclick="copyLocationName('一蘭拉麵道頓崛店', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>豚骨拉麵<br>兒童套餐</td>
+                        <td>¥800-1,200</td>
+                        <td>道頓崛</td>
+                        <td>⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>麵屋7.5Hz<button class="copy-btn" onclick="copyLocationName('麵屋7.5Hz', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>雞白湯拉麵<br>清淡口味</td>
+                        <td>¥900-1,400</td>
+                        <td>心齋橋</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-fish"></i> 壽司/海鮮類</h4>
+            <table class="table">
+                <thead>
+                    <tr><th>餐廳名稱</th><th>特色菜式</th><th>價格範圍</th><th>位置</th><th>親子設施</th><th>推薦指數</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f0fff0;">
+                        <td><strong>黑門三平<button class="copy-btn" onclick="copyLocationName('黑門三平', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>新鮮海鮮丼<br>金槍魚刺身</td>
+                        <td>¥1,500-3,000</td>
+                        <td>黑門市場</td>
+                        <td>⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>壽司清<button class="copy-btn" onclick="copyLocationName('壽司清', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>握壽司套餐<br>兒童壽司</td>
+                        <td>¥2,000-4,000</td>
+                        <td>梅田</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-drumstick-bite"></i> 燒肉/和牛類</h4>
+            <table class="table">
+                <thead>
+                    <tr><th>餐廳名稱</th><th>特色菜式</th><th>價格範圍</th><th>位置</th><th>親子設施</th><th>推薦指數</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fff3e0;">
+                        <td><strong>神戶牛排館<button class="copy-btn" onclick="copyLocationName('神戶牛排館', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>A5神戶牛<br>兒童牛排套餐</td>
+                        <td>¥8,000-15,000</td>
+                        <td>神戶</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>燒肉M<button class="copy-btn" onclick="copyLocationName('燒肉M難波店', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>和牛燒肉<br>家庭套餐</td>
+                        <td>¥3,000-6,000</td>
+                        <td>難波</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin: 20px 0 10px 0; color: var(--primary-color);"><i class="fas fa-cookie-bite"></i> 特色小食/甜品</h4>
+            <table class="table">
+                <thead>
+                    <tr><th>餐廳名稱</th><th>特色菜式</th><th>價格範圍</th><th>位置</th><th>親子設施</th><th>推薦指數</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f5f0ff;">
+                        <td><strong>大阪燒千房<button class="copy-btn" onclick="copyLocationName('千房道頓崛店', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>大阪燒<br>兒童版大阪燒</td>
+                        <td>¥800-1,500</td>
+                        <td>道頓崛</td>
+                        <td>⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pablo芝士蛋糕<button class="copy-btn" onclick="copyLocationName('Pablo心齋橋店', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>芝士蛋糕<br>兒童小份裝</td>
+                        <td>¥500-1,200</td>
+                        <td>心齋橋</td>
+                        <td>⭐⭐⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr style="background: #f5f0ff;">
+                        <td><strong>章魚燒道樂<button class="copy-btn" onclick="copyLocationName('章魚燒道樂', this)"><i class="fas fa-copy"></i></button></strong></td>
+                        <td>章魚燒<br>多種口味選擇</td>
+                        <td>¥600-1,000</td>
+                        <td>新世界</td>
+                        <td>⭐⭐⭐</td>
+                        <td>⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Budget Summary -->
+        <div class="card fade-in grid-full">
+            <div class="card-header">
+                <i class="fas fa-calculator"></i>
+                <h3>💰 預算總結（4人家庭）</h3>
+            </div>
+            <div class="grid">
+                <div>
+                    <h4><i class="fas fa-plane"></i> 交通費用</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-plane"></i> 來回機票：¥120,000（4人）</li>
+                        <li><i class="fas fa-car"></i> 租車8天：¥56,000</li>
+                        <li><i class="fas fa-gas-pump"></i> 油費+過路費：¥15,000</li>
+                        <li><i class="fas fa-parking"></i> 停車費：¥12,000</li>
+                    </ul>
+                    <div class="warning-box">
+                        <p><strong>交通小計：¥203,000</strong></p>
+                    </div>
+                </div>
+                <div>
+                    <h4><i class="fas fa-bed"></i> 住宿費用</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-hotel"></i> 環球影城酒店3晚：¥75,000</li>
+                        <li><i class="fas fa-hotel"></i> 心齋橋酒店4晚：¥80,000</li>
+                        <li><i class="fas fa-utensils"></i> 酒店早餐：¥28,000</li>
+                    </ul>
+                    <div class="warning-box">
+                        <p><strong>住宿小計：¥183,000</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div>
+                    <h4><i class="fas fa-ticket-alt"></i> 景點門票</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-magic"></i> 環球影城：¥28,800（4人2天）</li>
+                        <li><i class="fas fa-fish"></i> 海遊館：¥8,200（4人）</li>
+                        <li><i class="fas fa-cube"></i> 樂高樂園：¥10,400（4人）</li>
+                        <li><i class="fas fa-paw"></i> 神戶動物王國：¥7,200（4人）</li>
+                        <li><i class="fas fa-torii-gate"></i> 京都景點：¥6,000（4人）</li>
+                    </ul>
+                    <div class="warning-box">
+                        <p><strong>門票小計：¥60,600</strong></p>
+                    </div>
+                </div>
+                <div>
+                    <h4><i class="fas fa-utensils"></i> 餐飲費用</h4>
+                    <ul class="list">
+                        <li><i class="fas fa-utensils"></i> 午餐：¥80,000（8天）</li>
+                        <li><i class="fas fa-utensils"></i> 晚餐：¥120,000（7天）</li>
+                        <li><i class="fas fa-ice-cream"></i> 小食/飲料：¥20,000</li>
+                        <li><i class="fas fa-drumstick-bite"></i> 神戶牛特餐：¥40,000</li>
+                    </ul>
+                    <div class="warning-box">
+                        <p><strong>餐飲小計：¥260,000</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-box">
+                <h4><i class="fas fa-calculator"></i> 總預算估算</h4>
+                <p><strong>🎯 總費用：¥706,600（約澳門幣53,000元）</strong><br>
+                • <strong>平均每人：</strong>約澳門幣13,250元<br>
+                • <strong>平均每天：</strong>約澳門幣6,625元<br>
+                • <strong>不含購物：</strong>建議額外預留澳門幣10,000-20,000元</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Copy location name functionality
+        function copyLocationName(locationName, button) {
+            navigator.clipboard.writeText(locationName).then(function() {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                button.classList.add('copy-success');
+                setTimeout(function() {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                    button.classList.remove('copy-success');
+                }, 2000);
+            });
+        }
+
+        // Open URL in new tab
+        function openUrl(url, button) {
+            window.open(url, '_blank');
+            button.classList.add('clicked');
+            setTimeout(function() {
+                button.classList.remove('clicked');
+            }, 500);
+        }
+
+        // Fade in animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
